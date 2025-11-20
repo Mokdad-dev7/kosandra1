@@ -1,0 +1,122 @@
+{
+  "firewall_rules": [
+    {
+      "name": "Block Suspicious User Agents",
+      "action": "block",
+      "expression": "(http.user_agent contains \"bot\" or http.user_agent contains \"crawler\" or http.user_agent contains \"scraper\" or http.user_agent contains \"python\" or http.user_agent contains \"curl\" or http.user_agent contains \"wget\") and not (http.user_agent contains \"Googlebot\" or http.user_agent contains \"Bingbot\" or http.user_agent contains \"Slurp\") and http.request.uri.path starts_with \"/api/\"",
+      "description": "Block known bot user agents from API endpoints (except legitimate search engines)"
+    },
+    {
+      "name": "Block Requests Without User-Agent",
+      "action": "block",
+      "expression": "not http.user_agent exists and http.request.uri.path starts_with \"/api/\"",
+      "description": "Block API requests without User-Agent header"
+    },
+    {
+      "name": "Rate Limit API Endpoints",
+      "action": "challenge",
+      "expression": "http.request.uri.path starts_with \"/api/\" and (cf.threat_score gt 20 or cf.bot_management.score lt 30)",
+      "description": "Challenge requests with high threat score or low bot score on API endpoints"
+    },
+    {
+      "name": "Block High Threat Score IPs",
+      "action": "block",
+      "expression": "cf.threat_score gt 50 and http.request.uri.path starts_with \"/api/\"",
+      "description": "Block IPs with very high threat scores from API"
+    },
+    {
+      "name": "Block Known Bad Countries",
+      "action": "block",
+      "expression": "ip.geoip.country in {\"CN\" \"RU\" \"KP\" \"IR\"} and http.request.uri.path starts_with \"/api/\"",
+      "description": "Block specific countries from API (adjust country codes as needed)"
+    },
+    {
+      "name": "Block Suspicious Request Patterns",
+      "action": "challenge",
+      "expression": "(http.request.uri.query contains \"union\" or http.request.uri.query contains \"select\" or http.request.uri.query contains \"script\" or http.request.uri.query contains \"<script\") and http.request.uri.path starts_with \"/api/\"",
+      "description": "Challenge requests with SQL injection or XSS patterns in query strings"
+    },
+    {
+      "name": "Block Invalid HTTP Methods",
+      "action": "block",
+      "expression": "not http.request.method in {\"GET\" \"POST\" \"PUT\" \"DELETE\" \"OPTIONS\"} and http.request.uri.path starts_with \"/api/\"",
+      "description": "Block non-standard HTTP methods on API endpoints"
+    },
+    {
+      "name": "Block Requests with Suspicious Headers",
+      "action": "challenge",
+      "expression": "(http.request.headers[\"X-Forwarded-For\"] contains \",\" or http.request.headers[\"X-Real-IP\"] contains \",\") and http.request.uri.path starts_with \"/api/\"",
+      "description": "Challenge requests with multiple IPs in forwarded headers (possible proxy abuse)"
+    },
+    {
+      "name": "Block Empty or Malformed Authorization",
+      "action": "challenge",
+      "expression": "(http.request.headers[\"Authorization\"] eq \"\" or not http.request.headers[\"Authorization\"] contains \"Bearer \") and http.request.uri.path starts_with \"/api/auth/\"",
+      "description": "Challenge auth endpoints with empty or malformed Authorization headers"
+    },
+    {
+      "name": "Geo-blocking for Auth Endpoints",
+      "action": "block",
+      "expression": "ip.geoip.country ne \"US\" and ip.geoip.country ne \"CA\" and ip.geoip.country ne \"GB\" and http.request.uri.path starts_with \"/api/auth/\"",
+      "description": "Block auth endpoints from non-allowed countries (adjust countries as needed)"
+    }
+  ],
+  "rate_limit_rules": [
+    {
+      "name": "API Rate Limit - General",
+      "match": "http.request.uri.path starts_with \"/api/\"",
+      "threshold": 100,
+      "period": 60,
+      "action": {
+        "mode": "simulate",
+        "timeout": 60,
+        "response": {
+          "content_type": "application/json",
+          "body": "{\"error\":\"Rate limit exceeded\",\"code\":\"RATE_LIMIT\",\"retryAfter\":60}"
+        }
+      }
+    },
+    {
+      "name": "API Rate Limit - Auth Endpoints",
+      "match": "http.request.uri.path starts_with \"/api/auth/\"",
+      "threshold": 10,
+      "period": 60,
+      "action": {
+        "mode": "ban",
+        "timeout": 300,
+        "response": {
+          "content_type": "application/json",
+          "body": "{\"error\":\"Too many authentication attempts\",\"code\":\"AUTH_RATE_LIMIT\",\"retryAfter\":300}"
+        }
+      }
+    }
+  ],
+  "ip_access_rules": [
+    {
+      "name": "Whitelist Trusted IPs",
+      "mode": "whitelist",
+      "configuration": {
+        "target": "ip",
+        "value": "203.0.113.0/24"
+      },
+      "notes": "Add your office/VPN IP ranges here"
+    },
+    {
+      "name": "Blacklist Known Bad IPs",
+      "mode": "block",
+      "configuration": {
+        "target": "ip",
+        "value": "198.51.100.0/24"
+      },
+      "notes": "Add known malicious IP ranges here"
+    }
+  ],
+  "notes": [
+    "These rules should be configured in Cloudflare Dashboard → Security → WAF",
+    "Rate limit rules require Cloudflare Pro plan or higher",
+    "IP access rules can be managed via Cloudflare API or Dashboard",
+    "Adjust country codes, threat scores, and thresholds based on your traffic patterns",
+    "Test rules in 'Log' mode before enabling 'Block' or 'Challenge' actions"
+  ]
+}
+

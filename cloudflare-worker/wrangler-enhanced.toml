@@ -1,0 +1,73 @@
+name = "qrsnap-api"
+main = "src/index-enhanced.ts"
+compatibility_date = "2024-01-01"
+
+[env.production]
+routes = [
+  { pattern = "api.qrsnap.app/*", zone_name = "qrsnap.app" }
+]
+
+[env.development]
+routes = [
+  { pattern = "api-dev.qrsnap.app/*", zone_name = "qrsnap.app" }
+]
+
+# KV Namespaces
+[[kv_namespaces]]
+binding = "RATE_LIMIT_KV"
+id = "your-rate-limit-kv-namespace-id"
+preview_id = "your-preview-rate-limit-kv-namespace-id"
+
+[[kv_namespaces]]
+binding = "ABUSE_LOG_KV"
+id = "your-abuse-log-kv-namespace-id"
+preview_id = "your-preview-abuse-log-kv-namespace-id"
+
+[[kv_namespaces]]
+binding = "BLOCKED_IPS_KV"
+id = "your-blocked-ips-kv-namespace-id"
+preview_id = "your-preview-blocked-ips-kv-namespace-id"
+
+[[kv_namespaces]]
+binding = "METRICS_KV"
+id = "your-metrics-kv-namespace-id"
+preview_id = "your-preview-metrics-kv-namespace-id"
+
+[[kv_namespaces]]
+binding = "JWKS_CACHE_KV"
+id = "your-jwks-cache-kv-namespace-id"
+preview_id = "your-preview-jwks-cache-kv-namespace-id"
+
+# Environment Variables
+[vars]
+JWT_ISSUER = "https://qrsnap.app"
+JWT_AUDIENCE = "api.qrsnap.app"
+JWKS_URL = "https://qrsnap.app/.well-known/jwks.json"
+ALLOWED_ORIGINS = "https://qrsnap.app,https://app.qrsnap.app"
+DEV_ORIGINS = "http://localhost:3000,http://127.0.0.1:3000"
+
+# Rate Limiting Configuration
+RATE_LIMIT_WHITELIST = "" # Comma-separated IPs or user IDs
+
+# Geo-blocking Configuration
+ALLOWED_COUNTRIES = "" # Comma-separated country codes (e.g., "US,CA,GB")
+BLOCKED_COUNTRIES = "" # Comma-separated country codes (e.g., "CN,RU")
+
+[env.production.vars]
+ALLOWED_ORIGINS = "https://qrsnap.app,https://app.qrsnap.app"
+DEV_ORIGINS = ""
+# Add production-specific rate limit whitelist
+RATE_LIMIT_WHITELIST = ""
+
+[env.development.vars]
+ALLOWED_ORIGINS = "https://qrsnap.app,http://localhost:3000,http://127.0.0.1:3000"
+DEV_ORIGINS = "http://localhost:3000,http://127.0.0.1:3000"
+RATE_LIMIT_WHITELIST = "127.0.0.1,::1"
+
+# Secrets (set via: wrangler secret put SECRET_NAME)
+# - API_SECRET (optional, for detailed error messages in dev)
+
+# Limits
+[limits]
+cpu_ms = 50
+

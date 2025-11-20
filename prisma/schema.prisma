@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  passwordHash  String?   @map("password_hash")
+  emailVerified DateTime? @map("email_verified")
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+  
+  // Security fields
+  failedLoginAttempts Int      @default(0) @map("failed_login_attempts")
+  lockedUntil         DateTime? @map("locked_until")
+  lastLoginAt         DateTime? @map("last_login_at")
+  lastLoginIp         String?   @map("last_login_ip")
+  
+  qrCodes       QRCode[]
+  loginLogs     LoginLog[]
+  
+  @@map("users")
+}
+
+model LoginLog {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  ipAddress String?  @map("ip_address")
+  userAgent String?  @map("user_agent")
+  success   Boolean
+  createdAt DateTime @default(now()) @map("created_at")
+  
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("login_logs")
+  @@index([userId])
+  @@index([createdAt])
+  @@index([ipAddress])
+}
+
+model QRCode {
+  id             String    @id @default(cuid())
+  userId         String?   @map("user_id")
+  type           String    // url, text, email, phone, sms, wifi, vcard
+  data           String    // JSON string or plain text depending on type
+  customizations Json?     // Color, logo, pattern settings
+  isDynamic      Boolean   @default(false) @map("is_dynamic")
+  dynamicUrl     String?   @map("dynamic_url") // For dynamic QR codes
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
+  
+  user           User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  analytics      QRCodeAnalytics[]
+  
+  @@map("qr_codes")
+}
+
+model QRCodeAnalytics {
+  id        String   @id @default(cuid())
+  qrCodeId  String   @map("qr_code_id")
+  scannedAt DateTime @default(now()) @map("scanned_at")
+  ipAddress String?  @map("ip_address")
+  userAgent String?  @map("user_agent")
+  location  String?  // Country/city if available
+  
+  qrCode    QRCode   @relation(fields: [qrCodeId], references: [id], onDelete: Cascade)
+  
+  @@map("qr_code_analytics")
+  @@index([qrCodeId])
+  @@index([scannedAt])
+}

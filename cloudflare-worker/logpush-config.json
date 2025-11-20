@@ -1,0 +1,99 @@
+{
+  "logpush_config": {
+    "name": "qrsnap-api-logs",
+    "destination_conf": "s3://your-bucket/logs/?region=us-east-1",
+    "dataset": "http_requests",
+    "logpull_options": "fields=ClientIP,ClientRequestHost,ClientRequestMethod,ClientRequestURI,EdgeEndTimestamp,EdgeResponseBytes,EdgeResponseStatus,EdgeStartTimestamp,RayID,RequestHeaders,ResponseHeaders&timestamps=rfc3339",
+    "sample_rate": 1.0,
+    "fields": [
+      "ClientIP",
+      "ClientRequestHost",
+      "ClientRequestMethod",
+      "ClientRequestURI",
+      "EdgeEndTimestamp",
+      "EdgeResponseBytes",
+      "EdgeResponseStatus",
+      "EdgeStartTimestamp",
+      "RayID",
+      "RequestHeaders",
+      "ResponseHeaders",
+      "ClientCountry",
+      "ClientASN",
+      "ClientDeviceType",
+      "ClientRequestUserAgent",
+      "ClientRequestProtocol",
+      "ClientSSLProtocol",
+      "OriginResponseTime",
+      "OriginResponseStatus",
+      "CacheCacheStatus",
+      "CacheResponseStatus",
+      "SecurityLevel",
+      "WAFAction",
+      "WAFMatchedVar",
+      "WAFProfile",
+      "WAFRuleID",
+      "WAFRuleMessage",
+      "BotScore",
+      "BotScoreSrc",
+      "BotTags"
+    ],
+    "filters": {
+      "where": {
+        "or": [
+          {
+            "and": [
+              {
+                "key": "ClientRequestURI",
+                "operator": "contains",
+                "value": "/api/"
+              }
+            ]
+          },
+          {
+            "key": "EdgeResponseStatus",
+            "operator": "in",
+            "value": ["401", "403", "429", "500", "502", "503", "504"]
+          }
+        ]
+      }
+    }
+  },
+  "setup_instructions": [
+    "1. Go to Cloudflare Dashboard → Analytics & Logs → Logpush",
+    "2. Click 'Add Logpush Job'",
+    "3. Select 'HTTP Requests' dataset",
+    "4. Configure destination (S3, GCS, Azure, etc.)",
+    "5. Select fields listed above",
+    "6. Apply filters to reduce log volume",
+    "7. Set up log retention policy (recommended: 30-90 days)"
+  ],
+  "alternative_destinations": {
+    "s3": {
+      "example": "s3://bucket-name/logs/?region=us-east-1",
+      "required_permissions": ["s3:PutObject", "s3:GetBucketLocation"]
+    },
+    "gcs": {
+      "example": "gs://bucket-name/logs/",
+      "required_permissions": ["storage.objects.create", "storage.buckets.get"]
+    },
+    "azure": {
+      "example": "azure://account.blob.core.windows.net/container/logs/",
+      "required_permissions": ["Blob Contributor"]
+    },
+    "datadog": {
+      "example": "https://http-intake.logs.datadoghq.com/v1/input/API_KEY",
+      "note": "Requires Datadog API key"
+    },
+    "splunk": {
+      "example": "https://splunk-endpoint.com:8088/services/collector",
+      "note": "Requires HEC token"
+    }
+  },
+  "log_parsing_examples": {
+    "extract_rate_limits": "grep '429' logs.json | jq '.EdgeResponseStatus'",
+    "extract_auth_failures": "grep -E '(401|403)' logs.json | jq '{ip: .ClientIP, path: .ClientRequestURI, status: .EdgeResponseStatus}'",
+    "extract_bot_traffic": "jq 'select(.BotScore < 30)' logs.json",
+    "extract_blocked_ips": "jq 'select(.WAFAction == \"block\") | .ClientIP' logs.json | sort | uniq -c | sort -rn"
+  }
+}
+
