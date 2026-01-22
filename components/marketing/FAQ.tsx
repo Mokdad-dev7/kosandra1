@@ -13,31 +13,55 @@ const faqs = [
   },
   {
     question: 'Can I customize the appearance of my QR codes?',
-    answer: 'Absolutely! You can customize colors (foreground and background), add your logo or images, adjust error correction levels, and modify the margin and size. The app automatically shapes and fits logos for optimal appearance.',
+    answer: 'Yes! You can add icons to your QR codes. The app automatically shapes and fits icons for optimal appearance while maintaining scannability.',
   },
   {
-    question: 'What file formats can I download?',
-    answer: 'You can download your QR codes in PNG (raster) or SVG (vector) formats. PNG is great for digital use, while SVG is perfect for print and scaling without quality loss.',
+    question: 'What export formats are available?',
+    answer: 'Export features are Pro tier only. You can export QR codes in CSV, JSON, images ZIP, or parsed text formats. All exports are stored locally on your device.',
   },
   {
     question: 'How do I scan QR codes?',
-    answer: 'You can scan QR codes using your device camera in real-time, or select images from your gallery. The app also supports batch scanning for multiple codes at once (Premium feature).',
+    answer: 'You can scan QR codes using your device camera in real-time, or select images from your gallery. The app also supports batch scanning for multiple codes at once (Pro feature).',
   },
   {
-    question: 'Is my data secure?',
-    answer: 'Yes! All QR code data is stored locally on your device. We do not transmit your QR codes to external servers. The app includes security features like URL reputation checking and email domain validation to protect you from malicious content.',
+    question: 'Is my data secure and private?',
+    answer: 'Yes! All QR code data is stored locally on your device. We do not transmit your QR codes to external servers. Premium and Pro tiers include optional security features (URL Domain Security Check and Email Domain Validation) that use secure APIs but store no data externally. Your privacy is our priority - we never collect or share your personal data.',
   },
   {
-    question: 'What are the premium tiers?',
-    answer: 'We offer three one-time purchase tiers: Basic ($0.99) removes ads, Premium ($1.99) adds batch scanning and backup features, and Pro ($2.99) includes advanced security features like URL reputation checking and email domain validation.',
+    question: 'Are QR codes safe to scan?',
+    answer: 'QR Snap includes optional security features to help protect you. Premium and Pro tiers include URL Domain Security Check and Email Domain Validation to warn you about potentially malicious content. These checks are performed via secure APIs and do not store your data. However, always exercise caution when scanning QR codes from unknown sources.',
   },
   {
-    question: 'Can I backup my QR codes?',
-    answer: 'Yes! Premium and Pro tiers include backup and restore functionality. You can export your QR codes and restore them later or share them across devices.',
+    question: 'What barcode and QR code formats are supported?',
+    answer: 'QRSnap supports QR codes (all versions), as well as common barcode formats including EAN-13, EAN-8, UPC-A, UPC-E, Code 128, Code 39, ITF, and Codabar. The app can both generate and scan these formats.',
+  },
+  {
+    question: 'Will QR codes with logos still scan properly?',
+    answer: 'Yes! When you add a logo to your QR code, QRSnap automatically adjusts the error correction level to "High" (H), which allows up to 30% of the code to be obscured while still remaining scannable. The app also optimizes logo placement and size to ensure maximum scannability. We recommend testing your QR code after adding a logo to ensure it scans correctly.',
   },
   {
     question: 'Does the app work offline?',
-    answer: 'Yes! QR code generation and scanning work completely offline. Security features like URL checking require an internet connection, but core functionality is available offline.',
+    answer: 'Yes! QR code generation and scanning work completely offline. All core functionality is available without an internet connection. Security features like URL Domain Security Check and Email Domain Validation (Premium/Pro tiers) require an internet connection but store no data. Basic scanning and generation work entirely offline.',
+  },
+  {
+    question: 'How is my QR code history stored?',
+    answer: 'All your QR codes are stored locally on your device. The app maintains a history of all generated and scanned QR codes, organized by date. You can mark favorites for quick access. Pro tier includes local backup and restore functionality, allowing you to export your history to a local file and restore it later. Your history never leaves your device unless you explicitly choose to back it up. No cloud sync.',
+  },
+  {
+    question: 'What are the pricing tiers?',
+    answer: 'QR Snap offers three one-time purchase tiers: Basic ($0.99) removes ads, Premium ($1.99) adds URL Domain Security Check and Email Domain Validation, and Pro ($2.99) includes all Premium features plus batch scanning and local backup/restore. Free users can also access premium features temporarily via rewarded ads (24-hour access).',
+  },
+  {
+    question: 'What features are coming in future updates?',
+    answer: 'We\'re constantly working on improving QR Snap! You can submit feature requests through our feedback page. All updates maintain our privacy-first, offline-first approach with local storage.',
+  },
+  {
+    question: 'Can I backup my QR codes?',
+    answer: 'Yes! Pro tier includes local backup and restore functionality. You can export all your QR codes to a local file and restore them later. Backups are stored locally on your device - no cloud sync. This is a Pro-only feature.',
+  },
+  {
+    question: 'What are rewarded ads?',
+    answer: 'Free users can watch rewarded ads to temporarily access premium features for 24 hours. This includes security features (Premium tier) and advanced features like batch scanning and backup (Pro tier). Access expires after 24 hours and can be renewed by watching another ad. Usage limits apply to prevent abuse.',
   },
 ]
 

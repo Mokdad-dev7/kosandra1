@@ -15,33 +15,31 @@ const tiers = [
     features: [
       'Remove all advertisements',
       'Unlimited QR code generation',
-      'Basic customization options',
-      'PNG & SVG downloads',
+      'Icon customization',
     ],
     popular: false,
   },
   {
     name: 'Premium',
     price: '$1.99',
-    description: 'Enhanced features for power users',
+    description: 'Security features to protect you',
     features: [
       'Everything in Basic',
-      'Batch QR code scanning',
-      'Backup and restore functionality',
-      'Advanced customization',
+      'URL Domain Security Check',
+      'Email Domain Validation',
+      'Protection from malicious content',
     ],
     popular: true,
   },
   {
     name: 'Pro',
     price: '$2.99',
-    description: 'Complete security and advanced features',
+    description: 'Advanced features for power users',
     features: [
       'Everything in Premium',
-      'Advanced security features',
-      'URL reputation checking',
-      'Email domain validation',
-      'Malware protection',
+      'Batch QR code scanning',
+      'Export & backup functionality',
+      'Local backup and restore',
     ],
     popular: false,
     isPro: true,
@@ -62,7 +60,7 @@ export function PremiumTiers() {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Premium Tiers</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Choose the plan that fits your needs
+            Choose the plan that fits your needs. Free users can also access premium features temporarily via rewarded ads (24-hour access).
           </p>
         </motion.div>
 
@@ -132,7 +130,7 @@ export function PremiumTiers() {
                       className="w-full" 
                       variant={tier.popular || tier.isPro ? 'default' : 'outline'}
                     >
-                      <Link href="/register">Get Started</Link>
+                      <Link href="#generator">Get Started</Link>
                     </Button>
                   </motion.div>
                 </CardContent>

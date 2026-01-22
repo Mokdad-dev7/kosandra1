@@ -7,11 +7,11 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Checkbox } from '@/components/ui/checkbox'
 import { QRPreview } from './QRPreview'
 import { QRCustomizer } from './QRCustomizer'
 import { MapPicker } from './MapPicker'
 import { embedLogoInQR } from '@/lib/qr/logo-embedder'
+import { generateQRCode } from '@/lib/qr/generator'
 import type { QRCodeType, QRCodeData, QRCodeCustomizations } from '@/types'
 import { MapPin } from 'lucide-react'
 
@@ -19,11 +19,8 @@ export function QRGenerator() {
   const [type, setType] = useState<QRCodeType>('url')
   const [data, setData] = useState<QRCodeData>({ url: '' })
   const [customizations, setCustomizations] = useState<QRCodeCustomizations>({})
-  const [isDynamic, setIsDynamic] = useState(false)
-  const [dynamicUrl, setDynamicUrl] = useState('')
   const [qrDataUrl, setQrDataUrl] = useState<string>('')
   const [qrOptions, setQrOptions] = useState<{ type: QRCodeType; data: QRCodeData } | null>(null)
-  const [savedQRId, setSavedQRId] = useState<string | null>(null)
   const [mapPickerOpen, setMapPickerOpen] = useState(false)
 
   // Reset data when type changes
@@ -68,7 +65,6 @@ export function QRGenerator() {
     }
     setQrDataUrl('')
     setQrOptions(null)
-    setSavedQRId(null)
   }, [type])
 
   // Regenerate QR code when customizations change (if QR code already exists)
@@ -77,42 +73,27 @@ export function QRGenerator() {
       // Debounce to avoid too many regenerations
       const timeoutId = setTimeout(async () => {
         try {
-          const response = await fetch('/api/qr/generate', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-              type: qrOptions.type, 
-              data: qrOptions.data, 
-              customizations 
-            }),
+          const dataUrl = await generateQRCode({
+            type: qrOptions.type,
+            data: qrOptions.data,
+            customizations
           })
-
-          const contentType = response.headers.get('content-type') || ''
           
-          if (contentType.includes('application/json')) {
+          // Embed logo if provided (client-side)
+          let finalDataUrl = dataUrl
+          if (customizations?.logo?.url) {
             try {
-              const result = await response.json()
-              if (response.ok && result?.dataUrl) {
-                // Embed logo if provided (client-side)
-                let finalDataUrl = result.dataUrl
-                if (customizations?.logo?.url) {
-                  try {
-                    finalDataUrl = await embedLogoInQR(
-                      result.dataUrl,
-                      customizations.logo.url,
-                      customizations.logo.width,
-                      customizations.logo.margin
-                    )
-                  } catch (logoError) {
-                    // Continue with QR code without logo
-                  }
-                }
-                setQrDataUrl(finalDataUrl)
-              }
-            } catch (jsonError) {
-              // Silently fail for auto-regeneration
+              finalDataUrl = await embedLogoInQR(
+                dataUrl,
+                customizations.logo.url,
+                customizations.logo.width,
+                customizations.logo.margin
+              )
+            } catch (logoError) {
+              // Continue with QR code without logo
             }
           }
+          setQrDataUrl(finalDataUrl)
         } catch (error) {
           // Silently fail for auto-regeneration
         }
@@ -130,118 +111,19 @@ export function QRGenerator() {
         return
       }
 
-      // For dynamic QR codes, we need to generate a URL that points to our redirect endpoint
-      let qrDataToGenerate = data
-      
-      // Dynamic QR codes are only supported for URL type
-      if (isDynamic && type === 'url') {
-        // Check if we have a URL
-        if (!('url' in data) || !data.url) {
-          alert('Please enter a URL for dynamic QR code')
-          return
-        }
-
-        // If dynamic, we'll generate the QR code with a URL pointing to our redirect endpoint
-        // But first we need to save it to get an ID
-        if (!savedQRId) {
-          // Save first to get ID
-          const saveResponse = await fetch('/api/qr/create', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              type,
-              data,
-              customizations,
-              isDynamic: true,
-              dynamicUrl: data.url,
-            }),
-          })
-
-          if (!saveResponse.ok) {
-            const errorData = await saveResponse.json().catch(() => ({}))
-            throw new Error(errorData.error || 'Failed to save QR code')
-          }
-
-          const saved = await saveResponse.json()
-          setSavedQRId(saved.qrCode.id)
-          // Generate QR code with redirect URL
-          const redirectUrl = `${window.location.origin}/api/qr/dynamic/${saved.qrCode.id}`
-          qrDataToGenerate = { url: redirectUrl }
-        } else {
-          // Update existing dynamic QR
-          const updateResponse = await fetch(`/api/qr/${savedQRId}/update`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              data,
-              customizations,
-              dynamicUrl: data.url,
-            }),
-          })
-
-          if (!updateResponse.ok) {
-            const errorData = await updateResponse.json().catch(() => ({}))
-            throw new Error(errorData.error || 'Failed to update QR code')
-          }
-
-          const redirectUrl = `${window.location.origin}/api/qr/dynamic/${savedQRId}`
-          qrDataToGenerate = { url: redirectUrl }
-        }
-      }
-
-      const response = await fetch('/api/qr/generate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ type, data: qrDataToGenerate, customizations }),
+      // Generate QR code client-side
+      const dataUrl = await generateQRCode({
+        type,
+        data,
+        customizations
       })
 
-      // Always try to parse as JSON first, fallback to text if it fails
-      let result
-      try {
-        const text = await response.text()
-        if (!text) {
-          throw new Error('Empty response from server')
-        }
-        
-        // Try to parse as JSON
-        try {
-          result = JSON.parse(text)
-        } catch (parseError) {
-          // Not valid JSON - log for debugging
-          console.error('Response is not JSON:', {
-            status: response.status,
-            statusText: response.statusText,
-            contentType: response.headers.get('content-type'),
-            body: text.substring(0, 500),
-          })
-          throw new Error(`Server returned invalid response: ${response.status} ${response.statusText}. Response: ${text.substring(0, 200)}`)
-        }
-      } catch (error) {
-        if (error instanceof Error && error.message.includes('Empty response')) {
-          throw error
-        }
-        if (error instanceof Error && error.message.includes('Server returned invalid')) {
-          throw error
-        }
-        console.error('Error reading response:', error)
-        throw new Error('Failed to read server response')
-      }
-
-      if (!response.ok) {
-        const errorMsg = result?.error || `Server error: ${response.status} ${response.statusText}`
-        throw new Error(errorMsg)
-      }
-
-      if (!result?.dataUrl) {
-        throw new Error('No QR code data received from server')
-      }
-
       // Embed logo if provided (client-side)
-      let finalDataUrl = result.dataUrl
+      let finalDataUrl = dataUrl
       if (customizations?.logo?.url) {
         try {
           finalDataUrl = await embedLogoInQR(
-            result.dataUrl,
+            dataUrl,
             customizations.logo.url,
             customizations.logo.width,
             customizations.logo.margin
@@ -253,7 +135,7 @@ export function QRGenerator() {
       }
 
       setQrDataUrl(finalDataUrl)
-      setQrOptions({ type, data: qrDataToGenerate })
+      setQrOptions({ type, data })
     } catch (error) {
       console.error('Error generating QR code:', error)
       const errorMessage = error instanceof Error ? error.message : 'Failed to generate QR code. Please try again.'
@@ -261,37 +143,6 @@ export function QRGenerator() {
     }
   }
 
-  const handleSave = async () => {
-    try {
-      if (!qrDataUrl) {
-        alert('Please generate a QR code first')
-        return
-      }
-
-      const response = await fetch('/api/qr/create', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type,
-          data,
-          customizations,
-          isDynamic,
-          dynamicUrl: isDynamic && type === 'url' ? data.url : null,
-        }),
-      })
-
-      if (!response.ok) {
-        throw new Error('Failed to save QR code')
-      }
-
-      const result = await response.json()
-      setSavedQRId(result.qrCode.id)
-      alert('QR code saved successfully!')
-    } catch (error) {
-      console.error('Error saving QR code:', error)
-      alert('Failed to save QR code. Please make sure you are logged in.')
-    }
-  }
 
   const handleMapSelect = (location: { latitude: number; longitude: number; address?: string }) => {
     if (type === 'location') {
@@ -770,7 +621,6 @@ export function QRGenerator() {
                 value={type}
                 onValueChange={(value: QRCodeType) => {
                   setType(value)
-                  setIsDynamic(false) // Reset dynamic flag when type changes
                 }}
               >
                 <SelectTrigger id="qr-type">
@@ -795,29 +645,9 @@ export function QRGenerator() {
 
             {renderInputFields()}
 
-            {type === 'url' && (
-              <div className="flex items-center space-x-2">
-                <Checkbox
-                  id="is-dynamic"
-                  checked={isDynamic}
-                  onCheckedChange={(checked) => setIsDynamic(checked === true)}
-                />
-                <Label htmlFor="is-dynamic" className="text-sm font-normal cursor-pointer">
-                  Make this QR code dynamic (editable without regenerating)
-                </Label>
-              </div>
-            )}
-
-            <div className="flex gap-2">
-              <Button onClick={handleGenerate} className="flex-1">
-                Generate QR Code
-              </Button>
-              {qrDataUrl && (
-                <Button onClick={handleSave} variant="outline" className="flex-1">
-                  Save QR Code
-                </Button>
-              )}
-            </div>
+            <Button onClick={handleGenerate} className="w-full">
+              Generate QR Code
+            </Button>
           </CardContent>
         </Card>
 

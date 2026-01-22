@@ -5,14 +5,55 @@ import { Footer } from '@/components/marketing/Footer'
 import { PageWrapper } from '@/components/ui/page-wrapper'
 import { FadeIn } from '@/components/ui/fade-in'
 import { motion } from 'framer-motion'
-import { Mail, MessageSquare, MapPin } from 'lucide-react'
+import { Mail, MessageSquare, MapPin, Send } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
+import { useState } from 'react'
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  })
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!formData.name || !formData.message) {
+      alert('Please fill in the required fields (Name and Message)')
+      return
+    }
+    
+    const subject = encodeURIComponent(
+      `Contact from ${formData.name}${formData.email ? ` (${formData.email})` : ''}`
+    )
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` +
+      (formData.email ? `Email: ${formData.email}\n` : '') +
+      `\nMessage:\n${formData.message}\n\n` +
+      `---\nSent from QR Snap Contact Form`
+    )
+    
+    const mailtoLink = `mailto:ars.tech.app@gmail.com?subject=${subject}&body=${body}`
+    
+    // Try to open mailto link
+    try {
+      window.location.href = mailtoLink
+    } catch (error) {
+      // Fallback: copy to clipboard or show manual instructions
+      const emailBody = `Subject: Contact from ${formData.name}${formData.email ? ` (${formData.email})` : ''}\n\nName: ${formData.name}\n${formData.email ? `Email: ${formData.email}\n` : ''}\nMessage:\n${formData.message}`
+      navigator.clipboard.writeText(`To: ars.tech.app@gmail.com\n\n${emailBody}`).then(() => {
+        alert('Email content copied to clipboard! Please paste it into your email client and send to ars.tech.app@gmail.com')
+      }).catch(() => {
+        alert(`Please send an email to ars.tech.app@gmail.com with the following:\n\n${emailBody}`)
+      })
+    }
+  }
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -40,7 +81,11 @@ export default function ContactPage() {
                         </div>
                         <div>
                           <CardTitle>Email</CardTitle>
-                          <CardDescription>support@qrsnap.app</CardDescription>
+                          <CardDescription>
+                            <a href="mailto:ars.tech.app@gmail.com" className="hover:text-primary transition-colors">
+                              ars.tech.app@gmail.com
+                            </a>
+                          </CardDescription>
                         </div>
                       </div>
                     </CardHeader>
@@ -84,24 +129,55 @@ export default function ContactPage() {
                     <CardDescription>Fill out the form below and we'll get back to you</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <form className="space-y-4">
+                    <form onSubmit={handleSubmit} className="space-y-4">
                       <div className="space-y-2">
-                        <Label htmlFor="name">Name</Label>
-                        <Input id="name" placeholder="Your name" />
+                        <Label htmlFor="name">Name *</Label>
+                        <Input 
+                          id="name" 
+                          placeholder="Your name" 
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          required
+                        />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="email">Email</Label>
-                        <Input id="email" type="email" placeholder="your@email.com" />
+                        <Label htmlFor="email">Email (Optional)</Label>
+                        <Input 
+                          id="email" 
+                          type="email" 
+                          placeholder="your@email.com"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        />
+                        <p className="text-xs text-muted-foreground">
+                          We'll use this to respond to your message if needed.
+                        </p>
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="message">Message</Label>
-                        <Textarea id="message" placeholder="Your message" rows={6} />
+                        <Label htmlFor="message">Message *</Label>
+                        <Textarea 
+                          id="message" 
+                          placeholder="Your message" 
+                          rows={6}
+                          value={formData.message}
+                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                          required
+                          className="resize-none"
+                        />
                       </div>
                       <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                        <Button type="submit" className="w-full">
+                        <Button 
+                          type="submit" 
+                          className="w-full inline-flex items-center justify-center gap-2"
+                          disabled={!formData.name || !formData.message}
+                        >
+                          <Send className="w-4 h-4" />
                           Send Message
                         </Button>
                       </motion.div>
+                      <p className="text-xs text-muted-foreground text-center">
+                        Clicking "Send Message" will open your email client with a pre-filled message to ars.tech.app@gmail.com
+                      </p>
                     </form>
                   </CardContent>
                 </Card>

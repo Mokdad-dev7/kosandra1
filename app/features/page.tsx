@@ -1,7 +1,7 @@
 'use client'
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { QrCode, Palette, BarChart3, Zap, Shield, Download } from 'lucide-react'
+import { QrCode, Palette, Shield, Download, Scan, Star } from 'lucide-react'
 import { Footer } from '@/components/marketing/Footer'
 import { Header } from '@/components/marketing/Header'
 import { FadeIn } from '@/components/ui/fade-in'
@@ -13,32 +13,32 @@ const features = [
   {
     icon: QrCode,
     title: 'Multiple QR Types',
-    description: 'Generate QR codes for URLs, text, email, phone, SMS, WiFi credentials, and contact cards.',
+    description: 'Generate QR codes for URLs, text, email, phone, SMS, WiFi credentials, contact cards, events, locations, and more.',
   },
   {
     icon: Palette,
-    title: 'Full Customization',
-    description: 'Customize colors, add your logo, adjust error correction levels, and choose from different patterns.',
-  },
-  {
-    icon: BarChart3,
-    title: 'Analytics Dashboard',
-    description: 'Track scans, view geographic data, device types, and time-based analytics for your QR codes.',
-  },
-  {
-    icon: Zap,
-    title: 'Dynamic QR Codes',
-    description: 'Create editable QR codes that can be updated without regenerating the code itself.',
+    title: 'Icon Customization',
+    description: 'Add icons to your QR codes. The app automatically optimizes icon placement for scannability.',
   },
   {
     icon: Shield,
     title: 'Secure & Private',
-    description: 'Your data is encrypted and secure. We never share your QR code data with third parties.',
+    description: 'All data stored locally on your device. Premium/Pro includes URL and email security checks. No cloud sync, no external storage.',
   },
   {
     icon: Download,
-    title: 'Multiple Formats',
-    description: 'Download your QR codes in PNG or SVG format, ready for print or digital use.',
+    title: 'Export Formats',
+    description: 'Pro tier only: Export QR codes in CSV, JSON, images ZIP, or parsed text formats. Local backup and restore included.',
+  },
+  {
+    icon: Scan,
+    title: 'Batch Scanning',
+    description: 'Pro feature: Scan multiple QR codes at once for efficient bulk processing.',
+  },
+  {
+    icon: Star,
+    title: 'History & Favorites',
+    description: 'Keep track of all scanned and generated QR codes. Mark favorites for quick access. All stored locally.',
   },
 ]
 

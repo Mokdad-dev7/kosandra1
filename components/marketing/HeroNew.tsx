@@ -44,7 +44,7 @@ export function HeroNew() {
             >
               Generate, Customize &{' '}
               <span className="bg-gradient-to-r from-primary via-info to-primary bg-clip-text text-transparent animate-gradient">
-                Track QR Codes
+                Scan QR Codes
               </span>
               {' '}Like Never Before
             </motion.h1>
@@ -56,8 +56,8 @@ export function HeroNew() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="text-xl text-muted-foreground max-w-xl leading-relaxed"
             >
-              Professional QR code generator with advanced customization, dynamic updates, and detailed analytics. 
-              Perfect for businesses and individuals.
+              Professional QR code generator with advanced customization. All data stored locally on your device. 
+              Privacy-first, offline-first. Perfect for businesses and individuals.
             </motion.p>
 
             {/* CTAs */}
@@ -76,14 +76,6 @@ export function HeroNew() {
                     Generate QR Code Now
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>
-                </Button>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button asChild size="lg" variant="outline" className="text-lg px-8 h-14">
-                  <Link href="/dashboard">View Dashboard</Link>
                 </Button>
               </motion.div>
             </motion.div>

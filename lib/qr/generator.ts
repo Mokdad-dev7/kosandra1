@@ -1,3 +1,5 @@
+'use client'
+
 import QRCode from 'qrcode'
 import type { GenerateQROptions, QRCodeData, QRCodeType } from '@/types'
 
@@ -158,4 +160,3 @@ export async function generateQRCodeSVG(options: GenerateQROptions): Promise<str
     throw new Error('Failed to generate QR code SVG')
   }
 }
-

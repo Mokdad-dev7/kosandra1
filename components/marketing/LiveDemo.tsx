@@ -41,7 +41,7 @@ export function LiveDemo() {
               className="text-xl text-muted-foreground"
             >
               Experience the power of QR Snap with our interactive demo. 
-              Watch how easy it is to create, customize, and track your QR codes.
+              Watch how easy it is to create, customize, and scan QR codes.
             </motion.p>
             <motion.ul
               initial={{ opacity: 0, y: 20 }}
@@ -51,8 +51,8 @@ export function LiveDemo() {
             >
               {[
                 'Switch between different QR code types',
-                'Customize colors and add your branding',
-                'View real-time analytics and scan history',
+                'Add icons to customize your QR codes',
+                'View scan history and manage favorites',
               ].map((feature, index) => (
                 <motion.li
                   key={index}

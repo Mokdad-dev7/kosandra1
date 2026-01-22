@@ -7,12 +7,10 @@ import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { Badge } from '@/components/ui/badge'
 
 const exportOptions = [
-  { icon: FileText, name: 'CSV', description: 'Export as CSV file', premium: false },
-  { icon: FileJson, name: 'JSON', description: 'Export as JSON data', premium: false },
-  { icon: Archive, name: 'ZIP', description: 'Compressed archive', premium: false },
-  { icon: Download, name: 'Text', description: 'Plain text format', premium: false },
-  { icon: Cloud, name: 'Full Backup', description: 'Complete backup & restore', premium: true },
-  { icon: Share2, name: 'Sharing', description: 'Share with team members', premium: true },
+  { icon: FileText, name: 'CSV Export', description: 'Pro feature: Export QR codes as CSV file', premium: true },
+  { icon: FileJson, name: 'JSON Export', description: 'Pro feature: Export QR codes as JSON data', premium: true },
+  { icon: Archive, name: 'Images ZIP', description: 'Pro feature: Export QR code images as ZIP archive', premium: true },
+  { icon: Download, name: 'Parsed Text', description: 'Pro feature: Export QR codes as parsed text file', premium: true },
 ]
 
 export function ExportSection() {
@@ -29,7 +27,7 @@ export function ExportSection() {
       >
         <h2 className="text-4xl md:text-5xl font-bold mb-4">Export & Backup</h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          Multiple export formats and premium backup options
+          All export features are Pro tier only. Export QR codes in CSV, JSON, images ZIP, or parsed text formats. Local backup and restore functionality included. No cloud sync.
         </p>
       </motion.div>
 
@@ -62,7 +60,7 @@ export function ExportSection() {
                     </motion.div>
                     {option.premium && (
                       <Badge className="bg-premium-container text-premium border-premium-border">
-                        Premium
+                        Pro
                       </Badge>
                     )}
                   </div>

@@ -13,14 +13,14 @@ const plans = [
     name: 'Free',
     price: '$0',
     description: 'Perfect for getting started',
-    features: ['Unlimited QR codes', 'Basic customization', 'PNG & SVG downloads'],
+    features: ['Unlimited QR codes', 'Icon customization', 'Local storage'],
     popular: false,
   },
   {
     name: 'Pro',
-    price: '$9',
+    price: '$2.99',
     description: 'For professionals',
-    features: ['Everything in Free', 'Dynamic QR codes', 'Advanced analytics', 'Custom branding'],
+    features: ['Everything in Free', 'Batch scanning', 'Local backup & restore', 'Premium security features'],
     popular: true,
   },
 ]
@@ -66,7 +66,7 @@ export function PricingPreview() {
                   )}
                   <CardTitle className="text-2xl">{plan.name}</CardTitle>
                   <div className="text-4xl font-bold mt-2">{plan.price}</div>
-                  {plan.price !== '$0' && <div className="text-sm text-muted-foreground">/month</div>}
+                  {plan.price !== '$0' && <div className="text-sm text-muted-foreground">one-time</div>}
                   <CardDescription className="mt-2">{plan.description}</CardDescription>
                 </CardHeader>
                 <CardContent>

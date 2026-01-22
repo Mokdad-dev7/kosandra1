@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { AuthProvider } from "@/lib/auth/session";
 import { Providers } from "@/components/providers";
 
 const geistSans = Geist({
@@ -16,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "QR Snap - Generate & Customize QR Codes",
-  description: "Create, customize, and track QR codes for URLs, text, contacts, WiFi, and more. Free QR code generator with analytics.",
+  description: "Create, customize, and scan QR codes for URLs, text, contacts, WiFi, and more. Privacy-first QR code generator with local storage. Developed by Ars Technology.",
 };
 
 export default function RootLayout({
@@ -30,7 +29,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
-          <AuthProvider>{children}</AuthProvider>
+          {children}
         </Providers>
       </body>
     </html>

@@ -3,16 +3,14 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { QrCode, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useSession } from 'next-auth/react'
-import { SignOutButton } from '@/components/dashboard/SignOutButton'
 import { ThemeToggle } from '@/components/ui/theme-toggle'
+import { AnimatedLogo } from '@/components/ui/AnimatedLogo'
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const { data: session } = useSession()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,8 +25,6 @@ export function Header() {
     { href: '/features', label: 'Features' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
-    { href: '/faq', label: 'FAQ' },
-    { href: '/blog', label: 'Blog' },
   ]
 
   return (
@@ -43,17 +39,9 @@ export function Header() {
       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
     >
       <nav className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <motion.div
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.5 }}
-            >
-              <QrCode className="w-6 h-6 text-primary" />
-            </motion.div>
-            <span className="font-bold text-lg">QR Snap</span>
-          </Link>
+          <AnimatedLogo size={56} showText={true} />
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
@@ -72,23 +60,6 @@ export function Header() {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
             <ThemeToggle />
-            {session ? (
-              <>
-                <Button asChild variant="ghost" size="sm">
-                  <Link href="/dashboard">Dashboard</Link>
-                </Button>
-                <SignOutButton />
-              </>
-            ) : (
-              <>
-                <Button asChild variant="ghost" size="sm">
-                  <Link href="/login">Login</Link>
-                </Button>
-                <Button asChild size="sm">
-                  <Link href="/register">Sign Up</Link>
-                </Button>
-              </>
-            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -138,23 +109,6 @@ export function Header() {
                   <span className="text-sm font-medium">Theme</span>
                   <ThemeToggle />
                 </div>
-                {session ? (
-                  <>
-                    <Button asChild variant="outline" className="w-full">
-                      <Link href="/dashboard">Dashboard</Link>
-                    </Button>
-                    <SignOutButton fullWidth />
-                  </>
-                ) : (
-                  <>
-                    <Button asChild variant="outline" className="w-full">
-                      <Link href="/login">Login</Link>
-                    </Button>
-                    <Button asChild className="w-full">
-                      <Link href="/register">Sign Up</Link>
-                    </Button>
-                  </>
-                )}
               </div>
             </div>
           </motion.div>

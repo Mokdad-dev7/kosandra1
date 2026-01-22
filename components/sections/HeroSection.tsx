@@ -61,7 +61,7 @@ export function HeroSection() {
             >
               Create, Customize &{' '}
               <span className="bg-gradient-to-r from-primary via-info to-primary bg-clip-text text-transparent animate-gradient">
-                Track QR Codes
+                Scan QR Codes
               </span>
               {' '}Instantly
             </motion.h1>
@@ -73,8 +73,8 @@ export function HeroSection() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="text-xl md:text-2xl text-muted-foreground max-w-xl leading-relaxed"
             >
-              Generate professional QR codes with advanced customization, dynamic updates, and detailed analytics. 
-              Perfect for businesses and individuals.
+              Generate professional QR codes with advanced customization. All data stored locally on your device. 
+              Privacy-first, offline-first, perfect for businesses and individuals.
             </motion.p>
 
             {/* CTAs - Staggered */}

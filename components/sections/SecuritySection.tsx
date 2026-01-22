@@ -7,10 +7,10 @@ import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { useState, useEffect } from 'react'
 
 const securityFeatures = [
-  { icon: Lock, title: 'End-to-End Encryption', description: 'All data encrypted in transit and at rest' },
-  { icon: Shield, title: 'Privacy First', description: 'Your QR codes are private by default' },
-  { icon: Eye, title: 'Access Control', description: 'Control who can view and scan your codes' },
-  { icon: FileCheck, title: 'Secure Storage', description: 'Enterprise-grade security infrastructure' },
+  { icon: Shield, title: 'Privacy First', description: 'All QR codes stored locally on your device. No cloud sync, no external storage.' },
+  { icon: Lock, title: 'URL Domain Security Check', description: 'Premium/Pro feature: Check URLs for malicious content before opening. Secure API-based, no data stored.' },
+  { icon: FileCheck, title: 'Email Domain Validation', description: 'Premium/Pro feature: Validate email domains to prevent spam. Local or secure API-based validation.' },
+  { icon: Eye, title: 'Offline-First', description: 'Core functionality works completely offline. Security checks require internet but store no data.' },
 ]
 
 const shieldStates = ['safe', 'scanning', 'safe'] as const
@@ -66,7 +66,7 @@ export function SecuritySection() {
       >
         <h2 className="text-4xl md:text-5xl font-bold mb-4">Security & Safety</h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          Enterprise-grade security to protect your data
+          Local storage, privacy-first design, and optional security features to protect you
         </p>
       </motion.div>
 

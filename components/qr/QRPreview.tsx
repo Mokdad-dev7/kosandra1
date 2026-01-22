@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/ui/button'
 import { Download } from 'lucide-react'
+import { generateQRCodeSVG } from '@/lib/qr/generator'
 import type { QRCodeType, QRCodeData } from '@/types'
 
 interface QRPreviewProps {
@@ -29,18 +30,8 @@ export function QRPreview({ dataUrl, type, data: qrData }: QRPreviewProps) {
       }
 
       try {
-        const response = await fetch('/api/qr/generate-svg', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ type, data: qrData }),
-        })
-
-        if (!response.ok) {
-          throw new Error('Failed to generate SVG')
-        }
-
-        const result = await response.json()
-        const svgBlob = new Blob([result.svg], { type: 'image/svg+xml' })
+        const svg = await generateQRCodeSVG({ type, data: qrData })
+        const svgBlob = new Blob([svg], { type: 'image/svg+xml' })
         const url = window.URL.createObjectURL(svgBlob)
         const link = document.createElement('a')
         link.href = url

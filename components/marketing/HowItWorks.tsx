@@ -16,14 +16,14 @@ const steps = [
   {
     icon: Palette,
     title: 'Customize',
-    description: 'Adjust colors, add logos, and personalize your design',
+    description: 'Add icons to personalize your QR codes',
     color: 'text-warning',
     bgColor: 'bg-warning-container',
   },
   {
     icon: Share2,
-    title: 'Share & Track',
-    description: 'Download, share, and monitor scan analytics',
+    title: 'Download & Share',
+    description: 'Download in PNG or SVG format and share your QR codes',
     color: 'text-success',
     bgColor: 'bg-success-container',
   },

@@ -32,7 +32,7 @@ export function Hero() {
           {/* Main Heading */}
           <FadeIn delay={0.2}>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-              Create, Customize & Track
+              Create, Customize & Scan
               <br />
               <span className="text-primary bg-gradient-to-r from-primary to-info bg-clip-text text-transparent">
                 QR Codes
@@ -46,7 +46,7 @@ export function Hero() {
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Generate professional QR codes for URLs, contacts, WiFi, and more.{' '}
               <span className="text-foreground font-medium">
-                Customize colors, add logos, and track scans with detailed analytics.
+                Add icons to QR codes. All data stored locally on your device. Privacy-first, offline-first.
               </span>
             </p>
           </FadeIn>
@@ -60,11 +60,6 @@ export function Hero() {
                     Generate QR Code Now
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>
-                </Button>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button asChild size="lg" variant="outline" className="text-lg px-8 h-14">
-                  <Link href="/dashboard">View Dashboard</Link>
                 </Button>
               </motion.div>
             </div>

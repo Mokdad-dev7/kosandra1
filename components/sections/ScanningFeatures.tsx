@@ -22,7 +22,7 @@ const features = [
   {
     icon: Scan,
     title: 'Batch Scan',
-    description: 'Scan multiple QR codes at once. Premium feature for bulk processing and organization.',
+    description: 'Scan multiple QR codes at once. Pro feature for bulk processing and organization.',
     direction: 'left',
     premium: true,
   },
