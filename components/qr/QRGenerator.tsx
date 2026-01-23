@@ -156,6 +156,8 @@ export function QRGenerator() {
     } else if (type === 'event') {
       setData({
         event: {
+          title: data.event?.title || '',
+          startDate: data.event?.startDate || '',
           ...data.event,
           location: location.address || `${location.latitude}, ${location.longitude}`,
         },
@@ -203,7 +205,7 @@ export function QRGenerator() {
                 type="email"
                 placeholder="recipient@example.com"
                 value={data.email?.to || ''}
-                onChange={(e) => setData({ email: { ...data.email, to: e.target.value } })}
+                onChange={(e) => setData({ email: { to: e.target.value, subject: data.email?.subject, body: data.email?.body } })}
               />
             </div>
             <div className="space-y-2">
@@ -213,7 +215,7 @@ export function QRGenerator() {
                 type="text"
                 placeholder="Email subject"
                 value={data.email?.subject || ''}
-                onChange={(e) => setData({ email: { ...data.email, subject: e.target.value } })}
+                onChange={(e) => setData({ email: { to: data.email?.to || '', subject: e.target.value, body: data.email?.body } })}
               />
             </div>
             <div className="space-y-2">
@@ -222,7 +224,7 @@ export function QRGenerator() {
                 id="email-body"
                 placeholder="Email body"
                 value={data.email?.body || ''}
-                onChange={(e) => setData({ email: { ...data.email, body: e.target.value } })}
+                onChange={(e) => setData({ email: { to: data.email?.to || '', subject: data.email?.subject, body: e.target.value } })}
                 rows={3}
               />
             </div>
@@ -253,7 +255,7 @@ export function QRGenerator() {
                 type="tel"
                 placeholder="+1234567890"
                 value={data.sms?.number || ''}
-                onChange={(e) => setData({ sms: { ...data.sms, number: e.target.value } })}
+                onChange={(e) => setData({ sms: { number: e.target.value, message: data.sms?.message } })}
               />
             </div>
             <div className="space-y-2">
@@ -262,7 +264,7 @@ export function QRGenerator() {
                 id="sms-message"
                 placeholder="Your message"
                 value={data.sms?.message || ''}
-                onChange={(e) => setData({ sms: { ...data.sms, message: e.target.value } })}
+                onChange={(e) => setData({ sms: { number: data.sms?.number || '', message: e.target.value } })}
                 rows={3}
               />
             </div>
@@ -279,7 +281,7 @@ export function QRGenerator() {
                 type="text"
                 placeholder="MyWiFiNetwork"
                 value={data.wifi?.ssid || ''}
-                onChange={(e) => setData({ wifi: { ...data.wifi, ssid: e.target.value } })}
+                onChange={(e) => setData({ wifi: { ssid: e.target.value, password: data.wifi?.password || '', security: data.wifi?.security || 'WPA', hidden: data.wifi?.hidden } })}
               />
             </div>
             <div className="space-y-2">
@@ -289,7 +291,7 @@ export function QRGenerator() {
                 type="password"
                 placeholder="Password"
                 value={data.wifi?.password || ''}
-                onChange={(e) => setData({ wifi: { ...data.wifi, password: e.target.value } })}
+                onChange={(e) => setData({ wifi: { ssid: data.wifi?.ssid || '', password: e.target.value, security: data.wifi?.security || 'WPA', hidden: data.wifi?.hidden } })}
               />
             </div>
             <div className="space-y-2">
@@ -297,7 +299,7 @@ export function QRGenerator() {
               <Select
                 value={data.wifi?.security || 'WPA'}
                 onValueChange={(value: 'WPA' | 'WEP' | 'nopass') =>
-                  setData({ wifi: { ...data.wifi, security: value } })
+                  setData({ wifi: { ssid: data.wifi?.ssid || '', password: data.wifi?.password || '', security: value, hidden: data.wifi?.hidden } })
                 }
               >
                 <SelectTrigger id="wifi-security">
@@ -324,7 +326,7 @@ export function QRGenerator() {
                   type="text"
                   placeholder="John"
                   value={data.vcard?.firstName || ''}
-                  onChange={(e) => setData({ vcard: { ...data.vcard, firstName: e.target.value } })}
+                  onChange={(e) => setData({ vcard: { firstName: e.target.value, lastName: data.vcard?.lastName || '', organization: data.vcard?.organization, phone: data.vcard?.phone, email: data.vcard?.email, url: data.vcard?.url, address: data.vcard?.address } })}
                 />
               </div>
               <div className="space-y-2">
@@ -334,7 +336,7 @@ export function QRGenerator() {
                   type="text"
                   placeholder="Doe"
                   value={data.vcard?.lastName || ''}
-                  onChange={(e) => setData({ vcard: { ...data.vcard, lastName: e.target.value } })}
+                  onChange={(e) => setData({ vcard: { firstName: data.vcard?.firstName || '', lastName: e.target.value, organization: data.vcard?.organization, phone: data.vcard?.phone, email: data.vcard?.email, url: data.vcard?.url, address: data.vcard?.address } })}
                 />
               </div>
             </div>
@@ -345,7 +347,7 @@ export function QRGenerator() {
                 type="text"
                 placeholder="Company Name"
                 value={data.vcard?.organization || ''}
-                onChange={(e) => setData({ vcard: { ...data.vcard, organization: e.target.value } })}
+                onChange={(e) => setData({ vcard: { firstName: data.vcard?.firstName || '', lastName: data.vcard?.lastName || '', organization: e.target.value, phone: data.vcard?.phone, email: data.vcard?.email, url: data.vcard?.url, address: data.vcard?.address } })}
               />
             </div>
             <div className="space-y-2">
@@ -355,7 +357,7 @@ export function QRGenerator() {
                 type="tel"
                 placeholder="+1234567890"
                 value={data.vcard?.phone || ''}
-                onChange={(e) => setData({ vcard: { ...data.vcard, phone: e.target.value } })}
+                onChange={(e) => setData({ vcard: { firstName: data.vcard?.firstName || '', lastName: data.vcard?.lastName || '', organization: data.vcard?.organization, phone: e.target.value, email: data.vcard?.email, url: data.vcard?.url, address: data.vcard?.address } })}
               />
             </div>
             <div className="space-y-2">
@@ -365,7 +367,7 @@ export function QRGenerator() {
                 type="email"
                 placeholder="john@example.com"
                 value={data.vcard?.email || ''}
-                onChange={(e) => setData({ vcard: { ...data.vcard, email: e.target.value } })}
+                onChange={(e) => setData({ vcard: { firstName: data.vcard?.firstName || '', lastName: data.vcard?.lastName || '', organization: data.vcard?.organization, phone: data.vcard?.phone, email: e.target.value, url: data.vcard?.url, address: data.vcard?.address } })}
               />
             </div>
           </div>
@@ -381,7 +383,7 @@ export function QRGenerator() {
                 type="text"
                 placeholder="Meeting with team"
                 value={data.event?.title || ''}
-                onChange={(e) => setData({ event: { ...data.event, title: e.target.value, startDate: data.event?.startDate || '' } })}
+                onChange={(e) => setData({ event: { title: e.target.value, startDate: data.event?.startDate || '', description: data.event?.description, location: data.event?.location, endDate: data.event?.endDate, allDay: data.event?.allDay } })}
               />
             </div>
             <div className="space-y-2">
@@ -390,7 +392,7 @@ export function QRGenerator() {
                 id="event-start"
                 type="datetime-local"
                 value={data.event?.startDate || ''}
-                onChange={(e) => setData({ event: { ...data.event, startDate: e.target.value } })}
+                onChange={(e) => setData({ event: { title: data.event?.title || '', startDate: e.target.value, description: data.event?.description, location: data.event?.location, endDate: data.event?.endDate, allDay: data.event?.allDay } })}
               />
             </div>
             <div className="space-y-2">
@@ -399,7 +401,7 @@ export function QRGenerator() {
                 id="event-end"
                 type="datetime-local"
                 value={data.event?.endDate || ''}
-                onChange={(e) => setData({ event: { ...data.event, endDate: e.target.value } })}
+                onChange={(e) => setData({ event: { title: data.event?.title || '', startDate: data.event?.startDate || '', description: data.event?.description, location: data.event?.location, endDate: e.target.value, allDay: data.event?.allDay } })}
               />
             </div>
             <div className="space-y-2">
@@ -410,7 +412,7 @@ export function QRGenerator() {
                   type="text"
                   placeholder="Conference Room A or select from map"
                   value={data.event?.location || ''}
-                  onChange={(e) => setData({ event: { ...data.event, location: e.target.value } })}
+                  onChange={(e) => setData({ event: { title: data.event?.title || '', startDate: data.event?.startDate || '', description: data.event?.description, location: e.target.value, endDate: data.event?.endDate, allDay: data.event?.allDay } })}
                   className="flex-1"
                 />
                 <Button
@@ -429,7 +431,7 @@ export function QRGenerator() {
                 id="event-description"
                 placeholder="Event description"
                 value={data.event?.description || ''}
-                onChange={(e) => setData({ event: { ...data.event, description: e.target.value } })}
+                onChange={(e) => setData({ event: { title: data.event?.title || '', startDate: data.event?.startDate || '', description: e.target.value, location: data.event?.location, endDate: data.event?.endDate, allDay: data.event?.allDay } })}
                 rows={3}
               />
             </div>
@@ -449,7 +451,7 @@ export function QRGenerator() {
                     step="any"
                     placeholder="40.7128"
                     value={data.location?.latitude || ''}
-                    onChange={(e) => setData({ location: { ...data.location, latitude: parseFloat(e.target.value) || 0, longitude: data.location?.longitude || 0 } })}
+                    onChange={(e) => setData({ location: { latitude: parseFloat(e.target.value) || 0, longitude: data.location?.longitude || 0, altitude: data.location?.altitude, query: data.location?.query } })}
                   />
                 </div>
                 <div className="space-y-2">
@@ -460,7 +462,7 @@ export function QRGenerator() {
                     step="any"
                     placeholder="-74.0060"
                     value={data.location?.longitude || ''}
-                    onChange={(e) => setData({ location: { ...data.location, longitude: parseFloat(e.target.value) || 0, latitude: data.location?.latitude || 0 } })}
+                    onChange={(e) => setData({ location: { latitude: data.location?.latitude || 0, longitude: parseFloat(e.target.value) || 0, altitude: data.location?.altitude, query: data.location?.query } })}
                   />
                 </div>
               </div>
@@ -483,7 +485,10 @@ export function QRGenerator() {
                 step="any"
                 placeholder="0"
                 value={data.location?.altitude || ''}
-                onChange={(e) => setData({ location: { ...data.location, altitude: parseFloat(e.target.value) || undefined } })}
+                onChange={(e) => {
+                  const alt = parseFloat(e.target.value);
+                  setData({ location: { latitude: data.location?.latitude || 0, longitude: data.location?.longitude || 0, altitude: isNaN(alt) ? undefined : alt, query: data.location?.query } });
+                }}
               />
             </div>
             <div className="space-y-2">
@@ -493,7 +498,7 @@ export function QRGenerator() {
                 type="text"
                 placeholder="New York, NY"
                 value={data.location?.query || ''}
-                onChange={(e) => setData({ location: { ...data.location, query: e.target.value } })}
+                onChange={(e) => setData({ location: { latitude: data.location?.latitude || 0, longitude: data.location?.longitude || 0, altitude: data.location?.altitude, query: e.target.value } })}
               />
             </div>
           </div>
@@ -507,7 +512,7 @@ export function QRGenerator() {
               <Select
                 value={data.social?.platform || 'facebook'}
                 onValueChange={(value: 'facebook' | 'twitter' | 'instagram' | 'linkedin' | 'youtube' | 'tiktok' | 'custom') =>
-                  setData({ social: { ...data.social, platform: value, url: data.social?.url || '' } })
+                  setData({ social: { platform: value, url: data.social?.url || '', username: data.social?.username } })
                 }
               >
                 <SelectTrigger id="social-platform">
@@ -531,7 +536,7 @@ export function QRGenerator() {
                 type="url"
                 placeholder="https://..."
                 value={data.social?.url || ''}
-                onChange={(e) => setData({ social: { ...data.social, url: e.target.value } })}
+                onChange={(e) => setData({ social: { platform: data.social?.platform || 'facebook', url: e.target.value, username: data.social?.username } })}
               />
             </div>
             <div className="space-y-2">
@@ -541,7 +546,7 @@ export function QRGenerator() {
                 type="text"
                 placeholder="@username"
                 value={data.social?.username || ''}
-                onChange={(e) => setData({ social: { ...data.social, username: e.target.value } })}
+                onChange={(e) => setData({ social: { platform: data.social?.platform || 'facebook', url: data.social?.url || '', username: e.target.value } })}
               />
             </div>
           </div>
@@ -555,7 +560,7 @@ export function QRGenerator() {
               <Select
                 value={data.barcode?.type || 'EAN13'}
                 onValueChange={(value: 'EAN13' | 'EAN8' | 'UPC' | 'CODE128' | 'CODE39' | 'ITF14' | 'MSI' | 'pharmacode') =>
-                  setData({ barcode: { ...data.barcode, type: value, value: data.barcode?.value || '' } })
+                  setData({ barcode: { type: value, value: data.barcode?.value || '' } })
                 }
               >
                 <SelectTrigger id="barcode-type">
@@ -580,7 +585,7 @@ export function QRGenerator() {
                 type="text"
                 placeholder="1234567890123"
                 value={data.barcode?.value || ''}
-                onChange={(e) => setData({ barcode: { ...data.barcode, value: e.target.value } })}
+                onChange={(e) => setData({ barcode: { type: data.barcode?.type || 'EAN13', value: e.target.value } })}
               />
             </div>
           </div>
