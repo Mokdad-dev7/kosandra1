@@ -1,231 +1,144 @@
-# QRSnap Website - Cloudflare Pages Deployment Guide
-
-This guide explains how to deploy the QRSnap website (including all documentation pages) to Cloudflare Pages.
-
-## Overview
-
-The QRSnap website is built with Next.js and includes the following pages:
-- **Help Center** → `/help`
-- **FAQ** → `/faq`
-- **Community** → `/community`
-- **Feedback** → `/feedback`
-- **Status** → `/status` (redirects to https://status.qrsnap.app)
+# GitHub Pages Deployment Guide with Custom Domain (qrsnap.app)
 
 ## Prerequisites
-
-- A Cloudflare account
-- A GitHub repository (or GitLab/Bitbucket)
-- Node.js 18+ installed locally (for testing)
+- GitHub account
+- Repository created on GitHub
+- Custom domain `qrsnap.app` managed in Cloudflare
+- Node.js and npm installed locally (for testing)
 
 ## Deployment Steps
 
-### Option 1: Deploy via Cloudflare Dashboard (Recommended)
+### Step 1: Push Code to GitHub
 
-1. **Connect Your Repository**
-   - Log in to [Cloudflare Dashboard](https://dash.cloudflare.com)
-   - Navigate to **Pages** → **Create a project**
-   - Connect your Git provider (GitHub, GitLab, or Bitbucket)
-   - Select your repository
+```bash
+git init  # if not already initialized
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+git push -u origin main
+```
 
-2. **Configure Build Settings**
-   - **Framework preset**: `Next.js`
-   - **Build command**: `npm run build`
-   - **Build output directory**: `.next`
-   - **Root directory**: `/` (or leave empty if repo root)
+### Step 2: Enable GitHub Pages
 
-3. **Environment Variables** (if needed)
-   - Add any required environment variables in the Cloudflare Pages dashboard
-   - Common variables:
-     - `NEXT_PUBLIC_APP_URL` - Your app's public URL
-     - Database connection strings (if using)
-     - API keys (if using)
+1. Go to your repository on GitHub
+2. Click **Settings** → **Pages**
+3. Under **Source**, select **GitHub Actions**
+4. The workflow will automatically deploy on every push to `main` branch
 
-4. **Deploy**
-   - Click **Save and Deploy**
-   - Cloudflare will automatically build and deploy your site
-   - You'll get a preview URL immediately
+### Step 3: Configure Custom Domain in GitHub
 
-5. **Custom Domain** (Optional)
-   - Go to **Custom domains** in your project settings
-   - Add your domain (e.g., `qrsnap.app`)
-   - Cloudflare will automatically configure DNS
+1. After first deployment, go to **Settings** → **Pages**
+2. Under **Custom domain**, enter: `qrsnap.app`
+3. Check **Enforce HTTPS** (recommended)
+4. Click **Save**
 
-### Option 2: Deploy via Wrangler CLI
+### Step 4: Configure Cloudflare DNS
 
-1. **Install Wrangler**
-   ```bash
-   npm install -g wrangler
-   ```
+1. Log in to your Cloudflare dashboard
+2. Select the domain `qrsnap.app`
+3. Go to **DNS** → **Records**
+4. Add/Update DNS records:
 
-2. **Login to Cloudflare**
-   ```bash
-   wrangler login
-   ```
+   **For root domain (qrsnap.app):**
+   - Type: `CNAME`
+   - Name: `@` (or `qrsnap.app`)
+   - Target: `YOUR_USERNAME.github.io` (replace with your GitHub username)
+   - Proxy status: **DNS only** (gray cloud) - Important for GitHub Pages
+   - TTL: Auto
 
-3. **Create a Pages Project**
-   ```bash
-   wrangler pages project create qrsnap-website
-   ```
+   **For www subdomain (optional):**
+   - Type: `CNAME`
+   - Name: `www`
+   - Target: `YOUR_USERNAME.github.io`
+   - Proxy status: **DNS only** (gray cloud)
+   - TTL: Auto
 
-4. **Deploy**
-   ```bash
-   npm run build
-   wrangler pages deploy .next --project-name=qrsnap-website
-   ```
+5. **Important:** Make sure the proxy is **OFF** (gray cloud, not orange). GitHub Pages requires direct DNS, not proxied.
 
-## Build Configuration
+### Step 5: SSL/TLS Settings in Cloudflare
 
-The project uses Next.js with the following key configurations:
+1. Go to **SSL/TLS** in Cloudflare
+2. Set encryption mode to **Full (strict)** or **Full**
+3. This ensures HTTPS works correctly with GitHub Pages
 
-- **Framework**: Next.js 14+ (App Router)
-- **Build Command**: `npm run build`
-- **Node Version**: 18.x or higher
-- **Output**: Static and server-rendered pages
+### Step 6: Wait for DNS Propagation
 
-### Next.js Configuration
+- DNS changes can take a few minutes to 24 hours
+- Check DNS propagation: `dig qrsnap.app` or use online tools
+- GitHub will verify the domain and enable HTTPS automatically
 
-The `next.config.ts` file is already configured for production builds. Cloudflare Pages will automatically:
-- Detect Next.js framework
-- Run the build command
-- Serve static assets
-- Handle server-side rendering (if using Cloudflare Workers)
+### Step 7: Verify Deployment
 
-## Editing Content
+1. Go to **Actions** tab in your repository
+2. Wait for the workflow to complete (usually 2-3 minutes)
+3. Your site will be available at: `https://qrsnap.app`
 
-### Help Center (`/help`)
+## Important Notes
 
-Edit: `app/help/page.tsx`
+- The `CNAME` file is already created in the `public` folder with `qrsnap.app`
+- This file will be copied to the `out` folder during build
+- GitHub Pages will automatically detect and use this domain
+- The site is configured for static export (no server-side features)
+- Images are unoptimized for GitHub Pages compatibility
+- All routes work as static HTML files
 
-The Help Center includes tutorials for:
-- Scanning QR codes
-- Generating QR codes
-- Exporting as PNG
-- Sharing QR codes
-- Privacy & Security
-- App Permissions
+## Cloudflare-Specific Settings
 
-### FAQ (`/faq`)
+### Recommended Cloudflare Settings:
+- **SSL/TLS:** Full (strict)
+- **Always Use HTTPS:** ON
+- **Automatic HTTPS Rewrites:** ON
+- **Minimum TLS Version:** 1.2
+- **Opportunistic Encryption:** ON
 
-Edit: `components/marketing/FAQ.tsx`
-
-The FAQ component contains all questions and answers. Add new FAQs by adding objects to the `faqs` array.
-
-### Community (`/community`)
-
-Edit: `app/community/page.tsx`
-
-Update GitHub links, add forum links when available, and modify community information.
-
-### Feedback (`/feedback`)
-
-Edit: `app/feedback/page.tsx`
-
-The feedback form sends emails to `info@qrsnap.app`. Update the email address in the `mailto` links if needed.
-
-### Status (`/status`)
-
-Edit: `app/status/page.tsx`
-
-Update the redirect URL if your status page URL changes.
-
-## Adding New Pages
-
-To add a new documentation page:
-
-1. Create a new file in `app/[page-name]/page.tsx`
-2. Use the same structure as existing pages:
-   ```tsx
-   'use client'
-   
-   import { Header } from '@/components/marketing/Header'
-   import { Footer } from '@/components/marketing/Footer'
-   import { PageWrapper } from '@/components/ui/page-wrapper'
-   // ... other imports
-   
-   export default function NewPage() {
-     return (
-       <div className="min-h-screen flex flex-col">
-         <Header />
-         <PageWrapper>
-           {/* Your content */}
-           <Footer />
-         </PageWrapper>
-       </div>
-     )
-   }
-   ```
-3. Add a link to the new page in `components/marketing/Footer.tsx`
-
-## Local Development
-
-1. **Install Dependencies**
-   ```bash
-   npm install
-   ```
-
-2. **Run Development Server**
-   ```bash
-   npm run dev
-   ```
-
-3. **View Site**
-   - Open http://localhost:3000
-   - Navigate to `/help`, `/faq`, `/community`, `/feedback`, or `/status`
-
-4. **Build for Production**
-   ```bash
-   npm run build
-   npm start
-   ```
+### Page Rules (Optional):
+Create a page rule to redirect www to non-www:
+- URL: `www.qrsnap.app/*`
+- Setting: Forwarding URL (301) to `https://qrsnap.app/$1`
 
 ## Troubleshooting
 
-### Build Failures
+- **404 errors:** Make sure `trailingSlash: true` is set in `next.config.ts` if needed
+- **Images not loading:** Check that image paths start with `/` (absolute paths)
+- **Build fails:** Ensure all dependencies are installed (`npm ci`)
+- **Domain not working:** 
+  - Verify DNS records point to `YOUR_USERNAME.github.io`
+  - Ensure Cloudflare proxy is OFF (gray cloud)
+  - Wait for DNS propagation (can take up to 24 hours)
+  - Check GitHub Pages settings show the custom domain
+- **HTTPS not working:** 
+  - Wait for GitHub to provision SSL certificate (can take up to 24 hours)
+  - Ensure Cloudflare SSL mode is set to Full or Full (strict)
+  - Check GitHub Pages settings show "Enforce HTTPS" is enabled
 
-- Ensure Node.js version is 18+ (check with `node --version`)
-- Clear `.next` folder and `node_modules`, then reinstall:
-  ```bash
-  rm -rf .next node_modules
-  npm install
-  npm run build
-  ```
+## Testing Locally
 
-### Page Not Found
+```bash
+npm install
+npm run build
+npm run start  # Test the built site locally
+```
 
-- Ensure the page file is in the correct location: `app/[page-name]/page.tsx`
-- Check that the route is properly exported as default
-- Verify the page is included in the build output
+## Repository Structure After Build
 
-### Styling Issues
+```
+out/
+├── CNAME          # Custom domain file
+├── index.html
+├── _next/
+├── images/
+└── [other static files]
+```
 
-- Ensure Tailwind CSS is properly configured
-- Check that all component imports are correct
-- Verify `globals.css` is imported in `app/layout.tsx`
+The `out` folder is what gets deployed to GitHub Pages.
 
-## Continuous Deployment
+## Your App Links (After Deployment)
 
-Cloudflare Pages automatically deploys on every push to your main branch. You can configure:
-- **Production branch**: Usually `main` or `master`
-- **Preview deployments**: Automatic for pull requests
-- **Build hooks**: For manual deployments
-
-## Performance Optimization
-
-The site is already optimized with:
-- Next.js automatic code splitting
-- Image optimization
-- Static page generation where possible
-- Efficient CSS with Tailwind
-
-## Support
-
-For issues or questions:
-- Check the Help Center: `/help`
-- View FAQ: `/faq`
-- Submit feedback: `/feedback`
-- Visit Community: `/community`
-
-## License
-
-Copyright © 2024 QRSnap. All rights reserved.
-
+Once deployed, use these URLs in your Flutter app:
+```
+https://qrsnap.app/help
+https://qrsnap.app/faq
+https://qrsnap.app/feedback
+https://qrsnap.app/privacy
+```
