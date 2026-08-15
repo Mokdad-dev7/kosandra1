@@ -9,59 +9,59 @@ import { ChevronDown } from 'lucide-react'
 const faqs = [
   {
     question: 'What types of QR codes can I create?',
-    answer: 'You can create QR codes for URLs, plain text, email addresses, phone numbers, SMS messages, WiFi credentials, contact cards (vCard), calendar events, locations, social media links, barcodes, and custom data.',
-  },
-  {
-    question: 'Can I customize the appearance of my QR codes?',
-    answer: 'Yes! You can add icons to your QR codes. The app automatically shapes and fits icons for optimal appearance while maintaining scannability.',
-  },
-  {
-    question: 'What export formats are available?',
-    answer: 'Export features are Pro tier only. You can export QR codes in CSV, JSON, images ZIP, or parsed text formats. All exports are stored locally on your device.',
-  },
-  {
-    question: 'How do I scan QR codes?',
-    answer: 'You can scan QR codes using your device camera in real-time, or select images from your gallery. The app also supports batch scanning for multiple codes at once (Pro feature).',
-  },
-  {
-    question: 'Is my data secure and private?',
-    answer: 'Yes! All QR code data is stored locally on your device. We do not transmit your QR codes to external servers. Premium and Pro tiers include optional security features (URL Domain Security Check and Email Domain Validation) that use secure APIs but store no data externally. Your privacy is our priority - we never collect or share your personal data.',
-  },
-  {
-    question: 'Are QR codes safe to scan?',
-    answer: 'QR Snap includes optional security features to help protect you. Premium and Pro tiers include URL Domain Security Check and Email Domain Validation to warn you about potentially malicious content. These checks are performed via secure APIs and do not store your data. However, always exercise caution when scanning QR codes from unknown sources.',
-  },
-  {
-    question: 'What barcode and QR code formats are supported?',
-    answer: 'QRSnap supports QR codes (all versions), as well as common barcode formats including EAN-13, EAN-8, UPC-A, UPC-E, Code 128, Code 39, ITF, and Codabar. The app can both generate and scan these formats.',
-  },
-  {
-    question: 'Will QR codes with logos still scan properly?',
-    answer: 'Yes! When you add a logo to your QR code, QRSnap automatically adjusts the error correction level to "High" (H), which allows up to 30% of the code to be obscured while still remaining scannable. The app also optimizes logo placement and size to ensure maximum scannability. We recommend testing your QR code after adding a logo to ensure it scans correctly.',
-  },
-  {
-    question: 'Does the app work offline?',
-    answer: 'Yes! QR code generation and scanning work completely offline. All core functionality is available without an internet connection. Security features like URL Domain Security Check and Email Domain Validation (Premium/Pro tiers) require an internet connection but store no data. Basic scanning and generation work entirely offline.',
-  },
-  {
-    question: 'How is my QR code history stored?',
-    answer: 'All your QR codes are stored locally on your device. The app maintains a history of all generated and scanned QR codes, organized by date. You can mark favorites for quick access. Pro tier includes local backup and restore functionality, allowing you to export your history to a local file and restore it later. Your history never leaves your device unless you explicitly choose to back it up. No cloud sync.',
+    answer: 'You can create QR codes for URLs, plain text, email addresses, phone numbers, SMS messages, WiFi credentials, contact cards (vCard), calendar events, locations, social media links, and product barcodes (EAN, ISBN, etc.).',
   },
   {
     question: 'What are the pricing tiers?',
-    answer: 'QR Snap offers three one-time purchase tiers: Basic ($0.99) removes ads, Premium ($1.99) adds URL Domain Security Check and Email Domain Validation, and Pro ($2.99) includes all Premium features plus batch scanning and local backup/restore. Free users can also access premium features temporarily via rewarded ads (24-hour access).',
-  },
-  {
-    question: 'What features are coming in future updates?',
-    answer: 'We\'re constantly working on improving QR Snap! You can submit feature requests through our feedback page. All updates maintain our privacy-first, offline-first approach with local storage.',
-  },
-  {
-    question: 'Can I backup my QR codes?',
-    answer: 'Yes! Pro tier includes local backup and restore functionality. You can export all your QR codes to a local file and restore them later. Backups are stored locally on your device - no cloud sync. This is a Pro-only feature.',
+    answer: 'QR Snap is Free forever for scan and generate. Optional Lifetime Unlock ($9.99) removes ads and unlocks batch-from-gallery, backup/export/share, and Point of Sale. Extra URL safety check packs (30 / 100 / 250) add checks that never expire on that device. Everyone gets 5 free URL checks per day and unlimited email domain checks.',
   },
   {
     question: 'What are rewarded ads?',
-    answer: 'Free users can watch rewarded ads to temporarily access premium features for 24 hours. This includes security features (Premium tier) and advanced features like batch scanning and backup (Pro tier). Access expires after 24 hours and can be renewed by watching another ad. Usage limits apply to prevent abuse.',
+    answer: 'Watch a short ad to earn +2 URL safety checks (Free and Lifetime users). Free users can also unlock a productivity feature once via rewarded ad. Max 2 ads per rolling 24 hours, 15-minute cooldown between them.',
+  },
+  {
+    question: 'Are QR codes safe to scan?',
+    answer: 'Scanning only reads data. Opening a link can be risky. QR Snap checks links for known threats and suspicious patterns and shows a clear result before you open them.',
+  },
+  {
+    question: 'Is my data secure and private?',
+    answer: 'History and created codes stay on your device. We don\'t require an account. Optional security checks send only what\'s needed for the check to our privacy-minded backend (see Privacy Policy). Purchased credit balances are tied to the app installation, not a login.',
+  },
+  {
+    question: 'Can I backup my QR codes?',
+    answer: 'With Lifetime Unlock you get local backup and restore. No cloud sync.',
+  },
+  {
+    question: 'What export formats are available?',
+    answer: 'Lifetime Unlock enables export in CSV, JSON, and image ZIP formats, plus sharing flows to any app on your device.',
+  },
+  {
+    question: 'Does the app work offline?',
+    answer: 'Scan, generate, history, and most actions work offline. Link safety checks and some product lookups require internet.',
+  },
+  {
+    question: 'How do I scan QR codes?',
+    answer: 'You can scan QR codes using your device camera in real-time, or select images from your gallery. Batch scanning from the camera is free; batch from gallery images requires Lifetime Unlock.',
+  },
+  {
+    question: 'How is my QR code history stored?',
+    answer: 'All your codes are stored locally on your device using Hive on-device storage. The app keeps a history of scanned and generated codes organized by date, and you can mark favorites for quick access. Your history never leaves your device.',
+  },
+  {
+    question: 'What barcode and QR code formats are supported?',
+    answer: 'QR Snap supports QR codes (all versions) plus common barcode formats including EAN-13, EAN-8, UPC, Code 128, Code 39, ITF, and more. The app can both generate and scan these formats.',
+  },
+  {
+    question: 'Will QR codes with logos still scan properly?',
+    answer: 'When you add a logo, the app bumps error correction to "High" (H), so up to 30% of the code can be covered and still scan. Test yours after adding a logo to be sure.',
+  },
+  {
+    question: 'What features are coming?',
+    answer: 'iOS is on the roadmap. No promised dates. Submit ideas through the Feedback page.',
+  },
+  {
+    question: 'What happens to my URL check credits if I uninstall?',
+    answer: 'Purchased URL credits are tied to the anonymous installation wallet. They cannot be restored after uninstalling, clearing app data, or moving to a new device. Lifetime Unlock restores with the same store account via Restore on the Plans screen.',
   },
 ]
 
@@ -79,7 +79,7 @@ export function FAQ({ showHeading = true }: FAQProps) {
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
             <p className="text-muted-foreground text-lg">
-              Everything you need to know about QR Snap
+              Common questions about the app
             </p>
           </div>
         </FadeIn>
@@ -155,4 +155,3 @@ export function FAQ({ showHeading = true }: FAQProps) {
     </div>
   )
 }
-

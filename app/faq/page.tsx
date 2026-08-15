@@ -17,7 +17,7 @@ export default function FAQPage() {
               <div className="text-center mb-12 max-w-3xl mx-auto">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h1>
                 <p className="text-xl text-muted-foreground">
-                  Everything you need to know about QR Snap
+                  Common questions about the app
                 </p>
               </div>
             </FadeIn>

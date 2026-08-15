@@ -9,20 +9,20 @@ import { Badge } from '@/components/ui/badge'
 const features = [
   {
     icon: Camera,
-    title: 'Camera Scan',
-    description: 'Scan QR codes instantly using your device camera. Fast, accurate, and works in any lighting condition.',
+    title: 'Live Camera Scan',
+    description: 'Scan QR codes and barcodes instantly with your device camera. Fast recognition across many formats.',
     direction: 'left',
   },
   {
     icon: Image,
-    title: 'Gallery Scan',
-    description: 'Select images from your gallery to scan QR codes. Perfect for scanning printed codes or screenshots.',
+    title: 'Scan from Gallery',
+    description: 'Select images from your gallery to scan codes. Perfect for printed codes, screenshots, and saved images.',
     direction: 'right',
   },
   {
     icon: Scan,
     title: 'Batch Scan',
-    description: 'Scan multiple QR codes at once. Pro feature for bulk processing and organization.',
+    description: 'Scan several codes in one session. Camera batch scanning is free; batch scanning from gallery images requires Lifetime Unlock.',
     direction: 'left',
     premium: true,
   },
@@ -46,7 +46,7 @@ export function ScanningFeatures() {
       >
         <h2 className="text-4xl md:text-5xl font-bold mb-4">Core Scanning Features</h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          Multiple ways to scan QR codes with advanced recognition technology
+          Multiple ways to scan QR codes and barcodes, with fast recognition across many formats
         </p>
       </motion.div>
 
@@ -86,7 +86,7 @@ export function ScanningFeatures() {
                     <CardTitle>{feature.title}</CardTitle>
                     {feature.premium && (
                       <Badge className="bg-premium-container text-premium border-premium-border">
-                        Premium
+                        Gallery: Lifetime
                       </Badge>
                     )}
                   </div>

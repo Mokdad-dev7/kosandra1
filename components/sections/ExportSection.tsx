@@ -2,15 +2,16 @@
 
 import { motion } from 'framer-motion'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { FileText, FileJson, Archive, Download, Share2, Cloud } from 'lucide-react'
+import { FileText, FileJson, Archive, Download, Share2 } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { Badge } from '@/components/ui/badge'
 
 const exportOptions = [
-  { icon: FileText, name: 'CSV Export', description: 'Pro feature: Export QR codes as CSV file', premium: true },
-  { icon: FileJson, name: 'JSON Export', description: 'Pro feature: Export QR codes as JSON data', premium: true },
-  { icon: Archive, name: 'Images ZIP', description: 'Pro feature: Export QR code images as ZIP archive', premium: true },
-  { icon: Download, name: 'Parsed Text', description: 'Pro feature: Export QR codes as parsed text file', premium: true },
+  { icon: FileText, name: 'CSV Export', description: 'Export your codes as a CSV spreadsheet', premium: true },
+  { icon: FileJson, name: 'JSON Export', description: 'Export your codes as structured JSON data', premium: true },
+  { icon: Archive, name: 'Images ZIP', description: 'Export code images together as a ZIP archive', premium: true },
+  { icon: Download, name: 'Backup & Restore', description: 'Save a local backup and restore it later on this device', premium: true },
+  { icon: Share2, name: 'Share Flows', description: 'Send codes and results to any app on your device', premium: true },
 ]
 
 export function ExportSection() {
@@ -27,7 +28,7 @@ export function ExportSection() {
       >
         <h2 className="text-4xl md:text-5xl font-bold mb-4">Export & Backup</h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          All export features are Pro tier only. Export QR codes in CSV, JSON, images ZIP, or parsed text formats. Local backup and restore functionality included. No cloud sync.
+          Export, backup, and share are included with Lifetime Unlock. Free users can scan, generate, and keep local history. No cloud sync.
         </p>
       </motion.div>
 
@@ -60,7 +61,7 @@ export function ExportSection() {
                     </motion.div>
                     {option.premium && (
                       <Badge className="bg-premium-container text-premium border-premium-border">
-                        Pro
+                        Lifetime
                       </Badge>
                     )}
                   </div>

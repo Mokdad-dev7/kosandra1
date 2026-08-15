@@ -2,37 +2,27 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Cloud, Smartphone, Sparkles, Users } from 'lucide-react'
+import { Smartphone, Sparkles, Wrench } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { useRef } from 'react'
 
 const upcomingFeatures = [
   {
-    icon: Users,
-    title: 'Google Account Sync',
-    description: 'Sync your QR codes across devices with Google',
-    date: 'Q2 2024',
+    icon: Smartphone,
+    title: 'iOS App',
+    description: 'Bring the same Material design experience to iPhone and iPad',
+    status: 'planned',
+  },
+  {
+    icon: Wrench,
+    title: 'Polish & Refinements',
+    description: 'Continued improvements to performance, usability, and edge cases',
     status: 'in-progress',
   },
   {
-    icon: Cloud,
-    title: 'Drive Upload',
-    description: 'Automatically backup to Google Drive',
-    date: 'Q3 2024',
-    status: 'planned',
-  },
-  {
-    icon: Smartphone,
-    title: 'Multi-Device Sync',
-    description: 'Real-time sync across all your devices',
-    date: 'Q3 2024',
-    status: 'planned',
-  },
-  {
     icon: Sparkles,
-    title: 'AI Features',
-    description: 'AI-powered QR code optimization',
-    date: 'Q4 2024',
+    title: 'More to Come',
+    description: 'Submit ideas through the Feedback page',
     status: 'planned',
   },
 ]
@@ -56,9 +46,9 @@ export function ComingSoon() {
         transition={{ duration: 0.6 }}
         className="text-center mb-16"
       >
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">Coming Soon</h2>
+        <h2 className="text-4xl md:text-5xl font-bold mb-4">Roadmap</h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          Exciting features on the roadmap
+          No promised dates, but these are on the list
         </p>
       </motion.div>
 
@@ -126,7 +116,6 @@ export function ComingSoon() {
                 >
                   <div className="flex items-start justify-between mb-2">
                     <CardTitle className="text-xl">{feature.title}</CardTitle>
-                    <span className="text-xs text-muted-foreground">{feature.date}</span>
                   </div>
                   <CardDescription className="mb-3">{feature.description}</CardDescription>
                   <motion.span

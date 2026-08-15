@@ -7,10 +7,10 @@ import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { useState, useEffect } from 'react'
 
 const securityFeatures = [
-  { icon: Shield, title: 'Privacy First', description: 'All QR codes stored locally on your device. No cloud sync, no external storage.' },
-  { icon: Lock, title: 'URL Domain Security Check', description: 'Premium/Pro feature: Check URLs for malicious content before opening. Secure API-based, no data stored.' },
-  { icon: FileCheck, title: 'Email Domain Validation', description: 'Premium/Pro feature: Validate email domains to prevent spam. Local or secure API-based validation.' },
-  { icon: Eye, title: 'Offline-First', description: 'Core functionality works completely offline. Security checks require internet but store no data.' },
+  { icon: Lock, title: 'URL Link Safety Check', description: 'Scanned links are checked against known threats via Google Web Risk, plus suspicious-pattern checks. Everyone gets 5 checks per day; more are available through credit packs.' },
+  { icon: FileCheck, title: 'Email Domain Validation', description: 'Unlimited for everyone. An MX lookup over DNS confirms whether an email domain can receive mail. Does not use your URL check credits.' },
+  { icon: Shield, title: 'Plain-Language Results', description: 'Clear safe, risk, or unavailable states shown inline on the scan result. No need to interpret threat logs.' },
+  { icon: Eye, title: 'Private, Works Offline', description: 'Scans, history, and generated codes stay on your device. Only the link being checked is sent for a safety check.' },
 ]
 
 const shieldStates = ['safe', 'scanning', 'safe'] as const
@@ -66,7 +66,7 @@ export function SecuritySection() {
       >
         <h2 className="text-4xl md:text-5xl font-bold mb-4">Security & Safety</h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          Local storage, privacy-first design, and optional security features to protect you
+          Other QR apps decode the data and stop there. QR Snap checks the link before you open it.
         </p>
       </motion.div>
 

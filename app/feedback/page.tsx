@@ -166,7 +166,7 @@ export default function FeedbackPage() {
                         <h3 className="font-semibold text-foreground mb-2">What happens next?</h3>
                         <p>
                           When you click "Send Email", your default email app will open with 
-                          a pre-filled message addressed to ars.tech.app@gmail.com. Simply review and send!
+                          a pre-filled message addressed to ars.tech.app@gmail.com. Review and send.
                         </p>
                       </div>
                       <div>

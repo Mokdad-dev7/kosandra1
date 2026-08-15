@@ -57,7 +57,7 @@ export function HeroNew() {
               className="text-xl text-muted-foreground max-w-xl leading-relaxed"
             >
               Professional QR code generator with advanced customization. All data stored locally on your device. 
-              Privacy-first, offline-first. Perfect for businesses and individuals.
+              Data stays on your device. Works offline.
             </motion.p>
 
             {/* CTAs */}

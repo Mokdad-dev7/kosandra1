@@ -2,27 +2,27 @@
 
 import { motion } from 'framer-motion'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Smartphone, Monitor, Tablet, CheckCircle2 } from 'lucide-react'
+import { Smartphone, Layers, ShieldCheck, CheckCircle2 } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 
 const specs = [
   {
     icon: Smartphone,
     title: 'Mobile First',
-    description: 'Optimized for iOS and Android devices',
-    features: ['Native camera integration', 'Offline support', 'Fast scanning'],
+    description: 'Built for Android today, with iOS planned',
+    features: ['Native camera integration', 'Local storage, works offline', 'Fast scanning', 'Adaptive mobile layouts'],
   },
   {
-    icon: Monitor,
-    title: 'Web Platform',
-    description: 'Full-featured web application',
-    features: ['Cross-browser support', 'Progressive Web App', 'Real-time sync'],
+    icon: Layers,
+    title: 'Built with Flutter',
+    description: 'One Material 3 design language across platforms',
+    features: ['Flutter and Material 3', 'On-device Hive storage', 'Smooth, consistent UI'],
   },
   {
-    icon: Tablet,
-    title: 'Tablet Optimized',
-    description: 'Perfect experience on tablets',
-    features: ['Adaptive layouts', 'Touch gestures', 'Split-screen support'],
+    icon: ShieldCheck,
+    title: 'Backed Safety Checks',
+    description: 'Server-backed link safety and store billing',
+    features: ['Cloudflare Worker link safety', 'Google Web Risk threat data', 'Play Billing for Lifetime and packs'],
   },
 ]
 
@@ -40,7 +40,7 @@ export function TechSpecs() {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Technical Specs</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Built for performance across all platforms
+            Built for speed on mobile, with safety checks backed by a privacy-minded server
           </p>
         </motion.div>
 

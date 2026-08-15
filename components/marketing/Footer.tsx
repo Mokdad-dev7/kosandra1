@@ -70,7 +70,7 @@ export function Footer() {
                 <AnimatedLogo size={64} showText={true} />
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-                Create, customize, and scan QR codes with ease. Privacy-first, offline-first.
+                Scan and create QR codes. Check links before you open them. Data stays on your device.
               </p>
               <p className="text-xs text-muted-foreground/60 mt-4">
                 Created by{' '}

@@ -5,7 +5,8 @@ import { QRTypesGrid } from '@/components/sections/QRTypesGrid'
 import { SecuritySection } from '@/components/sections/SecuritySection'
 import { HistorySection } from '@/components/sections/HistorySection'
 import { ExportSection } from '@/components/sections/ExportSection'
-import { PremiumTiers } from '@/components/sections/PremiumTiers'
+import { PointOfSale } from '@/components/sections/PointOfSale'
+import { Pricing } from '@/components/sections/Pricing'
 import { DesignSystem } from '@/components/sections/DesignSystem'
 import { TechSpecs } from '@/components/sections/TechSpecs'
 import { ComingSoon } from '@/components/sections/ComingSoon'
@@ -40,19 +41,22 @@ export default function HomePage() {
         {/* 7. Export & Backup */}
         <ExportSection />
         
-        {/* 8. Premium Tiers */}
-        <PremiumTiers />
+        {/* 8. Point of Sale */}
+        <PointOfSale />
         
-        {/* 9. UI/UX Design System */}
+        {/* 9. Plans & Pricing */}
+        <Pricing />
+        
+        {/* 10. UI/UX Design System */}
         <DesignSystem />
         
-        {/* 10. Technical Specs */}
+        {/* 11. Technical Specs */}
         <TechSpecs />
         
-        {/* 11. Coming Soon */}
+        {/* 12. Roadmap */}
         <ComingSoon />
         
-        {/* 12. FAQ Preview */}
+        {/* 13. FAQ Preview */}
         <FAQ />
         
         {/* 14. Final CTA */}

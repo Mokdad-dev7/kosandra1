@@ -72,7 +72,7 @@ export function FeaturesNew() {
       >
         <h2 className="text-4xl md:text-5xl font-bold mb-4">Powerful Features</h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          Everything you need to create and manage professional QR codes
+          Scan, create, and organize QR codes
         </p>
       </motion.div>
 

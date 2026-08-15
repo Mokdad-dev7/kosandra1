@@ -46,7 +46,7 @@ export function Hero() {
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Generate professional QR codes for URLs, contacts, WiFi, and more.{' '}
               <span className="text-foreground font-medium">
-                Add icons to QR codes. All data stored locally on your device. Privacy-first, offline-first.
+                Add icons to QR codes. All data stored locally on your device. Works offline.
               </span>
             </p>
           </FadeIn>

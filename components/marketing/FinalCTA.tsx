@@ -65,7 +65,7 @@ export function FinalCTA() {
           >
             {/* Google Play - Active */}
             <motion.a
-              href="https://play.google.com/store/apps/details?id=com.qrsnap.app"
+              href="https://play.google.com/store/apps/details?id=com.ars.qr_snap"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}

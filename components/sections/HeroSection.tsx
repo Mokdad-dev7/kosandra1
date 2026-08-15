@@ -48,7 +48,7 @@ export function HeroSection() {
               transition={{ delay: 0.1, duration: 0.5 }}
             >
               <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-                Professional QR Code Generator
+                QR &amp; Barcode Scanner with Link Safety Checks
               </span>
             </motion.div>
 
@@ -57,13 +57,13 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ delay: 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
             >
-              Create, Customize &{' '}
+              Scan QR codes and check if a link is{' '}
               <span className="bg-gradient-to-r from-primary via-info to-primary bg-clip-text text-transparent animate-gradient">
-                Scan QR Codes
+                safe
               </span>
-              {' '}Instantly
+              {' '}before you open it
             </motion.h1>
 
             {/* Description */}
@@ -73,8 +73,9 @@ export function HeroSection() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="text-xl md:text-2xl text-muted-foreground max-w-xl leading-relaxed"
             >
-              Generate professional QR codes with advanced customization. All data stored locally on your device. 
-              Privacy-first, offline-first, perfect for businesses and individuals.
+              Scan and generate QR codes and barcodes. Before you open a link, see whether it's flagged
+              as a threat. Email domain checks confirm the address can receive mail. You don't need security
+              expertise. Your data stays on your device.
             </motion.p>
 
             {/* CTAs - Staggered */}

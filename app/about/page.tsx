@@ -12,18 +12,18 @@ import { AnimatedLogo } from '@/components/ui/AnimatedLogo'
 const values = [
   {
     icon: Target,
-    title: 'Our Mission',
-    description: 'Make QR code generation accessible, powerful, and beautiful for everyone.',
+    title: 'Mission',
+    description: 'Let people scan QR codes and know whether a link is safe before opening it.',
   },
   {
     icon: Users,
-    title: 'Our Team',
-    description: 'A passionate team of developers and designers building the future of QR codes.',
+    title: 'Approach',
+    description: 'Your scans and codes stay on your device. No accounts, no tracking, works offline.',
   },
   {
     icon: Heart,
-    title: 'Our Values',
-    description: 'Privacy, security, and user experience are at the core of everything we do.',
+    title: 'Values',
+    description: 'Transparent pricing, simple features, no dark patterns.',
   },
 ]
 
@@ -46,8 +46,8 @@ export default function AboutPage() {
                 </motion.div>
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">About QR Snap</h1>
                 <p className="text-xl text-muted-foreground">
-                  Developed by <span className="font-semibold text-foreground">Ars Technology</span> - 
-                  Building the most advanced QR code platform for businesses and individuals.
+                  Developed by <span className="font-semibold text-foreground">Ars Technology</span>. 
+                  QR &amp; barcode scanner with built-in link safety checks.
                 </p>
               </div>
             </FadeIn>
@@ -56,22 +56,27 @@ export default function AboutPage() {
               <div className="max-w-4xl mx-auto space-y-8 mb-16">
                 <div className="prose prose-lg dark:prose-invert max-w-none">
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    QR Snap is a fast, privacy-focused QR code scanner and generator built to be simple, secure, and reliable.
+                    Scan and generate QR codes and barcodes. Before you open a link, QR Snap checks it against
+                    Google Web Risk threat data and shows you a clear safe/risk result.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    The app is developed using Flutter and designed with an offline-first approach, meaning scanning and QR creation work without an internet connection. All scanned and created QR codes are stored locally on your device — no accounts, no servers, and no data tracking.
+                    Email domain validation confirms whether an address can receive mail. You don't need
+                    security expertise. The checks run through a Cloudflare Worker backend that stores nothing.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    QR Snap supports multiple QR and barcode types and includes history and favorites to easily save, reuse, and manage important codes.
+                    Data stays on your device. No accounts, no cloud sync. Scanning, generating, and local history
+                    all work offline. Built with Flutter, local Hive storage keeps your data on the device
+                    using local Hive storage.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    For users who want extra protection, Premium and Pro plans offer optional security checks such as URL and email domain validation to help identify suspicious links before opening them.
+                    The free tier includes 5 URL safety checks per day and unlimited email domain checks. Optional
+                    Lifetime Unlock ($9.99, one-time) removes ads and unlocks batch scanning from gallery,
+                    backup/restore, export/share, and Point of Sale tools. URL check packs are available if you
+                    need more than the daily allowance.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    Power users can unlock Pro features like QR export, backups, and batch tools, while free users can access core functionality with ads or temporarily unlock premium features through rewarded ads.
-                  </p>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    QR Snap is built with transparency, performance, and user control in mind — offering only features that are clearly explained and genuinely useful.
+                    QR Snap is currently live on Android (Google Play). iOS is planned with the same Material
+                    design language.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed mt-6">
                     <strong className="text-foreground">Developed by Ars Technology</strong>
@@ -80,7 +85,7 @@ export default function AboutPage() {
                       href="mailto:ars.tech.app@gmail.com" 
                       className="text-primary hover:underline"
                     >
-                      📧 ars.tech.app@gmail.com
+                      ars.tech.app@gmail.com
                     </a>
                   </p>
                 </div>

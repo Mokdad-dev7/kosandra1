@@ -4,13 +4,13 @@ import { Header } from '@/components/marketing/Header'
 import { Footer } from '@/components/marketing/Footer'
 import { FadeIn } from '@/components/ui/fade-in'
 import { Card, CardContent } from '@/components/ui/card'
-import { Calendar, Shield, Eye, Lock, Users, AlertCircle, Mail } from 'lucide-react'
+import { Calendar, Shield, Eye, Lock, Users, AlertCircle, Mail, Database, CreditCard } from 'lucide-react'
 
 const appName = 'QR Snap'
 const contactEmail = 'ars.tech.app@gmail.com'
 const developerName = 'Ars Technology'
 
-function Section({ title, content, icon: Icon }: { title: string; content: React.ReactNode; icon?: any }) {
+function Section({ title, content, icon: Icon }: { title: string; content: React.ReactNode; icon?: React.ElementType }) {
   return (
     <div className="mb-8">
       <div className="flex items-center gap-3 mb-4">
@@ -61,129 +61,127 @@ export default function PrivacyPage() {
               <CardContent className="pt-6 space-y-8">
                 <div className="prose prose-lg dark:prose-invert max-w-none">
                   <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                    {appName} ("the App") respects your privacy. This Privacy Policy explains how information is collected, used, and protected when you use the app.
+                    {appName} (&ldquo;the App&rdquo;) respects your privacy. This Privacy Policy explains how information is collected, used, and protected when you use the app.
                   </p>
 
                   <Section
-                    title="1. Information We Collect"
-                    icon={Eye}
-                    content={
-                      <>
-                        <div>
-                          <h3 className="text-lg font-semibold text-foreground mb-2">1.1 Information You Provide</h3>
-                          <p>
-                            {appName} does not require account creation. We do not collect:
-                          </p>
-                          <ul className="list-disc list-inside mt-2 space-y-1 ml-4">
-                            <li>Names</li>
-                            <li>Email addresses</li>
-                            <li>Phone numbers</li>
-                            <li>Login credentials</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h3 className="text-lg font-semibold text-foreground mb-2">1.2 Automatically Collected Information</h3>
-                          <p>
-                            The app may collect limited technical data to function properly:
-                          </p>
-                          <ul className="list-disc list-inside mt-2 space-y-1 ml-4">
-                            <li>Device information (device model, OS version)</li>
-                            <li>Anonymous device identifier (hashed, non-reversible)</li>
-                            <li>Ad interaction data (for ads and rewarded ads)</li>
-                            <li>Crash and performance data</li>
-                          </ul>
-                          <p className="mt-2">
-                            This data is collected anonymously and cannot be used to identify you personally.
-                          </p>
-                        </div>
-                      </>
-                    }
-                  />
-
-                  <Section
-                    title="2. Advertising"
-                    icon={Eye}
+                    title="1. No Account Required"
+                    icon={Users}
                     content={
                       <>
                         <p>
-                          {appName} displays ads for free users.
+                          {appName} does not require account creation. We use an anonymous installation identifier solely for entitlements and the URL-check credit wallet. We do not collect:
                         </p>
-                        <div className="mt-3">
-                          <p className="font-semibold mb-2">Ads are served by Google AdMob</p>
-                          <p>Google may collect:</p>
-                          <ul className="list-disc list-inside mt-2 space-y-1 ml-4">
-                            <li>Advertising identifiers</li>
-                            <li>Ad interaction data</li>
-                          </ul>
-                          <p className="mt-2">
-                            This is governed by Google's Privacy Policy:{' '}
-                            <a 
-                              href="https://policies.google.com/privacy" 
-                              target="_blank" 
-                              rel="noopener noreferrer"
-                              className="text-primary hover:underline"
-                            >
-                              https://policies.google.com/privacy
-                            </a>
-                          </p>
-                        </div>
-                        <div className="mt-4">
-                          <p className="font-semibold mb-2">Rewarded Ads</p>
-                          <p>
-                            Rewarded ads are optional and allow temporary access to premium features for 24 hours.
-                            This includes Premium security features and Pro features like batch scanning and backup.
-                            Usage limits are enforced to prevent abuse. Access expires after 24 hours.
-                          </p>
-                        </div>
+                        <ul className="list-disc list-inside mt-2 space-y-1 ml-4">
+                          <li>Names</li>
+                          <li>Email addresses</li>
+                          <li>Phone numbers</li>
+                          <li>Login credentials</li>
+                        </ul>
                       </>
                     }
                   />
 
                   <Section
-                    title="3. Subscriptions & Purchases"
-                    icon={Lock}
+                    title="2. Local-First Storage"
+                    icon={Database}
+                    content={
+                      <>
+                        <ul className="list-disc list-inside space-y-2 ml-4">
+                          <li>All scanned and generated QR codes are stored locally on your device using Hive on-device storage</li>
+                          <li>No cloud storage or automatic sync is used</li>
+                          <li>Lifetime Unlock includes local backup &amp; restore functionality (export to a local file)</li>
+                          <li>Your data never leaves your device unless you explicitly choose to export or share it</li>
+                        </ul>
+                      </>
+                    }
+                  />
+
+                  <Section
+                    title="3. Security Checks"
+                    icon={Shield}
+                    content={
+                      <>
+                        <p>
+                          When you request a URL safety check, the URL may be sent to our Cloudflare Worker backend. The backend may query:
+                        </p>
+                        <ul className="list-disc list-inside mt-2 space-y-1 ml-4">
+                          <li><strong>Google Web Risk</strong>: primary threat data source</li>
+                          <li><strong>VirusTotal</strong>: optional enrichment (only if commercially enabled)</li>
+                        </ul>
+                        <p className="mt-3">
+                          <strong>Email domain (MX) validation</strong> uses public DNS (e.g., dns.google) and does not consume URL check credits. No personal data is stored by our backend.
+                        </p>
+                      </>
+                    }
+                  />
+
+                  <Section
+                    title="4. Purchases"
+                    icon={CreditCard}
                     content={
                       <>
                         <p>
                           {appName} offers optional purchases:
                         </p>
                         <ul className="list-disc list-inside mt-2 space-y-1 ml-4">
-                          <li><strong>Basic</strong> – Remove ads</li>
-                          <li><strong>Premium</strong> – Additional security and validation features</li>
-                          <li><strong>Pro</strong> – Advanced scanning and backup features</li>
+                          <li><strong>Lifetime Unlock ($9.99)</strong>: one-time non-consumable; removes ads and unlocks premium features</li>
+                          <li><strong>URL Credit Packs</strong>: consumables (30 / 100 / 250 checks); never expire on that installation</li>
                         </ul>
                         <p className="mt-3">
-                          Payments are processed securely by:
+                          Payments are processed securely by Google Play Store and Apple App Store. {appName} does not process or store payment information.
                         </p>
-                        <ul className="list-disc list-inside mt-2 space-y-1 ml-4">
-                          <li>Google Play Store</li>
-                          <li>Apple App Store</li>
-                        </ul>
                         <p className="mt-3">
-                          {appName} does not process or store payment information.
+                          Purchase tokens are verified server-side for Lifetime and credit entitlements.
                         </p>
                       </>
                     }
                   />
 
                   <Section
-                    title="4. Data Storage"
-                    icon={Lock}
+                    title="5. URL Credit Recoverability"
+                    icon={AlertCircle}
                     content={
                       <>
-                        <ul className="list-disc list-inside space-y-2 ml-4">
-                          <li>All QR codes are stored locally on your device only</li>
-                          <li>No cloud storage or automatic sync is used</li>
-                          <li>Pro tier includes local backup & restore functionality (export to local file)</li>
-                          <li>Backups are stored locally on your device - no external storage</li>
-                          <li>Your data never leaves your device unless you explicitly choose to export it</li>
-                        </ul>
+                        <p>
+                          Purchased URL credits are tied to the anonymous installation wallet. They <strong className="text-foreground">cannot be restored</strong> after uninstalling, clearing app data, or moving to a new device.
+                        </p>
+                        <p className="mt-3">
+                          <strong>Lifetime Unlock</strong> does restore with the same store account using Restore on the Plans screen.
+                        </p>
                       </>
                     }
                   />
 
                   <Section
-                    title="5. Analytics & Diagnostics"
+                    title="6. Advertising"
+                    icon={Eye}
+                    content={
+                      <>
+                        <p>
+                          {appName} displays ads for Free users via Google AdMob (banner, interstitial, and rewarded ads).
+                        </p>
+                        <ul className="list-disc list-inside mt-2 space-y-1 ml-4">
+                          <li><strong>Lifetime Unlock</strong> removes passive ads (banners and interstitials) permanently</li>
+                          <li><strong>Rewarded ads</strong> remain optional for bonus URL checks</li>
+                        </ul>
+                        <p className="mt-3">
+                          Google may collect advertising identifiers and ad interaction data. This is governed by{' '}
+                          <a 
+                            href="https://policies.google.com/privacy" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-primary hover:underline"
+                          >
+                            Google&apos;s Privacy Policy
+                          </a>.
+                        </p>
+                      </>
+                    }
+                  />
+
+                  <Section
+                    title="7. Analytics &amp; Diagnostics"
                     icon={Eye}
                     content={
                       <>
@@ -196,30 +194,14 @@ export default function PrivacyPage() {
                           <li>Feature usage statistics</li>
                         </ul>
                         <p className="mt-2">
-                          This data is anonymized and used only to improve the app.
+                          This data is anonymized and used only to improve the app. We do not sell personal scan contents for advertising profiles.
                         </p>
                       </>
                     }
                   />
 
                   <Section
-                    title="6. Data Security"
-                    icon={Shield}
-                    content={
-                      <>
-                        <p>We use industry-standard practices to protect data:</p>
-                        <ul className="list-disc list-inside mt-2 space-y-1 ml-4">
-                          <li>All QR codes stored locally on your device</li>
-                          <li>Premium/Pro security features (URL Domain Security Check, Email Domain Validation) use secure APIs but store no data externally</li>
-                          <li>No unnecessary data collection</li>
-                          <li>No cloud sync or external storage</li>
-                        </ul>
-                      </>
-                    }
-                  />
-
-                  <Section
-                    title="7. Children's Privacy"
+                    title="8. Children&apos;s Privacy"
                     icon={Users}
                     content={
                       <>
@@ -232,7 +214,7 @@ export default function PrivacyPage() {
                   />
 
                   <Section
-                    title="8. Changes to This Policy"
+                    title="9. Changes to This Policy"
                     icon={AlertCircle}
                     content={
                       <>
@@ -244,7 +226,7 @@ export default function PrivacyPage() {
                   />
 
                   <Section
-                    title="9. Contact"
+                    title="10. Contact"
                     icon={Mail}
                     content={
                       <>
@@ -256,7 +238,7 @@ export default function PrivacyPage() {
                             href={`mailto:${contactEmail}`}
                             className="text-primary hover:underline font-medium"
                           >
-                            📧 {contactEmail}
+                            {contactEmail}
                           </a>
                         </p>
                         <p className="mt-3 text-sm text-muted-foreground">

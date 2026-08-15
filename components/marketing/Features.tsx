@@ -46,7 +46,7 @@ export function Features() {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Powerful Features</h2>
             <p className="text-muted-foreground text-lg">
-              Everything you need to create and manage professional QR codes
+              Scan, create, and organize QR codes
             </p>
           </div>
         </FadeIn>

@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "QR Snap - Generate & Customize QR Codes",
-  description: "Create, customize, and scan QR codes for URLs, text, contacts, WiFi, and more. Privacy-first QR code generator with local storage. Developed by Ars Technology.",
+  title: "QR Snap - Scan QR Codes with Link Safety Checks",
+  description: "Scan and create QR codes and barcodes. Check links for threats before you open them. Email domain validation confirms addresses can receive mail. Data stays on your device. Developed by Ars Technology.",
 };
 
 export default function RootLayout({

@@ -12,11 +12,6 @@ import {
   Share2, 
   Shield, 
   Settings,
-  Camera,
-  Image as ImageIcon,
-  FileImage,
-  Link2,
-  Smartphone
 } from 'lucide-react'
 
 const tutorials = [
@@ -25,7 +20,7 @@ const tutorials = [
     title: 'Scanning QR Codes',
     description: 'Learn how to scan QR codes using your device camera',
     steps: [
-      'Open the QRSnap app on your device',
+      'Open the QR Snap app on your device',
       'Tap the "Scan" button on the home screen',
       'Point your camera at the QR code you want to scan',
       'The app will automatically detect and decode the QR code',
@@ -34,7 +29,7 @@ const tutorials = [
     ],
     tips: [
       'You can also scan QR codes from images in your gallery',
-      'Batch scanning is available in Premium and Pro tiers',
+      'Batch scanning from gallery images requires Lifetime Unlock',
       'The app works offline for basic scanning'
     ]
   },
@@ -43,7 +38,7 @@ const tutorials = [
     title: 'Generating QR Codes',
     description: 'Create custom QR codes for any purpose',
     steps: [
-      'Open QRSnap and tap "Generate" or the "+" button',
+      'Open QR Snap and tap "Generate" or the "+" button',
       'Select the type of QR code you want to create (URL, Text, Contact, WiFi, etc.)',
       'Fill in the required information for your QR code type',
       'For location-based QR codes, use the map picker to select coordinates',
@@ -57,23 +52,22 @@ const tutorials = [
     ]
   },
   {
-    icon: FileImage,
-    title: 'Exporting QR Codes (Pro Only)',
-    description: 'Export your QR codes in multiple formats (Pro tier required)',
+    icon: Download,
+    title: 'Exporting QR Codes (Lifetime Unlock)',
+    description: 'Export your QR codes in multiple formats',
     steps: [
-      'Ensure you have Pro tier subscription',
+      'Ensure you have Lifetime Unlock',
       'Open the export menu from the main screen',
       'Select your preferred export format:',
       '  • CSV - Export as spreadsheet data',
       '  • JSON - Export as structured data',
       '  • Images ZIP - Export all QR code images as ZIP archive',
-      '  • Parsed Text - Export as plain text file',
       'Choose the location to save the exported file',
       'The file will be saved locally on your device'
     ],
     tips: [
-      'All export features are Pro tier only',
-      'Exports are stored locally - no cloud sync',
+      'All export features require Lifetime Unlock',
+      'Exports are stored locally, no cloud sync',
       'You can restore exported data using the restore feature'
     ]
   },
@@ -83,7 +77,7 @@ const tutorials = [
     description: 'Share your QR codes with others',
     steps: [
       'Open the QR code you want to share',
-      'Tap the "Share" button (usually an icon with three dots or share symbol)',
+      'Tap the "Share" button',
       'Choose your sharing method:',
       '  • Share QR code image',
       '  • Copy to clipboard',
@@ -93,42 +87,39 @@ const tutorials = [
     tips: [
       'You can share multiple QR codes at once',
       'Sharing as image preserves all customizations',
-      'All QR codes are stored locally on your device'
+      'Share flows require Lifetime Unlock'
     ]
   },
   {
     icon: Shield,
-    title: 'Privacy & Security',
-    description: 'Understand how QRSnap protects your data',
+    title: 'Privacy &amp; Security',
+    description: 'Understand how QR Snap protects your data',
     steps: [
       'All QR codes are stored locally on your device',
       'No data is transmitted to external servers without your permission',
-      'The app includes security features to protect you:',
-      '  • URL reputation checking (Pro tier)',
-      '  • Email domain validation (Pro tier)',
-      '  • Safe scanning warnings',
-      'Review app permissions in your device settings',
-      'Use the privacy settings to control data sharing'
+      'URL safety checks send only the link to our privacy-minded backend',
+      'Email domain (MX) validation uses public DNS, no credits used',
+      'Review app permissions in your device settings'
     ],
     tips: [
-      'Camera permission is required for scanning',
-      'Storage permission is needed to save QR codes',
-      'Network permission is optional and only used for security checks',
-      'You can revoke permissions at any time in device settings'
+      'Everyone gets 5 URL safety checks per day',
+      'URL Credit Packs add more checks that never expire on that device',
+      'Purchased credits cannot be restored after uninstall or app-data clear',
+      'Lifetime Unlock restores with the same store account'
     ]
   },
   {
     icon: Settings,
     title: 'App Permissions',
-    description: 'Manage what QRSnap can access on your device',
+    description: 'Manage what QR Snap can access on your device',
     steps: [
       'Go to your device Settings',
-      'Navigate to Apps → QRSnap → Permissions',
+      'Navigate to Apps → QR Snap → Permissions',
       'Review and manage the following permissions:',
       '  • Camera: Required for scanning QR codes',
       '  • Storage/Photos: Needed to save and access QR codes',
       '  • Location: Optional, used for location-based QR codes',
-      '  • Network: Optional, used for security features',
+      '  • Network: Optional, used for URL safety checks and product lookups',
       'Enable or disable permissions as needed',
       'The app will work with minimal permissions for basic features'
     ],
@@ -136,7 +127,7 @@ const tutorials = [
       'Camera permission is essential for the app to function',
       'You can still generate QR codes without storage permission',
       'Location permission is only needed for location QR code types',
-      'Network permission is optional and only for Pro features'
+      'Network permission is optional, offline scanning and generation still work'
     ]
   }
 ]
@@ -152,7 +143,7 @@ export default function HelpPage() {
               <div className="text-center mb-16 max-w-3xl mx-auto">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">Help Center</h1>
                 <p className="text-xl text-muted-foreground">
-                  Everything you need to know about using QRSnap
+                  Guides for scanning, generating, exporting, and permissions
                 </p>
               </div>
             </FadeIn>
@@ -206,7 +197,7 @@ export default function HelpPage() {
                   <CardHeader>
                     <CardTitle>Still need help?</CardTitle>
                     <CardDescription>
-                      Can't find what you're looking for? We're here to help.
+                      Can&apos;t find what you&apos;re looking for? We&apos;re here to help.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -235,4 +226,3 @@ export default function HelpPage() {
     </div>
   )
 }
-

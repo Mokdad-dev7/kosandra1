@@ -5,13 +5,13 @@ import { Footer } from '@/components/marketing/Footer'
 import { PageWrapper } from '@/components/ui/page-wrapper'
 import { FadeIn } from '@/components/ui/fade-in'
 import { Card, CardContent } from '@/components/ui/card'
-import { Calendar, FileText, AlertTriangle, CreditCard, Shield, Ban, Mail } from 'lucide-react'
+import { Calendar, FileText, AlertTriangle, CreditCard, Shield, Ban, Mail, Store } from 'lucide-react'
 
 const appName = 'QR Snap'
 const contactEmail = 'ars.tech.app@gmail.com'
 const developerName = 'Ars Technology'
 
-function Section({ title, content, icon: Icon }: { title: string; content: React.ReactNode; icon?: any }) {
+function Section({ title, content, icon: Icon }: { title: string; content: React.ReactNode; icon?: React.ElementType }) {
   return (
     <div className="mb-8">
       <div className="flex items-center gap-3 mb-4">
@@ -85,15 +85,16 @@ export default function TermsPage() {
                     />
 
                     <Section
-                      title="2. Features & Availability"
+                      title="2. Features &amp; Availability"
                       icon={Shield}
                       content={
                         <>
                           <p>Features may vary based on:</p>
                           <ul className="list-disc list-inside mt-2 space-y-1 ml-4">
-                            <li>Free usage (with ads)</li>
-                            <li>One-time purchases (Basic, Premium, Pro)</li>
-                            <li>Temporary 24-hour access via rewarded ads</li>
+                            <li>Free usage (with ads, 5 URL checks/day, unlimited email checks)</li>
+                            <li>Lifetime Unlock (one-time purchase: ads removed, batch gallery, backup, export, POS)</li>
+                            <li>URL Credit Packs (consumables: 30 / 100 / 250 checks)</li>
+                            <li>Rewarded ads for +2 URL checks</li>
                           </ul>
                           <p className="mt-3">
                             We reserve the right to modify features at any time.
@@ -108,37 +109,34 @@ export default function TermsPage() {
                       content={
                         <>
                           <p>
-                            {appName} offers one-time purchases (not subscriptions):
+                            {appName} offers the following purchases:
                           </p>
                           <ul className="list-disc list-inside mt-2 space-y-1 ml-4">
-                            <li><strong>Basic ($0.99)</strong> – Remove ads</li>
-                            <li><strong>Premium ($1.99)</strong> – Security features (URL Domain Security Check, Email Domain Validation)</li>
-                            <li><strong>Pro ($2.99)</strong> – All Premium features plus batch scanning and local backup/restore</li>
+                            <li><strong>Lifetime Unlock ($9.99)</strong>: one-time <strong>non-consumable</strong>; removes ads and unlocks premium features</li>
+                            <li><strong>URL Credit Packs</strong>: <strong>consumables</strong> (30 / 100 / 250 checks); never expire on that installation</li>
                           </ul>
                           <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
-                            <li>Purchases are handled by the app stores (Google Play, Apple App Store)</li>
-                            <li>Prices may change</li>
-                            <li>Restoring purchases is supported for eligible plans</li>
-                            <li>{appName} does not process or store payment information</li>
+                            <li>Purchases are handled by Google Play Store and Apple App Store</li>
+                            <li>Prices may change; localized store prices are authoritative</li>
+                            <li>Lifetime Unlock can be restored via Restore on the Plans screen with the same store account</li>
+                            <li><strong>URL credits cannot be restored</strong> after uninstalling, clearing app data, or moving to a new device</li>
                           </ul>
                           <p className="mt-3">
-                            {appName} is not responsible for store billing issues.
+                            Refunds follow Google Play / App Store policies. {appName} does not process or store payment information.
                           </p>
                         </>
                       }
                     />
 
                     <Section
-                      title="4. Ads & Rewarded Access"
+                      title="4. Ads &amp; Rewarded Access"
                       icon={Shield}
                       content={
                         <>
                           <ul className="list-disc list-inside space-y-2 ml-4">
-                            <li>Free users may see ads served by Google AdMob</li>
-                            <li>Rewarded ads are optional and grant temporary 24-hour access to premium features</li>
-                            <li>Temporary access includes Premium security features and Pro features (batch scanning, backup)</li>
-                            <li>Access expires after 24 hours and can be renewed by watching another ad</li>
-                            <li>Usage limits are enforced to prevent abuse</li>
+                            <li>Free users see ads served by Google AdMob (banner and interstitial)</li>
+                            <li>Rewarded ads are optional and grant <strong>+2 URL safety checks</strong></li>
+                            <li>Rewarded ads are limited: max 2 per rolling 24 hours, 15-minute cooldown</li>
                             <li>Abuse or manipulation may result in feature restriction</li>
                           </ul>
                         </>
@@ -146,12 +144,27 @@ export default function TermsPage() {
                     />
 
                     <Section
-                      title="5. Disclaimer"
+                      title="5. Point of Sale"
+                      icon={Store}
+                      content={
+                        <>
+                          <p>
+                            The POS feature is an on-device tool included with Lifetime Unlock. POS data (inventory, sales, receipts) stays on your device and is backed up with the Lifetime backup tools.
+                          </p>
+                          <p className="mt-3">
+                            <strong>You are responsible</strong> for tax collection, receipt legality, and compliance with local regulations in your jurisdiction.
+                          </p>
+                        </>
+                      }
+                    />
+
+                    <Section
+                      title="6. Disclaimer"
                       icon={AlertTriangle}
                       content={
                         <>
                           <p>
-                            {appName} is provided "as is" without warranties of any kind.
+                            {appName} is provided &ldquo;as is&rdquo; without warranties of any kind.
                             We do not guarantee uninterrupted or error-free operation.
                           </p>
                         </>
@@ -159,22 +172,23 @@ export default function TermsPage() {
                     />
 
                     <Section
-                      title="6. Limitation of Liability"
+                      title="7. Limitation of Liability"
                       icon={AlertTriangle}
                       content={
                         <>
                           <p>We are not liable for:</p>
                           <ul className="list-disc list-inside mt-2 space-y-1 ml-4">
-                            <li>Data loss due to device failure</li>
+                            <li>Data loss due to device failure, uninstall, or app-data clear</li>
                             <li>Misuse of QR codes</li>
                             <li>Third-party services or ads</li>
+                            <li>False positives or negatives from security checks</li>
                           </ul>
                         </>
                       }
                     />
 
                     <Section
-                      title="7. Termination"
+                      title="8. Termination"
                       icon={Ban}
                       content={
                         <>
@@ -186,7 +200,7 @@ export default function TermsPage() {
                     />
 
                     <Section
-                      title="8. Changes to Terms"
+                      title="9. Changes to Terms"
                       icon={FileText}
                       content={
                         <>
@@ -198,7 +212,7 @@ export default function TermsPage() {
                     />
 
                     <Section
-                      title="9. Contact"
+                      title="10. Contact"
                       icon={Mail}
                       content={
                         <>
@@ -210,7 +224,7 @@ export default function TermsPage() {
                               href={`mailto:${contactEmail}`}
                               className="text-primary hover:underline font-medium"
                             >
-                              📧 {contactEmail}
+                              {contactEmail}
                             </a>
                           </p>
                           <p className="mt-3 text-sm text-muted-foreground">
