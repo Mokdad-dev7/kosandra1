@@ -1,9 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Star, Clock, Search, Filter } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
+import { AppScreenshot } from '@/components/marketing/AppScreenshot'
+import { shots } from '@/lib/screenshots'
 
 const historyFeatures = [
   { icon: Clock, title: 'Scan History', description: 'Complete log of all scanned QR codes with timestamps' },
@@ -16,7 +18,7 @@ export function HistorySection() {
   const { ref, isInView } = useScrollReveal()
 
   return (
-    <section ref={ref} className="py-20 bg-muted/20">
+    <section ref={ref} className="py-20 bg-muted/20 overflow-x-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -30,41 +32,11 @@ export function HistorySection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {/* Left: UI Mockup */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-background rounded-2xl border p-6 shadow-lg"
-          >
-            <div className="space-y-3">
-              {[1, 2, 3, 4].map((i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                  transition={{ delay: 0.3 + i * 0.1, duration: 0.4 }}
-                  className="flex items-center gap-3 p-3 bg-muted rounded-lg"
-                >
-                  <div className="w-10 h-10 bg-primary/10 rounded flex items-center justify-center">
-                    <div className="w-6 h-6 bg-primary/20 rounded" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="h-3 bg-foreground/20 rounded w-3/4 mb-1" />
-                    <div className="h-2 bg-foreground/10 rounded w-1/2" />
-                  </div>
-                  <motion.div
-                    whileHover={{ scale: 1.2, rotate: 15 }}
-                    transition={{ type: 'spring', stiffness: 300 }}
-                    className="cursor-pointer"
-                  >
-                    <Star className="w-5 h-5 text-warning fill-warning/20" />
-                  </motion.div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-start">
+          <div className="flex flex-wrap justify-center gap-6">
+            <AppScreenshot shot={shots.history} size="md" />
+            <AppScreenshot shot={shots.created} size="md" />
+          </div>
 
           {/* Right: Features List */}
           <div className="space-y-4">
@@ -73,8 +45,8 @@ export function HistorySection() {
               return (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{
                     duration: 0.5,
                     delay: index * 0.1 + 0.2,
@@ -87,7 +59,7 @@ export function HistorySection() {
                         <div className="w-12 h-12 rounded-lg bg-info-container flex items-center justify-center">
                           <Icon className="w-6 h-6 text-info" />
                         </div>
-                        <div className="flex-1">
+                        <div className="flex-1 min-w-0">
                           <CardTitle className="text-lg">{feature.title}</CardTitle>
                           <CardDescription>{feature.description}</CardDescription>
                         </div>

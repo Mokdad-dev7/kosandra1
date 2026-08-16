@@ -6,7 +6,7 @@ import { useRef } from 'react'
 export function useScrollReveal(options?: { margin?: string; once?: boolean }) {
   const ref = useRef(null)
   const isInView = useInView(ref, {
-    once: options?.once ?? false, // Changed default to false so animations work on every scroll
+    once: options?.once ?? true,
     ...(options?.margin ? { margin: options.margin as any } : {}),
   })
 

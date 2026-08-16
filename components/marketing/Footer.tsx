@@ -19,6 +19,8 @@ const footerSections: FooterSection[] = [
     title: 'Product',
     links: [
       { href: '/features', label: 'Features' },
+      { href: '/pricing', label: 'Pricing' },
+      { href: '/faq', label: 'FAQ' },
     ],
   },
   {
@@ -70,7 +72,7 @@ export function Footer() {
                 <AnimatedLogo size={64} showText={true} />
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-                Scan and create QR codes. Check links before you open them. Data stays on your device.
+                Scan, create, check links, export, backup, share, and run POS. Data stays on your device.
               </p>
               <p className="text-xs text-muted-foreground/60 mt-4">
                 Created by{' '}

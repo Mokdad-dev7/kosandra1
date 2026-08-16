@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, Smartphone } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { PhoneMockup } from '@/components/marketing/PhoneMockup'
@@ -21,7 +21,7 @@ export function HeroSection() {
   const phoneOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
 
   return (
-    <section ref={parallaxRef} className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-background via-background to-muted/20">
+    <section ref={parallaxRef} className="min-h-screen flex items-center justify-center relative overflow-x-hidden overflow-y-hidden bg-gradient-to-b from-background via-background to-muted/20">
       {/* Background decoration with parallax */}
       <motion.div
         style={{ y: useTransform(scrollYProgress, [0, 1], [0, 50]) }}
@@ -47,8 +47,8 @@ export function HeroSection() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.1, duration: 0.5 }}
             >
-              <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-                QR &amp; Barcode Scanner with Link Safety Checks
+              <span className="inline-flex max-w-full flex-wrap justify-center lg:justify-start px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium text-center">
+                Scan, create, check links, export, backup, share, POS
               </span>
             </motion.div>
 
@@ -57,13 +57,13 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ delay: 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight break-words"
             >
-              Scan QR codes and check if a link is{' '}
+              Scan QR codes, create them, and check a link{' '}
               <span className="bg-gradient-to-r from-primary via-info to-primary bg-clip-text text-transparent animate-gradient">
-                safe
+                before
               </span>
-              {' '}before you open it
+              {' '}you open it
             </motion.h1>
 
             {/* Description */}
@@ -71,11 +71,11 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.3, duration: 0.5 }}
-              className="text-xl md:text-2xl text-muted-foreground max-w-xl leading-relaxed"
+              className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-xl leading-relaxed"
             >
-              Scan and generate QR codes and barcodes. Before you open a link, see whether it's flagged
-              as a threat. Email domain checks confirm the address can receive mail. You don't need security
-              expertise. Your data stays on your device.
+              QR and barcode scanner for Android. Scan with the camera or from gallery, generate 14+ types,
+              check URLs, keep history on the device. Lifetime Unlock adds gallery batch, export, backup,
+              restore, share, and Point of Sale. Free, plus a $9.99 one-time unlock and URL packs.
             </motion.p>
 
             {/* CTAs - Staggered */}
@@ -83,7 +83,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.4, duration: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 pt-4"
+              className="flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto"
             >
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -92,7 +92,7 @@ export function HeroSection() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button asChild size="lg" className="text-lg px-8 h-14">
+                <Button asChild size="lg" className="text-lg px-8 h-14 w-full sm:w-auto">
                   <Link href="#download">
                     Download App
                     <ArrowRight className="ml-2 w-5 h-5" />
@@ -106,14 +106,14 @@ export function HeroSection() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button asChild size="lg" variant="outline" className="text-lg px-8 h-14">
+                <Button asChild size="lg" variant="outline" className="text-lg px-8 h-14 w-full sm:w-auto">
                   <Link href="/features">View Features</Link>
                 </Button>
               </motion.div>
             </motion.div>
           </motion.div>
 
-          {/* Right: Phone Mockup with Parallax */}
+          {/* Phone mockup */}
           <motion.div
             style={{
               y: phoneY,
@@ -122,7 +122,7 @@ export function HeroSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
             transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="relative hidden lg:block"
+            className="relative flex justify-center"
           >
             <motion.div
               animate={{

@@ -5,6 +5,8 @@ import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/ca
 import { Store, ShoppingCart, BarChart3, Printer } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { Badge } from '@/components/ui/badge'
+import { ScreenshotRow } from '@/components/marketing/AppScreenshot'
+import { shots } from '@/lib/screenshots'
 
 const posFeatures = [
   { icon: Store, title: 'Shop & Inventory', description: 'Keep a local product list with prices and stock, all stored on the device.' },
@@ -67,6 +69,7 @@ export function PointOfSale() {
             )
           })}
         </div>
+        <ScreenshotRow shots={[shots.posNewSale, shots.posNewProduct, shots.posShopSettings]} size="md" />
       </div>
     </section>
   )

@@ -14,7 +14,7 @@ export function DownloadBar() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center max-w-2xl mx-auto w-full"
         >
           <p className="text-sm text-muted-foreground">Download our mobile app</p>
           
@@ -25,7 +25,7 @@ export function DownloadBar() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-3 px-6 py-3 bg-foreground text-background rounded-xl font-medium hover:opacity-90 transition-opacity shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            className="inline-flex items-center justify-center gap-3 px-6 py-3 bg-foreground text-background rounded-xl font-medium hover:opacity-90 transition-opacity shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 w-full sm:w-auto"
           >
             <Smartphone className="w-5 h-5" />
             <div className="text-left">
@@ -37,7 +37,7 @@ export function DownloadBar() {
           {/* App Store - Coming Soon */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="relative inline-flex items-center gap-3 px-6 py-3 bg-muted text-muted-foreground rounded-xl font-medium cursor-not-allowed opacity-60 shadow-lg"
+            className="relative inline-flex items-center justify-center gap-3 px-6 py-3 bg-muted text-muted-foreground rounded-xl font-medium cursor-not-allowed opacity-60 shadow-lg w-full sm:w-auto"
           >
             <Smartphone className="w-5 h-5" />
             <div className="text-left">

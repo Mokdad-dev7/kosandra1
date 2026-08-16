@@ -1,7 +1,7 @@
 'use client'
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { QrCode, Shield, Download, Scan, Star, Store, ShoppingCart, Camera, Image as ImageIcon } from 'lucide-react'
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { QrCode, Shield, Download, Scan, Star, Store, ShoppingCart, Camera, Image as ImageIcon, Share2, FolderArchive } from 'lucide-react'
 import { Footer } from '@/components/marketing/Footer'
 import { Header } from '@/components/marketing/Header'
 import { FadeIn } from '@/components/ui/fade-in'
@@ -9,6 +9,8 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { ScreenshotRow } from '@/components/marketing/AppScreenshot'
+import { shots } from '@/lib/screenshots'
 
 const features = [
   {
@@ -34,8 +36,20 @@ const features = [
   },
   {
     icon: Download,
-    title: 'Export & Backup',
-    description: 'CSV, JSON, image ZIP, and local backup/restore. Included with Lifetime Unlock. No cloud sync.',
+    title: 'Export',
+    description: 'CSV, JSON, image ZIP, and parsed text as shown in-app. Included with Lifetime Unlock.',
+    badge: 'Lifetime',
+  },
+  {
+    icon: FolderArchive,
+    title: 'Backup and restore',
+    description: 'Save a local backup of your codes and restore it later on this device. No cloud sync.',
+    badge: 'Lifetime',
+  },
+  {
+    icon: Share2,
+    title: 'Share',
+    description: 'Share codes and results to other apps on your device. Included with Lifetime Unlock.',
     badge: 'Lifetime',
   },
   {
@@ -72,10 +86,23 @@ export default function FeaturesPage() {
             <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">Features</h1>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Scan and create QR codes. Check links for threats before you open them.
+              Scan, create, check URLs, export, backup, share, and run Point of Sale.
               </p>
             </div>
           </FadeIn>
+          <ScreenshotRow
+            className="mb-16"
+            size="sm"
+            shots={[
+              shots.scanCamera,
+              shots.qrPreview,
+              shots.history,
+              shots.batchGallery,
+              shots.backupFormat,
+              shots.posNewSale,
+              shots.plans,
+            ]}
+          />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {features.map((feature, index) => {
               const Icon = feature.icon

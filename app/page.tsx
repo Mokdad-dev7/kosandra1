@@ -1,5 +1,6 @@
 import { HeroSection } from '@/components/sections/HeroSection'
 import { DownloadBar } from '@/components/sections/DownloadBar'
+import { ProductOverview } from '@/components/sections/ProductOverview'
 import { ScanningFeatures } from '@/components/sections/ScanningFeatures'
 import { QRTypesGrid } from '@/components/sections/QRTypesGrid'
 import { SecuritySection } from '@/components/sections/SecuritySection'
@@ -14,55 +15,40 @@ import { FinalCTA } from '@/components/marketing/FinalCTA'
 import { Footer } from '@/components/marketing/Footer'
 import { Header } from '@/components/marketing/Header'
 import { FAQ } from '@/components/marketing/FAQ'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { faqPageSchema, homepageGraph, howToScanSchema } from '@/lib/schema'
+import type { Metadata } from 'next'
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, SITE_URL } from '@/lib/site'
+
+export const metadata: Metadata = {
+  title: DEFAULT_TITLE,
+  description: DEFAULT_DESCRIPTION,
+  alternates: { canonical: SITE_URL },
+}
 
 export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col">
+      <JsonLd data={homepageGraph} />
+      <JsonLd data={faqPageSchema} />
+      <JsonLd data={howToScanSchema} />
       <Header />
-      <div className="pt-16">
-        {/* 1. Hero Section */}
+      <div className="pt-16 overflow-x-hidden w-full">
         <HeroSection />
-        
-        {/* 2. App Download Bar */}
         <DownloadBar />
-        
-        {/* 3. Core Scanning Features */}
+        <ProductOverview />
         <ScanningFeatures />
-        
-        {/* 4. QR + Barcode Generation Types */}
         <QRTypesGrid />
-        
-        {/* 5. Security & Safety */}
         <SecuritySection />
-        
-        {/* 6. History & Organization */}
         <HistorySection />
-        
-        {/* 7. Export & Backup */}
         <ExportSection />
-        
-        {/* 8. Point of Sale */}
         <PointOfSale />
-        
-        {/* 9. Plans & Pricing */}
         <Pricing />
-        
-        {/* 10. UI/UX Design System */}
         <DesignSystem />
-        
-        {/* 11. Technical Specs */}
         <TechSpecs />
-        
-        {/* 12. Roadmap */}
         <ComingSoon />
-        
-        {/* 13. FAQ Preview */}
         <FAQ />
-        
-        {/* 14. Final CTA */}
         <FinalCTA />
-        
-        {/* Footer */}
         <Footer />
       </div>
     </div>

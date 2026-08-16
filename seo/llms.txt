@@ -1,0 +1,121 @@
+# QR Snap
+
+> Android QR and barcode app: scan, create, check links, export, backup, share, and run a small Point of Sale. Data stays on the device.
+
+QR Snap is a Flutter app from Ars Technology (package com.ars.qr_snap). You scan QR codes and barcodes with the camera or from gallery images, generate 14+ code types, and act on the result (open, call, save contact, add event, copy, share). URL safety checks and unlimited email-domain (MX) validation sit on the scan result. Lifetime Unlock adds gallery batch scan, local backup and restore, export, share, and on-device Point of Sale. URL credit packs add extra safety checks.
+
+## What QR Snap includes
+
+- Live camera scan and scan from gallery
+- Camera batch scan (free); gallery batch scan (Lifetime Unlock)
+- Fast recognition for QR and many barcode formats
+- Generate URL, text, email, phone, SMS, Wi-Fi, vCard, calendar, location, social, product barcodes
+- Result actions: open link, call, SMS, email, save contact, add event, maps, copy, share, product lookup
+- URL link safety check (Google Web Risk + pattern checks; 5 free per day)
+- Unlimited email domain (MX) validation for everyone
+- History, favorites, folders, search; local storage only
+- Export: CSV, JSON, image ZIP, parsed text as shown in-app (Lifetime)
+- Local backup and restore (Lifetime)
+- Share to other apps (Lifetime)
+- Point of Sale: inventory, scan-to-cart, sales history, receipts (Lifetime)
+- Flexible pricing: Free, Lifetime Unlock ($9.99 one-time), URL packs ($0.99 / $2.99 / $4.99)
+
+## Scanning
+
+- Live camera scan for QR codes and barcodes
+- Scan from gallery images
+- Batch from camera: free
+- Batch from gallery: Lifetime Unlock
+- Fast recognition across QR and common barcode formats (EAN, UPC, Code 128, Code 39, ITF, and more)
+
+## Generation (14+ types)
+
+- URL, text, email, phone, SMS
+- Wi-Fi credentials
+- Contact / vCard
+- Calendar events
+- Location / geo
+- Social profiles
+- Product / custom barcodes (EAN, ISBN, and related formats as supported in-app)
+- Preview, custom icons, history and favorites
+
+## URL safety and email checks
+
+- URL check: pattern checks plus Google Web Risk (primary)
+- Optional VirusTotal enrichment only when commercially enabled
+- 5 URL checks per day for every install (Free and Lifetime)
+- Extra checks via rewarded ads (+2) or credit packs (30 / 100 / 250)
+- Failed or inconclusive checks do not consume credits
+- Email MX validation is unlimited and does not use URL credits
+- Results: safe, risk, or unavailable, in plain language
+
+## Export, backup, restore, share (Lifetime Unlock)
+
+- Export CSV, JSON, image ZIP, and parsed text as shown in-app
+- Local backup and restore on the device
+- Share flows to other apps
+- No cloud sync of codes
+
+## Point of Sale (Lifetime Unlock)
+
+- Local shop / product inventory
+- Scan-to-cart checkout
+- Sales history and reports
+- Receipt PDF / thermal printer setup where the platform allows
+- POS data stays on the device; backup uses Lifetime tools
+- The user is responsible for tax and receipt rules in their jurisdiction
+
+## Pricing
+
+### Free
+- Price: $0
+- Scan and generate, history, favorites, folders
+- Ads (banner and occasional interstitial)
+- 5 URL safety checks per day
+- Unlimited email domain checks
+- Rewarded ads: +2 URL checks (max 2 ads / 24h, 15-minute cooldown)
+
+### Lifetime Unlock
+- Price: $9.99 one-time (SKU: qrsnap_lifetime_unlock)
+- Ads removed permanently
+- Gallery batch scan
+- Backup, restore, export, share
+- Point of Sale
+- Still 5 URL checks per day (buy packs for more)
+- Restores with the same store account on the Plans screen
+
+### URL Credit Packs (consumables, never expire on that install)
+- Starter: $0.99 for 30 checks (qrsnap_url_credits_30)
+- Standard: $2.99 for 100 checks (qrsnap_url_credits_100)
+- Value: $4.99 for 250 checks (qrsnap_url_credits_250)
+- Cannot be restored after uninstall, app-data clear, or a new device
+
+Credit order: free daily, then rewarded bonus, then purchased credits.
+
+Play Store / App Store localized prices are authoritative.
+
+## Privacy
+
+- No account required
+- Anonymous installation ID for entitlements and the credit wallet
+- History and created codes stay on the device (Hive)
+- No cloud sync
+- For a URL check, only what is needed for the check is sent to the Cloudflare Worker backend
+- No sale of scan contents for advertising profiles
+
+## Links
+
+- Website: https://qrsnap.app
+- Features: https://qrsnap.app/features
+- Pricing: https://qrsnap.app/pricing
+- Pricing (machine-readable): https://qrsnap.app/pricing.md
+- FAQ: https://qrsnap.app/faq
+- Help: https://qrsnap.app/help
+- Privacy: https://qrsnap.app/privacy
+- Terms: https://qrsnap.app/terms
+- Google Play: https://play.google.com/store/apps/details?id=com.ars.qr_snap
+- Support: ars.tech.app@gmail.com
+
+## Publisher
+
+Ars Technology

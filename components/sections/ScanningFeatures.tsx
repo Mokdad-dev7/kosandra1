@@ -5,6 +5,8 @@ import { Camera, Image, Scan } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { Badge } from '@/components/ui/badge'
+import { ScreenshotRow } from '@/components/marketing/AppScreenshot'
+import { shots } from '@/lib/screenshots'
 
 const features = [
   {
@@ -31,12 +33,12 @@ const features = [
 export function ScanningFeatures() {
   const { ref, isInView } = useScrollReveal()
 
-  const getInitialPosition = (direction: string) => {
-    return direction === 'left' ? { x: -50, opacity: 0 } : { x: 50, opacity: 0 }
+  const getInitialPosition = (_direction: string) => {
+    return { y: 24, opacity: 0 }
   }
 
   return (
-    <section ref={ref} className="py-20">
+    <section ref={ref} className="py-20 overflow-x-hidden">
       <div className="container mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -59,7 +61,7 @@ export function ScanningFeatures() {
             <motion.div
               key={index}
               initial={initialPos}
-              animate={isInView ? { x: 0, opacity: 1 } : initialPos}
+              animate={isInView ? { y: 0, opacity: 1 } : initialPos}
               transition={{
                 duration: 0.6,
                 delay: index * 0.15,
@@ -97,6 +99,7 @@ export function ScanningFeatures() {
           )
         })}
       </div>
+      <ScreenshotRow shots={[shots.scanCamera, shots.scanMethod, shots.batchCamera, shots.batchGallery]} />
       </div>
     </section>
   )

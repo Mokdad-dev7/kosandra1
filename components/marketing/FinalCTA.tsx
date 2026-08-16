@@ -61,7 +61,7 @@ export function FinalCTA() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ delay: 0.4, duration: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center pt-4 w-full"
           >
             {/* Google Play - Active */}
             <motion.a
@@ -70,7 +70,7 @@ export function FinalCTA() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 px-6 py-3 bg-foreground text-background rounded-xl font-medium hover:opacity-90 transition-opacity shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              className="inline-flex items-center justify-center gap-3 px-6 py-3 bg-foreground text-background rounded-xl font-medium hover:opacity-90 transition-opacity shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 w-full sm:w-auto"
             >
               <Smartphone className="w-5 h-5" />
               <div className="text-left">
@@ -82,7 +82,7 @@ export function FinalCTA() {
             {/* App Store - Coming Soon */}
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="relative inline-flex items-center gap-3 px-6 py-3 bg-muted text-muted-foreground rounded-xl font-medium cursor-not-allowed opacity-60 shadow-lg"
+              className="relative inline-flex items-center justify-center gap-3 px-6 py-3 bg-muted text-muted-foreground rounded-xl font-medium cursor-not-allowed opacity-60 shadow-lg w-full sm:w-auto"
             >
               <Smartphone className="w-5 h-5" />
               <div className="text-left">

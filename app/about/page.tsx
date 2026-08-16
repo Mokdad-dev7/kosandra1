@@ -6,14 +6,14 @@ import { PageWrapper } from '@/components/ui/page-wrapper'
 import { FadeIn } from '@/components/ui/fade-in'
 import { motion } from 'framer-motion'
 import { Users, Target, Heart } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { AnimatedLogo } from '@/components/ui/AnimatedLogo'
 
 const values = [
   {
     icon: Target,
     title: 'Mission',
-    description: 'Let people scan QR codes and know whether a link is safe before opening it.',
+    description: 'Give people a QR and barcode app that scans, creates, checks links, exports, and can run a small shop on the phone.',
   },
   {
     icon: Users,
@@ -47,7 +47,7 @@ export default function AboutPage() {
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">About QR Snap</h1>
                 <p className="text-xl text-muted-foreground">
                   Developed by <span className="font-semibold text-foreground">Ars Technology</span>. 
-                  QR &amp; barcode scanner with built-in link safety checks.
+                  QR and barcode scanner, generator, export tools, Point of Sale, and link safety checks.
                 </p>
               </div>
             </FadeIn>
@@ -56,23 +56,19 @@ export default function AboutPage() {
               <div className="max-w-4xl mx-auto space-y-8 mb-16">
                 <div className="prose prose-lg dark:prose-invert max-w-none">
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    Scan and generate QR codes and barcodes. Before you open a link, QR Snap checks it against
-                    Google Web Risk threat data and shows you a clear safe/risk result.
+                    QR Snap is an Android app from Ars Technology. You scan QR codes and barcodes with the
+                    camera or from gallery images, generate 14+ types, and act on the result. URL safety
+                    checks use Google Web Risk. Email domain (MX) validation is unlimited for everyone.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    Email domain validation confirms whether an address can receive mail. You don't need
-                    security expertise. The checks run through a Cloudflare Worker backend that stores nothing.
+                    Codes stay on the device. No account, no cloud sync. Scan, generate, history, and Point
+                    of Sale work offline. Built with Flutter and Hive local storage.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    Data stays on your device. No accounts, no cloud sync. Scanning, generating, and local history
-                    all work offline. Built with Flutter, local Hive storage keeps your data on the device
-                    using local Hive storage.
-                  </p>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    The free tier includes 5 URL safety checks per day and unlimited email domain checks. Optional
-                    Lifetime Unlock ($9.99, one-time) removes ads and unlocks batch scanning from gallery,
-                    backup/restore, export/share, and Point of Sale tools. URL check packs are available if you
-                    need more than the daily allowance.
+                    Free includes 5 URL checks per day and ads. Lifetime Unlock ($9.99 one-time) removes ads
+                    and adds gallery batch scan, local backup and restore, export (CSV, JSON, image ZIP),
+                    share, and Point of Sale. URL packs add 30, 100, or 250 checks that never expire on
+                    that install.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     QR Snap is currently live on Android (Google Play). iOS is planned with the same Material

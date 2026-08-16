@@ -6,17 +6,19 @@ import { Sun, Moon, Palette, Type } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
+import { AppScreenshot } from '@/components/marketing/AppScreenshot'
+import { shots } from '@/lib/screenshots'
 
 export function DesignSystem() {
   const { ref, isInView } = useScrollReveal()
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   
   useEffect(() => {
     setMounted(true)
   }, [])
   
-  const isDark = theme === 'dark'
+  const isDark = resolvedTheme === 'dark'
 
   const colors = [
     { name: 'Primary', class: 'bg-primary', hex: '#000000' },
@@ -61,32 +63,37 @@ export function DesignSystem() {
               {mounted ? (
                 <motion.button
                   onClick={() => setTheme(isDark ? 'light' : 'dark')}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full h-16 rounded-lg bg-muted flex items-center justify-center gap-3 relative overflow-hidden"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+                  className="w-full h-16 rounded-lg bg-muted flex items-center justify-center relative overflow-hidden"
                 >
-                  <motion.div
+                  <motion.span
+                    initial={false}
                     animate={{
-                      rotate: isDark ? 180 : 0,
+                      rotate: isDark ? 90 : 0,
                       scale: isDark ? 0 : 1,
                       opacity: isDark ? 0 : 1,
                     }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute"
+                    transition={{ duration: 0.25, ease: 'easeOut' }}
+                    className="absolute inset-0 flex items-center justify-center gap-2"
                   >
                     <Sun className="w-6 h-6" />
-                  </motion.div>
-                  <motion.div
+                    <span className="text-sm font-medium">Light</span>
+                  </motion.span>
+                  <motion.span
+                    initial={false}
                     animate={{
-                      rotate: isDark ? 0 : -180,
+                      rotate: isDark ? 0 : -90,
                       scale: isDark ? 1 : 0,
                       opacity: isDark ? 1 : 0,
                     }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute"
+                    transition={{ duration: 0.25, ease: 'easeOut' }}
+                    className="absolute inset-0 flex items-center justify-center gap-2"
                   >
                     <Moon className="w-6 h-6" />
-                  </motion.div>
+                    <span className="text-sm font-medium">Dark</span>
+                  </motion.span>
                 </motion.button>
               ) : (
                 <div className="w-full h-16 rounded-lg bg-muted flex items-center justify-center">
@@ -95,6 +102,10 @@ export function DesignSystem() {
               )}
             </CardContent>
           </Card>
+          <div className="mt-6 flex justify-center gap-6">
+            <AppScreenshot shot={shots.qrPreview} size="sm" />
+            <AppScreenshot shot={shots.qrPreviewDark} size="sm" />
+          </div>
         </motion.div>
 
         {/* Typography */}

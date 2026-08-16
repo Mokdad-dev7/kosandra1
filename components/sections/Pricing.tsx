@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Check, Crown, Info } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
+import { AppScreenshot } from '@/components/marketing/AppScreenshot'
+import { shots } from '@/lib/screenshots'
 
 const plans = [
   {
@@ -47,7 +49,7 @@ export function Pricing() {
   const { ref, isInView } = useScrollReveal()
 
   return (
-    <section ref={ref} className="py-20 bg-muted/20">
+    <section ref={ref} id="pricing" className="py-20 bg-muted/20 overflow-x-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -61,6 +63,10 @@ export function Pricing() {
             URL check packs add more safety checks if you run through the daily five.
           </p>
         </motion.div>
+
+        <div className="mb-12">
+          <AppScreenshot shot={shots.plans} size="lg" />
+        </div>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
           {plans.map((plan, index) => (

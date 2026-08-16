@@ -38,7 +38,7 @@ export function ComingSoon() {
   const lineProgress = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 1])
 
   return (
-    <section ref={ref} className="py-20">
+    <section ref={ref} className="py-20 overflow-x-hidden">
       <div className="container mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -69,14 +69,14 @@ export function ComingSoon() {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: -50 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{
                   duration: 0.6,
                   delay: index * 0.2,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="relative flex items-start gap-6"
+                className="relative flex items-start gap-3 sm:gap-6 min-w-0"
               >
                 {/* Timeline Dot */}
                 <div className="relative z-10 flex-shrink-0">
@@ -89,7 +89,7 @@ export function ComingSoon() {
                       type: 'spring',
                       stiffness: 200,
                     }}
-                    className={`w-16 h-16 rounded-full ${
+                    className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full ${
                       isActive ? 'bg-primary' : 'bg-muted'
                     } flex items-center justify-center border-4 border-background shadow-lg`}
                   >
@@ -110,7 +110,7 @@ export function ComingSoon() {
                 {/* Feature Card */}
                 <motion.div
                   whileHover={{ x: 5, transition: { duration: 0.2 } }}
-                  className={`flex-1 bg-background rounded-xl p-6 border ${
+                  className={`flex-1 min-w-0 bg-background rounded-xl p-4 sm:p-6 border ${
                     isActive ? 'border-primary shadow-lg' : ''
                   }`}
                 >

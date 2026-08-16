@@ -17,6 +17,8 @@ import {
   Globe,
   Barcode
 } from 'lucide-react'
+import { ScreenshotRow } from '@/components/marketing/AppScreenshot'
+import { shots } from '@/lib/screenshots'
 
 const qrTypes = [
   { icon: LinkIcon, name: 'URL', description: 'Website links' },
@@ -92,6 +94,7 @@ export function QRTypesGrid() {
             )
           })}
         </div>
+        <ScreenshotRow shots={[shots.qrPreview, shots.addIcon, shots.generated, shots.qrPreviewDark]} />
       </div>
     </section>
   )

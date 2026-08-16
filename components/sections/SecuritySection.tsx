@@ -56,7 +56,7 @@ export function SecuritySection() {
   }
 
   return (
-    <section ref={ref} className="py-20">
+    <section ref={ref} className="py-20 overflow-x-hidden">
       <div className="container mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -88,11 +88,11 @@ export function SecuritySection() {
               >
                 <Card className="hover:shadow-lg transition-shadow duration-300">
                   <CardHeader>
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-success-container flex items-center justify-center">
+                    <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+                      <div className="w-12 h-12 rounded-lg bg-success-container flex items-center justify-center flex-shrink-0">
                         <Icon className="w-6 h-6 text-success" />
                       </div>
-                      <div className="flex-1">
+                      <div className="flex-1 min-w-0">
                         <CardTitle className="text-lg">{feature.title}</CardTitle>
                         <CardDescription>{feature.description}</CardDescription>
                       </div>
@@ -131,9 +131,9 @@ export function SecuritySection() {
                   : '0 0 20px rgba(0, 0, 0, 0.1)',
               }}
               transition={{ duration: 0.5 }}
-              className="w-64 h-64 rounded-full bg-muted flex items-center justify-center"
+              className="w-48 h-48 sm:w-64 sm:h-64 rounded-full bg-muted flex items-center justify-center"
             >
-              <Shield className={`w-32 h-32 ${getShieldColor()}`} />
+              <Shield className={`w-24 h-24 sm:w-32 sm:h-32 ${getShieldColor()}`} />
             </motion.div>
             <motion.div
               animate={{

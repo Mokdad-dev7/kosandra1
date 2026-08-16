@@ -5,6 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { FileText, FileJson, Archive, Download, Share2 } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { Badge } from '@/components/ui/badge'
+import { ScreenshotRow } from '@/components/marketing/AppScreenshot'
+import { shots } from '@/lib/screenshots'
 
 const exportOptions = [
   { icon: FileText, name: 'CSV Export', description: 'Export your codes as a CSV spreadsheet', premium: true },
@@ -18,7 +20,7 @@ export function ExportSection() {
   const { ref, isInView } = useScrollReveal()
 
   return (
-    <section ref={ref} className="py-20">
+    <section ref={ref} className="py-20 overflow-x-hidden">
       <div className="container mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -86,6 +88,7 @@ export function ExportSection() {
           )
         })}
       </div>
+      <ScreenshotRow shots={[shots.backupFormat, shots.exportQr, shots.backupStats, shots.settings]} />
       </div>
     </section>
   )

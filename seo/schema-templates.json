@@ -1,0 +1,249 @@
+{
+  "homepage": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://qrsnap.app/#organization",
+        "name": "Ars Technology",
+        "url": "https://qrsnap.app",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://qrsnap.app/logo.png"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "support@qrsnap.app"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://qrsnap.app/#app",
+        "name": "QR Snap",
+        "operatingSystem": "Android",
+        "applicationCategory": "UtilitiesApplication",
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "name": "Free",
+            "description": "Core scanning and generation, 5 URL safety checks per day"
+          },
+          {
+            "@type": "Offer",
+            "price": "9.99",
+            "priceCurrency": "USD",
+            "name": "Lifetime Unlock",
+            "description": "One-time purchase: no ads, batch scan, backup, export, POS"
+          }
+        ],
+        "description": "QR & barcode scanner with built-in link safety checks. Scan and create QR codes, then check if URLs are safe before opening. Privacy-first, offline-first.",
+        "downloadUrl": "https://play.google.com/store/apps/details?id=com.ars.qr_snap",
+        "installUrl": "https://play.google.com/store/apps/details?id=com.ars.qr_snap",
+        "screenshot": [
+          "https://qrsnap.app/images/screenshots/scan-camera.webp",
+          "https://qrsnap.app/images/screenshots/qr-preview.webp",
+          "https://qrsnap.app/images/screenshots/history.webp",
+          "https://qrsnap.app/images/screenshots/batch-gallery.webp",
+          "https://qrsnap.app/images/screenshots/backup-format.webp",
+          "https://qrsnap.app/images/screenshots/pos-new-sale.webp",
+          "https://qrsnap.app/images/screenshots/plans.webp"
+        ],
+        "featureList": [
+          "QR code scanning",
+          "Barcode scanning",
+          "Link safety checks",
+          "Email domain validation",
+          "QR code generation",
+          "Batch scanning",
+          "History and favorites",
+          "Backup and export",
+          "Point of Sale"
+        ],
+        "publisher": {
+          "@id": "https://qrsnap.app/#organization"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://qrsnap.app/#website",
+        "url": "https://qrsnap.app",
+        "name": "QR Snap",
+        "publisher": {
+          "@id": "https://qrsnap.app/#organization"
+        }
+      }
+    ]
+  },
+  "faq_page": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is QR Snap free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, QR Snap is free forever for scanning and generating QR codes. You get 5 free URL safety checks per day and unlimited email domain checks. Optional Lifetime Unlock ($9.99) removes ads and adds backup/export features."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does QR Snap check if a link is safe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "QR Snap uses Google Web Risk to check URLs against known phishing, malware, and social engineering threats. The check happens on our secure backend before you open the link. Results show as safe, risky, or unknown in plain language."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does QR Snap store my scanned codes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your scan history and created codes are stored locally on your device only. QR Snap does not require an account and does not sync your codes to any cloud. For security checks, only the URL or email domain is sent to our backend."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to my purchased URL credits if I uninstall?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Purchased URL credit packs are tied to your device installation and cannot be restored after uninstall or app data clear. Lifetime Unlock can be restored via your Google Play account. This is disclosed before purchase."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are QR codes safe to scan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Scanning a QR code only reads the data it contains — that part is safe. The risk comes from what you do with the result. If the QR code contains a URL, opening that link could be dangerous if it leads to a phishing or malware site. QR Snap helps by checking URLs before you open them."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the app work offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, scanning, generating, and viewing history all work offline. Link safety checks and some product lookups require an internet connection."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Lifetime Unlock?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Lifetime Unlock is a one-time $9.99 purchase that permanently removes ads and unlocks premium features: gallery batch scan, backup/restore, export/share, and Point of Sale tools. It does not increase your daily URL checks — for more checks, purchase credit packs."
+        }
+      }
+    ]
+  },
+  "how_to_check_qr_safety": {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Check if a QR Code is Safe Before Opening",
+    "description": "Step-by-step guide to safely scan QR codes and verify links before opening them using QR Snap.",
+    "totalTime": "PT1M",
+    "tool": {
+      "@type": "HowToTool",
+      "name": "QR Snap app"
+    },
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Open QR Snap",
+        "text": "Launch the QR Snap app on your Android device. The camera scanner opens automatically.",
+        "image": "https://qrsnap.app/howto/step1-open.png"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Scan the QR code",
+        "text": "Point your camera at the QR code. QR Snap will automatically detect and decode it within 1-2 seconds.",
+        "image": "https://qrsnap.app/howto/step2-scan.png"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "View the parsed result",
+        "text": "QR Snap shows what the code contains: URL, contact information, Wi-Fi credentials, or other data types. For URLs, the link safety check starts automatically.",
+        "image": "https://qrsnap.app/howto/step3-result.png"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Wait for the safety check",
+        "text": "For URLs, QR Snap checks the link against Google Web Risk for phishing, malware, and suspicious patterns. This takes 1-3 seconds.",
+        "image": "https://qrsnap.app/howto/step4-checking.png"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Check the safety status",
+        "text": "Look at the safety indicator: a green checkmark means safe to open, a red warning means risk detected, and gray means the check was inconclusive. The status is shown in plain language.",
+        "image": "https://qrsnap.app/howto/step5-status.png"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 6,
+        "name": "Decide whether to open",
+        "text": "Tap 'Open' only for links marked as safe. If marked risky, do not open the link. If unknown, proceed with caution and consider verifying the source another way.",
+        "image": "https://qrsnap.app/howto/step6-decide.png"
+      }
+    ]
+  },
+  "pricing_page": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "QR Snap Pricing",
+    "description": "QR Snap pricing: Free forever for scanning and generation, Lifetime Unlock for premium features, and URL credit packs for additional safety checks.",
+    "mainEntity": {
+      "@type": "Product",
+      "name": "QR Snap",
+      "description": "QR & barcode scanner with built-in link safety checks",
+      "brand": {
+        "@type": "Brand",
+        "name": "Ars Technology"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "Core features free forever: scan, generate, 5 URL checks/day, unlimited email checks"
+        },
+        {
+          "@type": "Offer",
+          "name": "Lifetime Unlock",
+          "price": "9.99",
+          "priceCurrency": "USD",
+          "description": "One-time purchase: no ads, batch scan, backup, export, POS"
+        },
+        {
+          "@type": "Offer",
+          "name": "Starter Pack",
+          "price": "0.99",
+          "priceCurrency": "USD",
+          "description": "+30 URL safety checks, never expire"
+        },
+        {
+          "@type": "Offer",
+          "name": "Standard Pack",
+          "price": "2.99",
+          "priceCurrency": "USD",
+          "description": "+100 URL safety checks, never expire"
+        },
+        {
+          "@type": "Offer",
+          "name": "Value Pack",
+          "price": "4.99",
+          "priceCurrency": "USD",
+          "description": "+250 URL safety checks, best value"
+        }
+      ]
+    }
+  }
+}
