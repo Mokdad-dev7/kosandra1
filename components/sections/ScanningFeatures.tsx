@@ -99,7 +99,7 @@ export function ScanningFeatures() {
           )
         })}
       </div>
-      <ScreenshotRow shots={[shots.scanCamera, shots.scanMethod, shots.batchCamera, shots.batchGallery]} />
+      <ScreenshotRow shots={[shots.liveCameraScan, shots.chooseScanMethod, shots.batchScanCamera, shots.batchScanGallery]} />
       </div>
     </section>
   )

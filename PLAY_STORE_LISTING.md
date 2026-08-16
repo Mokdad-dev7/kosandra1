@@ -38,7 +38,7 @@ Create 14+ types: URL, text, email, phone, SMS, Wi-Fi, contact/vCard, calendar e
 Scanning only reads data. Opening a link can be risky. QR Snap runs a URL safety check (Google Web Risk plus pattern checks) and shows a clear safe, risk, or unavailable result before you open the link. Everyone gets 5 URL checks per day. Email domain (MX) validation is unlimited and does not use URL credits.
 
 **History on your device**
-Scan and create history, favorites, folders, and search. Storage is local. No account. No cloud sync of your codes.
+Scan and create history, favorites, folders, and smart filters. Storage is local. No account. No cloud sync of your codes.
 
 **Export, backup, restore, share (Lifetime Unlock)**
 Export as CSV, JSON, image ZIP, and parsed text as shown in-app. Local backup and restore. Share to other apps on the phone.

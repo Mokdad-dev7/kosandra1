@@ -65,7 +65,7 @@ export function Pricing() {
         </motion.div>
 
         <div className="mb-12">
-          <AppScreenshot shot={shots.plans} size="lg" />
+          <AppScreenshot shot={shots.pricingPlans} size="lg" />
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">

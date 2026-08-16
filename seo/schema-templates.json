@@ -43,13 +43,14 @@
         "downloadUrl": "https://play.google.com/store/apps/details?id=com.ars.qr_snap",
         "installUrl": "https://play.google.com/store/apps/details?id=com.ars.qr_snap",
         "screenshot": [
-          "https://qrsnap.app/images/screenshots/scan-camera.webp",
-          "https://qrsnap.app/images/screenshots/qr-preview.webp",
-          "https://qrsnap.app/images/screenshots/history.webp",
-          "https://qrsnap.app/images/screenshots/batch-gallery.webp",
-          "https://qrsnap.app/images/screenshots/backup-format.webp",
-          "https://qrsnap.app/images/screenshots/pos-new-sale.webp",
-          "https://qrsnap.app/images/screenshots/plans.webp"
+          "https://qrsnap.app/images/screenshots/live-camera-scan.webp",
+          "https://qrsnap.app/images/screenshots/result-screen-url-safety-check.webp",
+          "https://qrsnap.app/images/screenshots/generate-url.webp",
+          "https://qrsnap.app/images/screenshots/scan-history.webp",
+          "https://qrsnap.app/images/screenshots/batch-scan-from-gallery.webp",
+          "https://qrsnap.app/images/screenshots/backup-formats.webp",
+          "https://qrsnap.app/images/screenshots/point-of-sale-portal.webp",
+          "https://qrsnap.app/images/screenshots/pricing-plans.webp"
         ],
         "featureList": [
           "QR code scanning",

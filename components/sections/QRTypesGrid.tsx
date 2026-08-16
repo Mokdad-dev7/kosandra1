@@ -94,7 +94,7 @@ export function QRTypesGrid() {
             )
           })}
         </div>
-        <ScreenshotRow shots={[shots.qrPreview, shots.addIcon, shots.generated, shots.qrPreviewDark]} />
+        <ScreenshotRow shots={[shots.generateUrl, shots.qrcodePreview, shots.addCustomIcon, shots.exportSingleQr]} />
       </div>
     </section>
   )

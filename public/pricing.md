@@ -5,7 +5,7 @@ QR Snap pricing is Free forever for scan and generate, plus an optional one-time
 ## Free
 - Price: $0 forever
 - Limits: 5 URL safety checks per day; unlimited email domain (MX) checks
-- Features: live camera scan, scan from gallery, camera batch scan, generate 14+ QR and barcode types, history, favorites, folders, search, result actions (open, call, SMS, email, save contact, add event, maps, copy)
+- Features: live camera scan, scan from gallery, camera batch scan, generate 14+ QR and barcode types, history, favorites, folders, smart filters, result actions (open, call, SMS, email, save contact, add event, maps, copy)
 - Ads: banner and occasional interstitial
 - Bonus: watch a rewarded ad for +2 URL checks (max 2 ads per rolling 24 hours, 15-minute cooldown)
 - Not included: gallery batch scan, backup/restore, export, share flows, Point of Sale

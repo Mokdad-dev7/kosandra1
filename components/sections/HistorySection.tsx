@@ -2,14 +2,13 @@
 
 import { motion } from 'framer-motion'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Star, Clock, Search, Filter } from 'lucide-react'
+import { Star, Clock, Filter } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { AppScreenshot } from '@/components/marketing/AppScreenshot'
 import { shots } from '@/lib/screenshots'
 
 const historyFeatures = [
   { icon: Clock, title: 'Scan History', description: 'Complete log of all scanned QR codes with timestamps' },
-  { icon: Search, title: 'Quick Search', description: 'Find any QR code instantly with powerful search' },
   { icon: Filter, title: 'Smart Filters', description: 'Filter by type, date, or custom tags' },
   { icon: Star, title: 'Favorites', description: 'Mark important codes for quick access' },
 ]
@@ -34,8 +33,8 @@ export function HistorySection() {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-start">
           <div className="flex flex-wrap justify-center gap-6">
-            <AppScreenshot shot={shots.history} size="md" />
-            <AppScreenshot shot={shots.created} size="md" />
+            <AppScreenshot shot={shots.scanHistory} size="md" />
+            <AppScreenshot shot={shots.createdCodes} size="md" />
           </div>
 
           {/* Right: Features List */}

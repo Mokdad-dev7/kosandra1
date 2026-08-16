@@ -13,7 +13,7 @@ QR Snap is a Flutter app from Ars Technology (package com.ars.qr_snap). You scan
 - Result actions: open link, call, SMS, email, save contact, add event, maps, copy, share, product lookup
 - URL link safety check (Google Web Risk + pattern checks; 5 free per day)
 - Unlimited email domain (MX) validation for everyone
-- History, favorites, folders, search; local storage only
+- History, favorites, folders, smart filters; local storage only
 - Export: CSV, JSON, image ZIP, parsed text as shown in-app (Lifetime)
 - Local backup and restore (Lifetime)
 - Share to other apps (Lifetime)

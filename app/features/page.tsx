@@ -55,7 +55,7 @@ const features = [
   {
     icon: Star,
     title: 'History & Favorites',
-    description: 'Complete history of scanned and generated codes. Mark favorites for quick access. All stored locally on your device.',
+    description: 'History of scanned and generated codes, smart filters, and favorites. Stored locally on your device.',
   },
   {
     icon: Store,
@@ -94,13 +94,14 @@ export default function FeaturesPage() {
             className="mb-16"
             size="sm"
             shots={[
-              shots.scanCamera,
-              shots.qrPreview,
-              shots.history,
-              shots.batchGallery,
-              shots.backupFormat,
-              shots.posNewSale,
-              shots.plans,
+              shots.liveCameraScan,
+              shots.urlSafetyResult,
+              shots.generateUrl,
+              shots.scanHistory,
+              shots.batchScanGallery,
+              shots.backupFormats,
+              shots.posPortal,
+              shots.pricingPlans,
             ]}
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">

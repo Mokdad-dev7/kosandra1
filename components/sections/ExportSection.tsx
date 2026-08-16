@@ -88,7 +88,7 @@ export function ExportSection() {
           )
         })}
       </div>
-      <ScreenshotRow shots={[shots.backupFormat, shots.exportQr, shots.backupStats, shots.settings]} />
+      <ScreenshotRow shots={[shots.backupFormats, shots.exportFormatsBulk, shots.backupStatistics, shots.settings]} />
       </div>
     </section>
   )

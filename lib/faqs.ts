@@ -62,7 +62,7 @@ export const faqs: FaqItem[] = [
   {
     question: 'How is my QR code history stored?',
     answer:
-      'Codes are stored locally with Hive on-device storage. You get scan and create history, favorites, folders, and search. History never leaves the device unless you export or back it up with Lifetime Unlock.',
+      'Codes are stored locally with Hive on-device storage. You get scan and create history, favorites, folders, and smart filters. History never leaves the device unless you export or back it up with Lifetime Unlock.',
   },
   {
     question: 'What barcode and QR code formats are supported?',

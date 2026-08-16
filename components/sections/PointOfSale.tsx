@@ -69,7 +69,7 @@ export function PointOfSale() {
             )
           })}
         </div>
-        <ScreenshotRow shots={[shots.posNewSale, shots.posNewProduct, shots.posShopSettings]} size="md" />
+        <ScreenshotRow shots={[shots.posPortal, shots.posNewSale, shots.posNewProduct, shots.posShopSettings]} size="sm" />
       </div>
     </section>
   )

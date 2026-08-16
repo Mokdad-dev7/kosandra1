@@ -102,9 +102,8 @@ export function DesignSystem() {
               )}
             </CardContent>
           </Card>
-          <div className="mt-6 flex justify-center gap-6">
-            <AppScreenshot shot={shots.qrPreview} size="sm" />
-            <AppScreenshot shot={shots.qrPreviewDark} size="sm" />
+          <div className="mt-6 flex justify-center">
+            <AppScreenshot shot={shots.qrcodePreview} size="sm" />
           </div>
         </motion.div>
 

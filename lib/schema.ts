@@ -19,7 +19,7 @@ const featureList = [
   'QR and barcode generation (14+ types)',
   'URL link safety checks (Google Web Risk)',
   'Unlimited email domain (MX) validation',
-  'History, favorites, folders, and search',
+  'History, favorites, folders, and smart filters',
   'Export CSV, JSON, image ZIP, and parsed text',
   'Local backup and restore',
   'Share to other apps',

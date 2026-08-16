@@ -1,9 +1,8 @@
 import { Header } from '@/components/marketing/Header'
 import { Footer } from '@/components/marketing/Footer'
 import { Pricing } from '@/components/sections/Pricing'
-import { FAQ } from '@/components/marketing/FAQ'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { breadcrumb, faqPageSchema, pricingPageSchema } from '@/lib/schema'
+import { breadcrumb, pricingPageSchema } from '@/lib/schema'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -23,7 +22,6 @@ export default function PricingPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <JsonLd data={pricingPageSchema} />
-      <JsonLd data={faqPageSchema} />
       <JsonLd
         data={breadcrumb([
           { name: 'Home', path: '/' },
@@ -33,9 +31,6 @@ export default function PricingPage() {
       <Header />
       <div className="pt-16">
         <Pricing />
-        <section className="container mx-auto px-4 py-16">
-          <FAQ />
-        </section>
         <Footer />
       </div>
     </div>
