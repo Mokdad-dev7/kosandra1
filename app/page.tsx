@@ -37,11 +37,11 @@ export default function HomePage() {
       <div className="pt-16 overflow-x-hidden w-full">
         <HeroSection />
         <DownloadBar />
+        <SecuritySection />
         <ProductOverview />
         <WhatsNew />
         <ScanningFeatures />
         <QRTypesGrid />
-        <SecuritySection />
         <HistorySection />
         <ExportSection />
         <PointOfSale />

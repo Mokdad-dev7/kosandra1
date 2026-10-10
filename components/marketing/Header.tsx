@@ -23,6 +23,7 @@ export function Header() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/features', label: 'Features' },
+    { href: '/guides', label: 'Scam guides' },
     { href: '/pricing', label: 'Pricing' },
     { href: '/faq', label: 'FAQ' },
     { href: '/about', label: 'About' },

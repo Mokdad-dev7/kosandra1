@@ -48,7 +48,7 @@ export function HeroSection() {
               transition={{ delay: 0.1, duration: 0.5 }}
             >
               <span className="inline-flex max-w-full flex-wrap justify-center lg:justify-start px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium text-center">
-                New in 1.1: Share to QR Snap and home screen widgets
+                QR code scam checker
               </span>
             </motion.div>
 
@@ -59,11 +59,11 @@ export function HeroSection() {
               transition={{ delay: 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight break-words"
             >
-              Scan QR codes, create them, and check a link{' '}
+              See where a QR code{' '}
               <span className="bg-gradient-to-r from-primary via-info to-primary bg-clip-text text-transparent animate-gradient">
-                before
+                really
               </span>
-              {' '}you open it
+              {' '}goes before you open it
             </motion.h1>
 
             {/* Description */}
@@ -73,9 +73,9 @@ export function HeroSection() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-xl leading-relaxed"
             >
-              QR and barcode scanner for Android. Scan with the camera or from gallery, create 13 code types,
-              and see if a link looks safe before you tap it. Share anything to QR Snap to make a code, and
-              keep your favorite one on the home screen. Free, plus a $9.99 one-time unlock.
+              Fake QR stickers on parking meters, fake delivery notices, phishing emails. QR Snap follows the
+              link to the page it really opens and checks it for known scams, look-alike names and brand-new
+              sites. Then you decide. It also creates 13 code types and puts your favorite on the home screen.
             </motion.p>
 
             {/* CTAs - Staggered */}

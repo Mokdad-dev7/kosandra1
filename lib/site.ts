@@ -5,9 +5,9 @@ export const CONTACT_EMAIL = 'ars.tech.app@gmail.com'
 export const PLAY_URL = 'https://play.google.com/store/apps/details?id=com.ars.qr_snap'
 export const PACKAGE_ID = 'com.ars.qr_snap'
 
-export const DEFAULT_TITLE = 'QR Snap | Scan, Create, Check Links, Widgets & POS'
+export const DEFAULT_TITLE = 'QR Snap | QR Code Scanner with Scam Check'
 export const DEFAULT_DESCRIPTION =
-  'QR and barcode scanner for Android. Scan from camera or gallery, create 13 code types, check links before you open them, share to QR Snap from any app, pin codes to your home screen, and run Point of Sale. Free plus Lifetime Unlock and URL packs.'
+  'QR code scanner that shows where a link really goes and checks it for scams before you open it: fake parking meter codes, fake delivery notices, phishing. Also creates 13 code types, home screen widgets and Point of Sale. Free on Android.'
 
 export function pageTitle(title: string) {
   return `${title} | QR Snap`

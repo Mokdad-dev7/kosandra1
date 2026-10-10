@@ -26,6 +26,7 @@ const footerSections: FooterSection[] = [
   {
     title: 'Support',
     links: [
+      { href: '/guides', label: 'QR scam guides' },
       { href: '/help', label: 'Help Center' },
       { href: '/faq', label: 'FAQ' },
       { href: '/feedback', label: 'Feedback' },

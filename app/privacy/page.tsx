@@ -105,7 +105,7 @@ export default function PrivacyPage() {
                     content={
                       <>
                         <p>
-                          When you request a URL safety check, the URL may be sent to our Cloudflare Worker backend. The backend may query:
+                          When you request a URL safety check, the URL may be sent to our Cloudflare Worker backend. To show where a link really leads, the backend may open it and follow its redirects from our server, without your cookies, IP address or device details. It may also look up when the website&apos;s domain was registered, using the public RDAP registry service. The backend may query:
                         </p>
                         <ul className="list-disc list-inside mt-2 space-y-1 ml-4">
                           <li><strong>Google Web Risk</strong>: primary threat data source</li>

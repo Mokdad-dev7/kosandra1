@@ -1,6 +1,6 @@
 # QR Snap
 
-> Android QR and barcode app: scan, create, check links, export, backup, share, and run a small Point of Sale. Data stays on the device.
+> Android QR code scanner with a scam check: it follows a scanned link to the page it really opens and checks it for phishing, look-alike brand names and brand-new scam sites before you open it. Also creates codes, exports, backs up and runs a small Point of Sale. Data stays on the device.
 
 QR Snap is a Flutter app from Ars Technology (package com.ars.qr_snap). You scan QR codes and barcodes with the camera or from gallery images, create 13 code types, and act on the result (open, call, save contact, add event, copy, share). URL safety checks and unlimited email-domain (MX) validation sit on the scan result. Lifetime Unlock adds gallery batch scan, local backup and restore, export, share, and on-device Point of Sale. URL credit packs add extra safety checks. Version 1.1.0 adds Share to QR Snap and home screen widgets.
 
@@ -11,7 +11,7 @@ QR Snap is a Flutter app from Ars Technology (package com.ars.qr_snap). You scan
 - Fast recognition for QR and many barcode formats
 - Generate URL, text, email, phone, SMS, Wi-Fi, vCard, calendar, location, social, product barcodes
 - Result actions: open link, call, SMS, email, save contact, add event, maps, copy, share, product lookup
-- URL link safety check for phishing and known-bad links (Google Web Risk + pattern checks; 1 per day on Free, 15 with Lifetime)
+- URL link safety check: follows redirects and short links to the real destination, shows the site's registration age, and checks it with Google Web Risk, a public phishing list and pattern checks for brand look-alikes, misspellings, homographs and payment pages on free website builders (1 per day on Free, 15 with Lifetime; the pattern check also runs on the device for every scan)
 - Share to QR Snap: share a link, text, contact or event from any app to open the matching QR generator, pre-filled
 - Home screen widgets: Quick actions (Scan, Gallery, Create, Clipboard) and Pinned QR (one free, unlimited with Lifetime)
 - Unlimited email domain (MX) validation for everyone
@@ -113,6 +113,10 @@ Play Store / App Store localized prices are authoritative.
 - Features: https://qrsnap.app/features
 - Pricing: https://qrsnap.app/pricing
 - Pricing (machine-readable): https://qrsnap.app/pricing.md
+- QR code scam guides: https://qrsnap.app/guides
+- How to spot a QR code scam: https://qrsnap.app/guides/qr-code-scams
+- Fake QR codes on parking meters: https://qrsnap.app/guides/parking-qr-code-scams
+- Fake delivery notices and package QR codes: https://qrsnap.app/guides/fake-delivery-qr-codes
 - FAQ: https://qrsnap.app/faq
 - Help: https://qrsnap.app/help
 - Privacy: https://qrsnap.app/privacy
