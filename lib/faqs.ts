@@ -12,12 +12,12 @@ export const faqs: FaqItem[] = [
   {
     question: 'What are the pricing plans?',
     answer:
-      'QR Snap is Free forever for scan and generate: history, favorites, ads, 5 URL safety checks per day, and unlimited email domain checks. Optional Lifetime Unlock ($9.99 one-time) removes ads and unlocks gallery batch scan, local backup and restore, export (CSV, JSON, image ZIP), share, and Point of Sale. URL packs add 30, 100, or 250 checks that never expire on that install. Store prices in the app are authoritative.',
+      'QR Snap is Free forever for scan and generate: history, favorites, ads, 1 URL safety check per day (plus 2 more for each rewarded ad), unlimited email domain checks, the Quick actions widget and one Pinned QR widget. Optional Lifetime Unlock ($9.99 one-time) removes ads, raises link checks to 15 per day, and unlocks gallery batch scan, local backup and restore, export (CSV, JSON, image ZIP), share, Point of Sale, and unlimited Pinned QR widgets. URL packs add 50, 150, or 400 checks that never expire on that install. Store prices in the app are authoritative.',
   },
   {
     question: 'What is Lifetime Unlock?',
     answer:
-      'Lifetime Unlock is a $9.99 one-time purchase, not a subscription. It removes ads and unlocks gallery batch scan, backup and restore, export, share, and Point of Sale. It does not raise the 5 daily URL checks. Buy credit packs if you need more checks. Restore it with the same store account on the Plans screen.',
+      'Lifetime Unlock is a $9.99 one-time purchase, not a subscription. It removes ads and unlocks gallery batch scan, backup and restore, export, share, Point of Sale, and unlimited Pinned QR widgets. It includes 15 URL safety checks per day instead of 1. Buy credit packs if you need more. Restore it with the same store account on the Plans screen.',
   },
   {
     question: 'What is Point of Sale in QR Snap?',
@@ -42,12 +42,12 @@ export const faqs: FaqItem[] = [
   {
     question: 'What are rewarded ads?',
     answer:
-      'Watch a short ad to earn +2 URL safety checks (Free and Lifetime). Free users can also unlock a productivity feature once via a rewarded ad. Max 2 ads per rolling 24 hours, 15-minute cooldown.',
+      'Watch a short ad to earn +2 URL safety checks (Free and Lifetime). Free users can also unlock a productivity feature once via a rewarded ad. Up to 4 rewarded ads per rolling 24 hours, with a 15-minute cooldown.',
   },
   {
     question: 'Are QR codes safe to scan?',
     answer:
-      'Scanning only reads data. Opening a link can be risky. QR Snap checks URLs for known threats and suspicious patterns and shows a clear safe, risk, or unavailable result before you open them. Everyone gets 5 URL checks per day. Email domain checks are unlimited.',
+      'Scanning only reads data. Opening a link can be risky. QR Snap checks URLs for known threats and suspicious patterns and shows a clear safe, risk, or unavailable result before you open them. Free includes 1 URL check per day and Lifetime Unlock includes 15. Email domain checks are unlimited.',
   },
   {
     question: 'Is my data private?',
@@ -80,8 +80,18 @@ export const faqs: FaqItem[] = [
       'Purchased URL credits are tied to the anonymous installation wallet. They cannot be restored after uninstall, clearing app data, or a new device. Lifetime Unlock restores with the same store account via Restore on the Plans screen.',
   },
   {
+    question: 'How do I make a QR code from another app?',
+    answer:
+      'Use Share in any app, for example on a link, a piece of text, a contact, or a calendar event, and pick QR Snap. QR Snap opens the matching QR generator with the details already filled in. For a link, the title defaults to the site name.',
+  },
+  {
+    question: 'What home screen widgets does QR Snap have?',
+    answer:
+      'Quick actions gives you one-tap Scan, Gallery, Create, and Clipboard. Pinned QR keeps one of your saved QR codes on the home screen, ready for someone to scan, such as your Wi-Fi or a payment link. Free includes one Pinned QR widget; Lifetime Unlock lets you pin as many as you like. Add them from your launcher widget list, or use Pin to home screen on a QR code in the app.',
+  },
+  {
     question: 'What features are coming?',
     answer:
-      'iOS is planned with the same Material design. POS is already available under Lifetime where enabled in the app. No promised dates. Submit ideas on the Feedback page.',
+      'An iPhone version is in development, with the same features including the share extension and home screen widgets. There is no release date yet. Submit ideas on the Feedback page.',
   },
 ]

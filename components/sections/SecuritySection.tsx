@@ -8,9 +8,9 @@ import { AppScreenshot } from '@/components/marketing/AppScreenshot'
 import { shots } from '@/lib/screenshots'
 
 const securityFeatures = [
-  { icon: Lock, title: 'URL Link Safety Check', description: 'Scanned links are checked against known threats via Google Web Risk, plus suspicious-pattern checks. Everyone gets 5 checks per day; more are available through credit packs.' },
+  { icon: Lock, title: 'URL Link Safety Check', description: 'Scanned links are checked for phishing and known threats with Google Web Risk and suspicious-pattern checks. Free includes 1 check a day (+2 per rewarded ad), Lifetime Unlock 15; credit packs add more.' },
   { icon: FileCheck, title: 'Email Domain Validation', description: 'Unlimited for everyone. An MX lookup over DNS confirms whether an email domain can receive mail. Does not use your URL check credits.' },
-  { icon: Shield, title: 'Plain-Language Results', description: 'Clear safe, risk, or unavailable states shown inline on the scan result. No need to interpret threat logs.' },
+  { icon: Shield, title: 'Plain-Language Results', description: 'The result says how many checks flagged the link and why, in plain words, so you can decide before you open it.' },
   { icon: Eye, title: 'Private, Works Offline', description: 'Scans, history, and generated codes stay on your device. Only the link being checked is sent for a safety check.' },
 ]
 
@@ -71,7 +71,10 @@ export function SecuritySection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex items-center justify-center"
         >
-          <AppScreenshot shot={shots.urlSafetyResult} size="lg" />
+          <div className="flex flex-wrap justify-center gap-5 sm:gap-8">
+            <AppScreenshot shot={shots.urlSafetyResult} size="md" />
+            <AppScreenshot shot={shots.phishingWarning} size="md" />
+          </div>
         </motion.div>
       </div>
       </div>

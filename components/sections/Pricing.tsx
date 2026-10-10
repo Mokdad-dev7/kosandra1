@@ -16,9 +16,10 @@ const plans = [
     features: [
       'Scan and generate QR codes & barcodes',
       'History, favorites, and folders',
-      '5 URL safety checks per day',
+      '1 URL safety check per day',
       'Unlimited email domain checks',
       'Rewarded ads for +2 URL checks',
+      'Quick actions widget and one Pinned QR widget',
       'Supported by banner and interstitial ads',
     ],
   },
@@ -33,16 +34,17 @@ const plans = [
       'Local backup and restore',
       'Export and share (CSV, JSON, image ZIP)',
       'Point of Sale tools',
-      'Still 5 URL safety checks per day',
+      '15 URL safety checks per day',
+      'Pin as many QR codes to your home screen as you like',
     ],
     highlighted: true,
   },
 ]
 
 const creditPacks = [
-  { name: 'Starter Pack', price: '$0.99', checks: '+30 URL checks' },
-  { name: 'Standard Pack', price: '$2.99', checks: '+100 URL checks' },
-  { name: 'Value Pack', price: '$4.99', checks: '+250 URL checks', best: true },
+  { name: 'Starter Pack', price: '$0.99', checks: '+50 URL checks' },
+  { name: 'Standard Pack', price: '$2.99', checks: '+150 URL checks' },
+  { name: 'Value Pack', price: '$4.99', checks: '+400 URL checks', best: true },
 ]
 
 export function Pricing() {
@@ -60,7 +62,7 @@ export function Pricing() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Plans &amp; Pricing</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Free covers scanning and generating. A one-time purchase removes ads and unlocks the extras.
-            URL check packs add more safety checks if you run through the daily five.
+            URL check packs add more safety checks if you run out of your daily ones.
           </p>
         </motion.div>
 
@@ -121,7 +123,7 @@ export function Pricing() {
           <div className="text-center mb-6">
             <h3 className="text-2xl font-bold mb-2">URL Safety Check Packs</h3>
             <p className="text-muted-foreground">
-              Need more than 5 checks a day? Packs add checks that never expire on that device.
+              Need more checks than your daily allowance? Packs add checks that never expire on that device.
             </p>
           </div>
 

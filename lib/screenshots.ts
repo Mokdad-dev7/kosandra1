@@ -36,8 +36,26 @@ export const shots = {
   urlSafetyResult: {
     ...PHONE,
     src: '/images/screenshots/result-screen-url-safety-check.webp',
-    alt: 'QR Snap scan result with URL safety check',
-    caption: 'URL safety check',
+    alt: 'QR Snap scan result: 0 of 2 checks flagged this link',
+    caption: 'Safe link',
+  },
+  phishingWarning: {
+    ...PHONE,
+    src: '/images/screenshots/phishing-warning.webp',
+    alt: 'QR Snap scan result warning that a link pattern check flagged a login-style phishing page',
+    caption: 'Phishing warning',
+  },
+  shareToCreate: {
+    ...PHONE,
+    src: '/images/screenshots/share-to-create.webp',
+    alt: 'QR Snap Create a QR code for sheet after sharing a link from another app, with Link as the best match',
+    caption: 'Share to QR Snap',
+  },
+  homeScreenWidgets: {
+    ...PHONE,
+    src: '/images/screenshots/home-screen-widgets.webp',
+    alt: 'Android home screen with the QR Snap Pinned QR widget showing a Wi-Fi code and the Quick actions widget',
+    caption: 'Home screen widgets',
   },
   generateUrl: {
     ...PHONE,
@@ -126,7 +144,7 @@ export const shots = {
   pricingPlans: {
     ...PHONE,
     src: '/images/screenshots/pricing-plans.webp',
-    alt: 'QR Snap Plans with Lifetime Unlock and URL credit packs',
+    alt: 'QR Snap Plans: Free with 1 URL check a day, Lifetime Unlock $9.99 with 15 URL checks a day',
     caption: 'Plans in the app',
   },
   generatedQr: {
@@ -140,8 +158,10 @@ export const shots = {
 
 export const heroShots: AppShot[] = [
   shots.liveCameraScan,
-  shots.chooseScanMethod,
   shots.urlSafetyResult,
+  shots.phishingWarning,
+  shots.shareToCreate,
+  shots.homeScreenWidgets,
   shots.generateUrl,
   shots.scanHistory,
   shots.batchScanGallery,
@@ -153,6 +173,9 @@ export const heroShots: AppShot[] = [
 export const schemaScreenshotUrls = [
   shots.liveCameraScan.src,
   shots.urlSafetyResult.src,
+  shots.phishingWarning.src,
+  shots.shareToCreate.src,
+  shots.homeScreenWidgets.src,
   shots.generateUrl.src,
   shots.scanHistory.src,
   shots.batchScanGallery.src,

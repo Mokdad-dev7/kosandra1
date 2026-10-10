@@ -29,7 +29,7 @@
             "price": "0",
             "priceCurrency": "USD",
             "name": "Free",
-            "description": "Core scanning and generation, 5 URL safety checks per day"
+            "description": "Core scanning and generation, 1 URL safety check per day"
           },
           {
             "@type": "Offer",
@@ -87,7 +87,7 @@
         "name": "Is QR Snap free?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, QR Snap is free forever for scanning and generating QR codes. You get 5 free URL safety checks per day and unlimited email domain checks. Optional Lifetime Unlock ($9.99) removes ads and adds backup/export features."
+          "text": "Yes, QR Snap is free forever for scanning and generating QR codes. You get 1 free URL safety check per day and unlimited email domain checks. Optional Lifetime Unlock ($9.99) removes ads and adds backup/export features."
         }
       },
       {
@@ -214,7 +214,7 @@
           "name": "Free",
           "price": "0",
           "priceCurrency": "USD",
-          "description": "Core features free forever: scan, generate, 5 URL checks/day, unlimited email checks"
+          "description": "Core features free forever: scan, generate, 1 URL check/day, unlimited email checks"
         },
         {
           "@type": "Offer",

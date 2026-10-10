@@ -1,7 +1,7 @@
 'use client'
 
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { QrCode, Shield, Download, Scan, Star, Store, ShoppingCart, Camera, Image as ImageIcon, Share2, FolderArchive } from 'lucide-react'
+import { QrCode, Shield, Download, Scan, Star, Store, ShoppingCart, Camera, Image as ImageIcon, Share2, FolderArchive, Send, LayoutGrid } from 'lucide-react'
 import { Footer } from '@/components/marketing/Footer'
 import { Header } from '@/components/marketing/Header'
 import { FadeIn } from '@/components/ui/fade-in'
@@ -26,13 +26,25 @@ const features = [
   },
   {
     icon: QrCode,
-    title: '14+ Code Types',
+    title: '13 Code Types',
     description: 'Generate QR codes for URLs, text, email, phone, SMS, WiFi, vCard, calendar events, locations, social profiles, and product barcodes.',
+  },
+  {
+    icon: Send,
+    title: 'Share to QR Snap',
+    description: 'Share a link, text, contact, or calendar event from any app and pick QR Snap. The right QR generator opens, already filled in.',
+    badge: 'New',
+  },
+  {
+    icon: LayoutGrid,
+    title: 'Home Screen Widgets',
+    description: 'Quick actions for Scan, Gallery, Create, and Clipboard, plus Pinned QR to keep a code on your home screen. Free includes one Pinned QR; Lifetime pins as many as you like.',
+    badge: 'New',
   },
   {
     icon: Shield,
     title: 'URL Link Safety Check',
-    description: 'Checks links against known threats via Google Web Risk plus suspicious-pattern analysis. Everyone gets 5 checks per day; buy packs for more.',
+    description: 'Flags phishing and known-bad links using Google Web Risk and suspicious-pattern checks, and shows which checks ran. Free includes 1 check a day, Lifetime 15; packs add more.',
   },
   {
     icon: Download,
@@ -86,7 +98,7 @@ export default function FeaturesPage() {
             <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">Features</h1>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Scan, create, check URLs, export, backup, share, and run Point of Sale.
+              Scan, create, check links, share to QR Snap, pin codes to your home screen, export, backup, and run Point of Sale.
               </p>
             </div>
           </FadeIn>
@@ -96,6 +108,9 @@ export default function FeaturesPage() {
             shots={[
               shots.liveCameraScan,
               shots.urlSafetyResult,
+              shots.phishingWarning,
+              shots.shareToCreate,
+              shots.homeScreenWidgets,
               shots.generateUrl,
               shots.scanHistory,
               shots.batchScanGallery,
@@ -125,7 +140,13 @@ export default function FeaturesPage() {
                         <div className="flex items-center gap-2 flex-wrap">
                           <CardTitle>{feature.title}</CardTitle>
                           {feature.badge && (
-                            <Badge className="bg-premium-container text-premium border-premium-border text-xs">
+                            <Badge
+                              className={
+                                feature.badge === 'New'
+                                  ? 'bg-primary/10 text-primary border-primary/30 text-xs'
+                                  : 'bg-premium-container text-premium border-premium-border text-xs'
+                              }
+                            >
                               {feature.badge}
                             </Badge>
                           )}

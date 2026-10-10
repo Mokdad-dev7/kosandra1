@@ -91,9 +91,9 @@ export default function TermsPage() {
                         <>
                           <p>Features may vary based on:</p>
                           <ul className="list-disc list-inside mt-2 space-y-1 ml-4">
-                            <li>Free usage (with ads, 5 URL checks/day, unlimited email checks)</li>
-                            <li>Lifetime Unlock (one-time purchase: ads removed, batch gallery, backup, export, POS)</li>
-                            <li>URL Credit Packs (consumables: 30 / 100 / 250 checks)</li>
+                            <li>Free usage (with ads, 1 URL check/day, unlimited email checks)</li>
+                            <li>Lifetime Unlock (one-time purchase: ads removed, 15 URL checks/day, batch gallery, backup, export, POS, unlimited Pinned QR widgets)</li>
+                            <li>URL Credit Packs (consumables: 50 / 150 / 400 checks)</li>
                             <li>Rewarded ads for +2 URL checks</li>
                           </ul>
                           <p className="mt-3">
@@ -113,7 +113,7 @@ export default function TermsPage() {
                           </p>
                           <ul className="list-disc list-inside mt-2 space-y-1 ml-4">
                             <li><strong>Lifetime Unlock ($9.99)</strong>: one-time <strong>non-consumable</strong>; removes ads and unlocks premium features</li>
-                            <li><strong>URL Credit Packs</strong>: <strong>consumables</strong> (30 / 100 / 250 checks); never expire on that installation</li>
+                            <li><strong>URL Credit Packs</strong>: <strong>consumables</strong> (50 / 150 / 400 checks); never expire on that installation</li>
                           </ul>
                           <ul className="list-disc list-inside mt-3 space-y-2 ml-4">
                             <li>Purchases are handled by Google Play Store and Apple App Store</li>

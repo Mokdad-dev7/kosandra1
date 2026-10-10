@@ -102,7 +102,7 @@ const tutorials = [
       'Review app permissions in your device settings'
     ],
     tips: [
-      'Everyone gets 5 URL safety checks per day',
+      'Free includes 1 URL safety check per day; Lifetime Unlock includes 15',
       'URL Credit Packs add more checks that never expire on that device',
       'Purchased credits cannot be restored after uninstall or app-data clear',
       'Lifetime Unlock restores with the same store account'

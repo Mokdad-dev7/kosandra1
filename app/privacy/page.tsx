@@ -90,6 +90,8 @@ export default function PrivacyPage() {
                         <ul className="list-disc list-inside space-y-2 ml-4">
                           <li>All scanned and generated QR codes are stored locally on your device using Hive on-device storage</li>
                           <li>No cloud storage or automatic sync is used</li>
+                          <li>Text, links, contacts, and events you share to QR Snap from other apps are read on the device to fill in a QR generator</li>
+                          <li>Home screen widgets show codes from your on-device library; nothing is uploaded to display them</li>
                           <li>Lifetime Unlock includes local backup &amp; restore functionality (export to a local file)</li>
                           <li>Your data never leaves your device unless you explicitly choose to export or share it</li>
                         </ul>
@@ -107,6 +109,7 @@ export default function PrivacyPage() {
                         </p>
                         <ul className="list-disc list-inside mt-2 space-y-1 ml-4">
                           <li><strong>Google Web Risk</strong>: primary threat data source</li>
+                          <li><strong>Phishing.Database</strong>: a public list of phishing domains, matched on our server</li>
                           <li><strong>VirusTotal</strong>: optional enrichment (only if commercially enabled)</li>
                         </ul>
                         <p className="mt-3">
@@ -126,7 +129,7 @@ export default function PrivacyPage() {
                         </p>
                         <ul className="list-disc list-inside mt-2 space-y-1 ml-4">
                           <li><strong>Lifetime Unlock ($9.99)</strong>: one-time non-consumable; removes ads and unlocks premium features</li>
-                          <li><strong>URL Credit Packs</strong>: consumables (30 / 100 / 250 checks); never expire on that installation</li>
+                          <li><strong>URL Credit Packs</strong>: consumables (50 / 150 / 400 checks); never expire on that installation</li>
                         </ul>
                         <p className="mt-3">
                           Payments are processed securely by Google Play Store and Apple App Store. {appName} does not process or store payment information.

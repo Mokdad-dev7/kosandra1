@@ -2,7 +2,7 @@
 
 > Android QR and barcode app: scan, create, check links, export, backup, share, and run a small Point of Sale. Data stays on the device.
 
-QR Snap is a Flutter app from Ars Technology (package com.ars.qr_snap). You scan QR codes and barcodes with the camera or from gallery images, generate 14+ code types, and act on the result (open, call, save contact, add event, copy, share). URL safety checks and unlimited email-domain (MX) validation sit on the scan result. Lifetime Unlock adds gallery batch scan, local backup and restore, export, share, and on-device Point of Sale. URL credit packs add extra safety checks.
+QR Snap is a Flutter app from Ars Technology (package com.ars.qr_snap). You scan QR codes and barcodes with the camera or from gallery images, create 13 code types, and act on the result (open, call, save contact, add event, copy, share). URL safety checks and unlimited email-domain (MX) validation sit on the scan result. Lifetime Unlock adds gallery batch scan, local backup and restore, export, share, and on-device Point of Sale. URL credit packs add extra safety checks. Version 1.1.0 adds Share to QR Snap and home screen widgets.
 
 ## What QR Snap includes
 
@@ -11,7 +11,9 @@ QR Snap is a Flutter app from Ars Technology (package com.ars.qr_snap). You scan
 - Fast recognition for QR and many barcode formats
 - Generate URL, text, email, phone, SMS, Wi-Fi, vCard, calendar, location, social, product barcodes
 - Result actions: open link, call, SMS, email, save contact, add event, maps, copy, share, product lookup
-- URL link safety check (Google Web Risk + pattern checks; 5 free per day)
+- URL link safety check for phishing and known-bad links (Google Web Risk + pattern checks; 1 per day on Free, 15 with Lifetime)
+- Share to QR Snap: share a link, text, contact or event from any app to open the matching QR generator, pre-filled
+- Home screen widgets: Quick actions (Scan, Gallery, Create, Clipboard) and Pinned QR (one free, unlimited with Lifetime)
 - Unlimited email domain (MX) validation for everyone
 - History, favorites, folders, smart filters; local storage only
 - Export: CSV, JSON, image ZIP, parsed text as shown in-app (Lifetime)
@@ -28,7 +30,7 @@ QR Snap is a Flutter app from Ars Technology (package com.ars.qr_snap). You scan
 - Batch from gallery: Lifetime Unlock
 - Fast recognition across QR and common barcode formats (EAN, UPC, Code 128, Code 39, ITF, and more)
 
-## Generation (14+ types)
+## Generation (13 types)
 
 - URL, text, email, phone, SMS
 - Wi-Fi credentials
@@ -43,8 +45,8 @@ QR Snap is a Flutter app from Ars Technology (package com.ars.qr_snap). You scan
 
 - URL check: pattern checks plus Google Web Risk (primary)
 - Optional VirusTotal enrichment only when commercially enabled
-- 5 URL checks per day for every install (Free and Lifetime)
-- Extra checks via rewarded ads (+2) or credit packs (30 / 100 / 250)
+- 1 URL check per day on Free, 15 per day with Lifetime Unlock
+- Extra checks via rewarded ads (+2) or credit packs (50 / 150 / 400)
 - Failed or inconclusive checks do not consume credits
 - Email MX validation is unlimited and does not use URL credits
 - Results: safe, risk, or unavailable, in plain language
@@ -71,9 +73,10 @@ QR Snap is a Flutter app from Ars Technology (package com.ars.qr_snap). You scan
 - Price: $0
 - Scan and generate, history, favorites, folders
 - Ads (banner and occasional interstitial)
-- 5 URL safety checks per day
+- 1 URL safety check per day
+- Quick actions widget and one Pinned QR widget
 - Unlimited email domain checks
-- Rewarded ads: +2 URL checks (max 2 ads / 24h, 15-minute cooldown)
+- Rewarded ads: +2 URL checks (up to 4 ads / 24h, 15-minute cooldown)
 
 ### Lifetime Unlock
 - Price: $9.99 one-time (SKU: qrsnap_lifetime_unlock)
@@ -81,13 +84,14 @@ QR Snap is a Flutter app from Ars Technology (package com.ars.qr_snap). You scan
 - Gallery batch scan
 - Backup, restore, export, share
 - Point of Sale
-- Still 5 URL checks per day (buy packs for more)
+- 15 URL checks per day (buy packs for more)
+- Unlimited Pinned QR widgets
 - Restores with the same store account on the Plans screen
 
 ### URL Credit Packs (consumables, never expire on that install)
-- Starter: $0.99 for 30 checks (qrsnap_url_credits_30)
-- Standard: $2.99 for 100 checks (qrsnap_url_credits_100)
-- Value: $4.99 for 250 checks (qrsnap_url_credits_250)
+- Starter: $0.99 for 50 checks (qrsnap_url_credits_50)
+- Standard: $2.99 for 150 checks (qrsnap_url_credits_150)
+- Value: $4.99 for 400 checks (qrsnap_url_credits_400)
 - Cannot be restored after uninstall, app-data clear, or a new device
 
 Credit order: free daily, then rewarded bonus, then purchased credits.

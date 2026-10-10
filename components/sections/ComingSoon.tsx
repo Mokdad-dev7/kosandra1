@@ -9,15 +9,15 @@ import { useRef } from 'react'
 const upcomingFeatures = [
   {
     icon: Smartphone,
-    title: 'iOS App',
-    description: 'Bring the same Material design experience to iPhone and iPad',
-    status: 'planned',
+    title: 'iPhone App',
+    description: 'QR Snap for iPhone, with the share extension and home screen widgets',
+    status: 'in-progress',
   },
   {
     icon: Wrench,
     title: 'Polish & Refinements',
     description: 'Continued improvements to performance, usability, and edge cases',
-    status: 'in-progress',
+    status: 'planned',
   },
   {
     icon: Sparkles,

@@ -49,7 +49,7 @@ export function QRTypesGrid() {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">QR & Barcode Generation</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Support for 14+ QR code and barcode types
+            13 QR code and barcode types
           </p>
         </motion.div>
 

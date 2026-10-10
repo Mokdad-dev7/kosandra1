@@ -16,8 +16,10 @@ const featureList = [
   'Live camera QR and barcode scan',
   'Scan from gallery images',
   'Camera batch scan (free) and gallery batch scan (Lifetime Unlock)',
-  'QR and barcode generation (14+ types)',
-  'URL link safety checks (Google Web Risk)',
+  'QR and barcode generation (13 types)',
+  'Share to QR Snap: turn shared links, text, contacts and events into QR codes',
+  'Home screen widgets: Quick actions and Pinned QR',
+  'Link safety checks for phishing and known-bad URLs (Google Web Risk and pattern checks)',
   'Unlimited email domain (MX) validation',
   'History, favorites, folders, and smart filters',
   'Export CSV, JSON, image ZIP, and parsed text',
@@ -34,7 +36,7 @@ const offers = [
     price: '0',
     priceCurrency: 'USD',
     description:
-      'Scan, generate, history, 5 URL safety checks per day, unlimited email checks. Ads on Free.',
+      'Scan, generate, history, 1 URL safety check per day (+2 per rewarded ad), unlimited email checks, one Pinned QR widget. Ads on Free.',
   },
   {
     '@type': 'Offer',
@@ -42,28 +44,28 @@ const offers = [
     price: '9.99',
     priceCurrency: 'USD',
     description:
-      'One-time purchase: no ads, gallery batch scan, backup, restore, export, share, Point of Sale',
+      'One-time purchase: no ads, 15 URL safety checks per day, gallery batch scan, backup, restore, export, share, Point of Sale, unlimited Pinned QR widgets',
   },
   {
     '@type': 'Offer',
     name: 'Starter Pack',
     price: '0.99',
     priceCurrency: 'USD',
-    description: '+30 URL safety checks, never expire on that install',
+    description: '+50 URL safety checks, never expire on that install',
   },
   {
     '@type': 'Offer',
     name: 'Standard Pack',
     price: '2.99',
     priceCurrency: 'USD',
-    description: '+100 URL safety checks, never expire on that install',
+    description: '+150 URL safety checks, never expire on that install',
   },
   {
     '@type': 'Offer',
     name: 'Value Pack',
     price: '4.99',
     priceCurrency: 'USD',
-    description: '+250 URL safety checks, never expire on that install',
+    description: '+400 URL safety checks, never expire on that install',
   },
 ]
 
@@ -101,7 +103,7 @@ export const softwareApplicationSchema = {
   offers,
   screenshot: schemaScreenshotUrls.map((path) => `${SITE_URL}${path}`),
   description:
-    'QR and barcode scanner for Android. Scan from camera or gallery, generate 14+ types, check URLs before you open them, export and backup, share, and run Point of Sale. Free plus Lifetime Unlock and URL packs.',
+    'QR and barcode scanner for Android. Scan from camera or gallery, create 13 code types, check links before you open them, share to QR Snap from any app, pin codes to your home screen, export and backup, and run Point of Sale. Free plus Lifetime Unlock and URL packs.',
   downloadUrl: PLAY_URL,
   installUrl: PLAY_URL,
   featureList,

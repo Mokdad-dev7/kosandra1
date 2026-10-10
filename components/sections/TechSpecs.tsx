@@ -9,8 +9,8 @@ const specs = [
   {
     icon: Smartphone,
     title: 'Mobile First',
-    description: 'Built for Android today, with iOS planned',
-    features: ['Native camera integration', 'Local storage, works offline', 'Fast scanning', 'Adaptive mobile layouts'],
+    description: 'Built for Android today, with an iPhone version in development',
+    features: ['Native camera integration', 'Share sheet and home screen widgets', 'Local storage, works offline', 'Adaptive mobile layouts'],
   },
   {
     icon: Layers,
@@ -22,7 +22,7 @@ const specs = [
     icon: ShieldCheck,
     title: 'Backed Safety Checks',
     description: 'Server-backed link safety and store billing',
-    features: ['Cloudflare Worker link safety', 'Google Web Risk threat data', 'Play Billing for Lifetime and packs'],
+    features: ['Cloudflare Worker link safety', 'Google Web Risk threat data', 'Purchases verified with Google Play'],
   },
 ]
 

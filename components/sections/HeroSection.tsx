@@ -48,7 +48,7 @@ export function HeroSection() {
               transition={{ delay: 0.1, duration: 0.5 }}
             >
               <span className="inline-flex max-w-full flex-wrap justify-center lg:justify-start px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium text-center">
-                Scan, create, check links, export, backup, share, POS
+                New in 1.1: Share to QR Snap and home screen widgets
               </span>
             </motion.div>
 
@@ -73,9 +73,9 @@ export function HeroSection() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-xl leading-relaxed"
             >
-              QR and barcode scanner for Android. Scan with the camera or from gallery, generate 14+ types,
-              check URLs, keep history on the device. Lifetime Unlock adds gallery batch, export, backup,
-              restore, share, and Point of Sale. Free, plus a $9.99 one-time unlock and URL packs.
+              QR and barcode scanner for Android. Scan with the camera or from gallery, create 13 code types,
+              and see if a link looks safe before you tap it. Share anything to QR Snap to make a code, and
+              keep your favorite one on the home screen. Free, plus a $9.99 one-time unlock.
             </motion.p>
 
             {/* CTAs - Staggered */}

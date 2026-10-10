@@ -4,16 +4,16 @@ QR Snap pricing is Free forever for scan and generate, plus an optional one-time
 
 ## Free
 - Price: $0 forever
-- Limits: 5 URL safety checks per day; unlimited email domain (MX) checks
-- Features: live camera scan, scan from gallery, camera batch scan, generate 14+ QR and barcode types, history, favorites, folders, smart filters, result actions (open, call, SMS, email, save contact, add event, maps, copy)
+- Limits: 1 URL safety check per day; unlimited email domain (MX) checks
+- Features: live camera scan, scan from gallery, camera batch scan, create 13 QR and barcode types, Share to QR Snap from other apps, Quick actions widget, one Pinned QR widget, history, favorites, folders, smart filters, result actions (open, call, SMS, email, save contact, add event, maps, copy)
 - Ads: banner and occasional interstitial
-- Bonus: watch a rewarded ad for +2 URL checks (max 2 ads per rolling 24 hours, 15-minute cooldown)
-- Not included: gallery batch scan, backup/restore, export, share flows, Point of Sale
+- Bonus: watch a rewarded ad for +2 URL checks (up to 4 ads per rolling 24 hours, 15-minute cooldown)
+- Not included: gallery batch scan, backup/restore, export, share flows, Point of Sale, more than one Pinned QR widget
 
 ## Lifetime Unlock
 - Price: $9.99 one-time (not a subscription)
 - SKU: qrsnap_lifetime_unlock
-- Limits: same 5 URL checks per day as Free
+- Limits: 15 URL checks per day
 - Features: everything in Free, plus:
   - Ads removed permanently
   - Batch scan from gallery images
@@ -21,6 +21,7 @@ QR Snap pricing is Free forever for scan and generate, plus an optional one-time
   - Export: CSV, JSON, image ZIP, parsed text as shown in-app
   - Share to other apps
   - Point of Sale (inventory, scan-to-cart, sales history, receipts)
+  - Unlimited Pinned QR home screen widgets
 - Restores: yes, with the same Google Play / App Store account (Restore on the Plans screen)
 
 ## Point of Sale (included in Lifetime Unlock)
@@ -33,27 +34,27 @@ QR Snap pricing is Free forever for scan and generate, plus an optional one-time
 
 ## Starter Pack
 - Price: $0.99
-- SKU: qrsnap_url_credits_30
-- Credits: +30 URL safety checks
+- SKU: qrsnap_url_credits_50
+- Credits: +50 URL safety checks
 - Expiry: never on this install
 - Restores: no. Tied to the anonymous installation wallet. Lost on uninstall, app-data clear, or a new device
 
 ## Standard Pack
 - Price: $2.99
-- SKU: qrsnap_url_credits_100
-- Credits: +100 URL safety checks
+- SKU: qrsnap_url_credits_150
+- Credits: +150 URL safety checks
 - Expiry: never on this install
 - Restores: no
 
 ## Value Pack
 - Price: $4.99
-- SKU: qrsnap_url_credits_250
-- Credits: +250 URL safety checks
+- SKU: qrsnap_url_credits_400
+- Credits: +400 URL safety checks
 - Expiry: never on this install
 - Restores: no
 
 ## Credit consumption order
-1. Free daily checks (5/day)
+1. Free daily checks (1/day on Free, 15/day with Lifetime Unlock)
 2. Rewarded-ad bonus checks
 3. Purchased credit packs
 

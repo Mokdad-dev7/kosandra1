@@ -57,22 +57,23 @@ export default function AboutPage() {
                 <div className="prose prose-lg dark:prose-invert max-w-none">
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     QR Snap is an Android app from Ars Technology. You scan QR codes and barcodes with the
-                    camera or from gallery images, generate 14+ types, and act on the result. URL safety
-                    checks use Google Web Risk. Email domain (MX) validation is unlimited for everyone.
+                    camera or from gallery images, create 13 code types, and act on the result. Link safety
+                    checks flag phishing and known-bad URLs. Email domain (MX) validation is unlimited for everyone.
+                    Share a link, contact, or event from any app to turn it into a QR code, and keep your
+                    favorite code on the home screen with the Pinned QR widget.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     Codes stay on the device. No account, no cloud sync. Scan, generate, history, and Point
                     of Sale work offline. Built with Flutter and Hive local storage.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    Free includes 5 URL checks per day and ads. Lifetime Unlock ($9.99 one-time) removes ads
-                    and adds gallery batch scan, local backup and restore, export (CSV, JSON, image ZIP),
-                    share, and Point of Sale. URL packs add 30, 100, or 250 checks that never expire on
-                    that install.
+                    Free includes 1 URL check per day and ads. Lifetime Unlock ($9.99 one-time) removes ads,
+                    includes 15 URL checks per day, and adds gallery batch scan, local backup and restore,
+                    export (CSV, JSON, image ZIP), share, Point of Sale, and unlimited Pinned QR widgets. URL
+                    packs add 50, 150, or 400 checks that never expire on that install.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    QR Snap is currently live on Android (Google Play). iOS is planned with the same Material
-                    design language.
+                    QR Snap is live on Android (Google Play). An iPhone version is in development.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed mt-6">
                     <strong className="text-foreground">Developed by Ars Technology</strong>

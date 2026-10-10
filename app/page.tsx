@@ -1,6 +1,7 @@
 import { HeroSection } from '@/components/sections/HeroSection'
 import { DownloadBar } from '@/components/sections/DownloadBar'
 import { ProductOverview } from '@/components/sections/ProductOverview'
+import { WhatsNew } from '@/components/sections/WhatsNew'
 import { ScanningFeatures } from '@/components/sections/ScanningFeatures'
 import { QRTypesGrid } from '@/components/sections/QRTypesGrid'
 import { SecuritySection } from '@/components/sections/SecuritySection'
@@ -37,6 +38,7 @@ export default function HomePage() {
         <HeroSection />
         <DownloadBar />
         <ProductOverview />
+        <WhatsNew />
         <ScanningFeatures />
         <QRTypesGrid />
         <SecuritySection />

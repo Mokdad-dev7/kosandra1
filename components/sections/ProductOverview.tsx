@@ -9,12 +9,12 @@ const pillars = [
   {
     icon: Camera,
     title: 'Scan and create',
-    body: 'Live camera scan, scan from gallery, and camera batch for free. Generate 14+ QR and barcode types: URL, text, Wi-Fi, vCard, events, location, social, and product codes. Gallery batch scan is in Lifetime Unlock.',
+    body: 'Live camera scan, scan from gallery, and camera batch for free. Create 13 QR and barcode types: URL, text, Wi-Fi, vCard, events, location, social, and product codes. Gallery batch scan is in Lifetime Unlock.',
   },
   {
     icon: Shield,
     title: 'URL safety and email checks',
-    body: 'Before you open a link, QR Snap runs a URL safety check (Google Web Risk plus pattern checks). Everyone gets 5 checks per day. Email domain (MX) validation is unlimited and does not use those credits.',
+    body: 'Before you open a link, QR Snap checks it for phishing and known threats (Google Web Risk plus pattern checks). Free includes 1 check a day, Lifetime Unlock 15. Email domain (MX) validation is unlimited and does not use those credits.',
   },
   {
     icon: FolderArchive,
@@ -24,7 +24,7 @@ const pillars = [
   {
     icon: Store,
     title: 'Point of Sale and pricing',
-    body: 'POS in Lifetime Unlock: local inventory, scan-to-cart, sales history, receipts. Pricing is Free, a $9.99 one-time Lifetime Unlock, and URL packs at $0.99, $2.99, and $4.99 if you need more than 5 checks a day.',
+    body: 'POS in Lifetime Unlock: local inventory, scan-to-cart, sales history, receipts. Pricing is Free, a $9.99 one-time Lifetime Unlock, and URL packs at $0.99, $2.99, and $4.99 if you need more link checks.',
   },
 ]
 
@@ -43,7 +43,8 @@ export function ProductOverview() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">What is QR Snap?</h2>
           <p className="text-muted-foreground text-lg">
             QR Snap is an Android QR and barcode app from Ars Technology. You scan with the camera or
-            from gallery images, generate 14+ code types, check URLs before you open them, keep history
+            from gallery images, create 13 code types, check links before you open them, turn anything
+            you share from another app into a QR code, keep a code on your home screen, keep history
             on the device, and with Lifetime Unlock you get gallery batch scan, export, backup, restore,
             share, and Point of Sale.
           </p>
