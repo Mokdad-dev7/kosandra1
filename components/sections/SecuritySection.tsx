@@ -10,7 +10,7 @@ import { shots } from '@/lib/screenshots'
 
 const securityFeatures = [
   { icon: Route, title: 'Where it really goes', description: 'Short links and redirects are followed to the page they end on, so you see the real site, not the sticker’s address. Scam sites are usually brand-new, so QR Snap shows when the site was registered.' },
-  { icon: Lock, title: 'Known scams and look-alikes', description: 'Checked against Google Web Risk and a public phishing list, plus pattern checks for fake brand names, misspellings, look-alike letters and payment pages on free website builders. Free includes 1 full check a day (+2 per rewarded ad), Lifetime Unlock 15.' },
+  { icon: Lock, title: 'Known scams and look-alikes', description: 'Checked against Google Web Risk and a public phishing list, plus pattern checks for fake brand names, misspellings, look-alike letters and payment pages on free website builders. Free includes 1 full check a day (+2 per rewarded ad), Lifetime Unlock 2.' },
   { icon: FileCheck, title: 'Email Domain Validation', description: 'Unlimited for everyone. An MX lookup over DNS confirms whether an email domain can receive mail. Does not use your URL check credits.' },
   { icon: Shield, title: 'Plain-Language Results', description: 'The result says how many checks flagged the link and why, in plain words, so you can decide before you open it.' },
   { icon: Eye, title: 'Private, Works Offline', description: 'Scans, history, and generated codes stay on your device. Only the link being checked is sent for a safety check.' },

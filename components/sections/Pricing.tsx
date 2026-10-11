@@ -34,7 +34,7 @@ const plans = [
       'Local backup and restore',
       'Export and share (CSV, JSON, image ZIP)',
       'Point of Sale tools',
-      '15 URL safety checks per day',
+      '2 URL safety checks per day, +2 per rewarded ad',
       'Pin as many QR codes to your home screen as you like',
     ],
     highlighted: true,

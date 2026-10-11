@@ -12,12 +12,12 @@ export const faqs: FaqItem[] = [
   {
     question: 'What are the pricing plans?',
     answer:
-      'QR Snap is Free forever for scan and generate: history, favorites, ads, 1 URL safety check per day (plus 2 more for each rewarded ad), unlimited email domain checks, the Quick actions widget and one Pinned QR widget. Optional Lifetime Unlock ($9.99 one-time) removes ads, raises link checks to 15 per day, and unlocks gallery batch scan, local backup and restore, export (CSV, JSON, image ZIP), share, Point of Sale, and unlimited Pinned QR widgets. URL packs add 50, 150, or 400 checks that never expire on that install. Store prices in the app are authoritative.',
+      'QR Snap is Free forever for scan and generate: history, favorites, ads, 1 URL safety check per day (plus 2 more for each rewarded ad), unlimited email domain checks, the Quick actions widget and one Pinned QR widget. Optional Lifetime Unlock ($9.99 one-time) removes ads, raises link checks to 2 per day (plus 2 more per rewarded ad), and unlocks gallery batch scan, local backup and restore, export (CSV, JSON, image ZIP), share, Point of Sale, and unlimited Pinned QR widgets. URL packs add 50, 150, or 400 checks that never expire on that install. Store prices in the app are authoritative.',
   },
   {
     question: 'What is Lifetime Unlock?',
     answer:
-      'Lifetime Unlock is a $9.99 one-time purchase, not a subscription. It removes ads and unlocks gallery batch scan, backup and restore, export, share, Point of Sale, and unlimited Pinned QR widgets. It includes 15 URL safety checks per day instead of 1. Buy credit packs if you need more. Restore it with the same store account on the Plans screen.',
+      'Lifetime Unlock is a $9.99 one-time purchase, not a subscription. It removes ads and unlocks gallery batch scan, backup and restore, export, share, Point of Sale, and unlimited Pinned QR widgets. It includes 2 URL safety checks per day instead of 1, plus 2 more for each rewarded ad. Buy credit packs if you need more. Restore it with the same store account on the Plans screen.',
   },
   {
     question: 'What is Point of Sale in QR Snap?',
@@ -47,7 +47,7 @@ export const faqs: FaqItem[] = [
   {
     question: 'Are QR codes safe to scan?',
     answer:
-      'Scanning only reads data. Opening a link can be risky. QR Snap checks URLs for known threats and suspicious patterns and shows a clear safe, risk, or unavailable result before you open them. Free includes 1 URL check per day and Lifetime Unlock includes 15. Email domain checks are unlimited.',
+      'Scanning only reads data. Opening a link can be risky. QR Snap checks URLs for known threats and suspicious patterns and shows a clear safe, risk, or unavailable result before you open them. Free includes 1 URL check per day and Lifetime Unlock includes 2; each rewarded ad adds 2. Email domain checks are unlimited.',
   },
   {
     question: 'Is my data private?',

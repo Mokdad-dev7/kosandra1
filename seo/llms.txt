@@ -11,7 +11,7 @@ QR Snap is a Flutter app from Ars Technology (package com.ars.qr_snap). You scan
 - Fast recognition for QR and many barcode formats
 - Generate URL, text, email, phone, SMS, Wi-Fi, vCard, calendar, location, social, product barcodes
 - Result actions: open link, call, SMS, email, save contact, add event, maps, copy, share, product lookup
-- URL link safety check: follows redirects and short links to the real destination, shows the site's registration age, and checks it with Google Web Risk, a public phishing list and pattern checks for brand look-alikes, misspellings, homographs and payment pages on free website builders (1 per day on Free, 15 with Lifetime; the pattern check also runs on the device for every scan)
+- URL link safety check: follows redirects and short links to the real destination, shows the site's registration age, and checks it with Google Web Risk, a public phishing list and pattern checks for brand look-alikes, misspellings, homographs and payment pages on free website builders (1 per day on Free, 2 with Lifetime, +2 per rewarded ad; the pattern check also runs on the device for every scan)
 - Share to QR Snap: share a link, text, contact or event from any app to open the matching QR generator, pre-filled
 - Home screen widgets: Quick actions (Scan, Gallery, Create, Clipboard) and Pinned QR (one free, unlimited with Lifetime)
 - Unlimited email domain (MX) validation for everyone
@@ -45,7 +45,7 @@ QR Snap is a Flutter app from Ars Technology (package com.ars.qr_snap). You scan
 
 - URL check: pattern checks plus Google Web Risk (primary)
 - Optional VirusTotal enrichment only when commercially enabled
-- 1 URL check per day on Free, 15 per day with Lifetime Unlock
+- 1 URL check per day on Free, 2 per day with Lifetime Unlock, +2 per rewarded ad
 - Extra checks via rewarded ads (+2) or credit packs (50 / 150 / 400)
 - Failed or inconclusive checks do not consume credits
 - Email MX validation is unlimited and does not use URL credits
@@ -84,7 +84,7 @@ QR Snap is a Flutter app from Ars Technology (package com.ars.qr_snap). You scan
 - Gallery batch scan
 - Backup, restore, export, share
 - Point of Sale
-- 15 URL checks per day (buy packs for more)
+- 2 URL checks per day, +2 per rewarded ad (buy packs for more)
 - Unlimited Pinned QR widgets
 - Restores with the same store account on the Plans screen
 

@@ -68,7 +68,7 @@ export default function AboutPage() {
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     Free includes 1 URL check per day and ads. Lifetime Unlock ($9.99 one-time) removes ads,
-                    includes 15 URL checks per day, and adds gallery batch scan, local backup and restore,
+                    includes 2 URL checks per day (+2 per rewarded ad), and adds gallery batch scan, local backup and restore,
                     export (CSV, JSON, image ZIP), share, Point of Sale, and unlimited Pinned QR widgets. URL
                     packs add 50, 150, or 400 checks that never expire on that install.
                   </p>

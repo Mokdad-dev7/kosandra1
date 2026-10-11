@@ -44,7 +44,7 @@ const offers = [
     price: '9.99',
     priceCurrency: 'USD',
     description:
-      'One-time purchase: no ads, 15 URL safety checks per day, gallery batch scan, backup, restore, export, share, Point of Sale, unlimited Pinned QR widgets',
+      'One-time purchase: no ads, 2 URL safety checks per day (+2 per rewarded ad), gallery batch scan, backup, restore, export, share, Point of Sale, unlimited Pinned QR widgets',
   },
   {
     '@type': 'Offer',

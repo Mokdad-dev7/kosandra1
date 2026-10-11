@@ -144,7 +144,7 @@ export const shots = {
   pricingPlans: {
     ...PHONE,
     src: '/images/screenshots/pricing-plans.webp',
-    alt: 'QR Snap Plans: Free with 1 URL check a day, Lifetime Unlock $9.99 with 15 URL checks a day',
+    alt: 'QR Snap Plans: Free with 1 URL check a day, Lifetime Unlock $9.99 with 2 URL checks a day',
     caption: 'Plans in the app',
   },
   generatedQr: {

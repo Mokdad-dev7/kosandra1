@@ -13,7 +13,7 @@ QR Snap pricing is Free forever for scan and generate, plus an optional one-time
 ## Lifetime Unlock
 - Price: $9.99 one-time (not a subscription)
 - SKU: qrsnap_lifetime_unlock
-- Limits: 15 URL checks per day
+- Limits: 2 URL checks per day, +2 per rewarded ad
 - Features: everything in Free, plus:
   - Ads removed permanently
   - Batch scan from gallery images
@@ -54,7 +54,7 @@ QR Snap pricing is Free forever for scan and generate, plus an optional one-time
 - Restores: no
 
 ## Credit consumption order
-1. Free daily checks (1/day on Free, 15/day with Lifetime Unlock)
+1. Free daily checks (1/day on Free, 2/day with Lifetime Unlock)
 2. Rewarded-ad bonus checks
 3. Purchased credit packs
 

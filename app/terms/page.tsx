@@ -92,7 +92,7 @@ export default function TermsPage() {
                           <p>Features may vary based on:</p>
                           <ul className="list-disc list-inside mt-2 space-y-1 ml-4">
                             <li>Free usage (with ads, 1 URL check/day, unlimited email checks)</li>
-                            <li>Lifetime Unlock (one-time purchase: ads removed, 15 URL checks/day, batch gallery, backup, export, POS, unlimited Pinned QR widgets)</li>
+                            <li>Lifetime Unlock (one-time purchase: ads removed, 2 URL checks/day (+2 per rewarded ad), batch gallery, backup, export, POS, unlimited Pinned QR widgets)</li>
                             <li>URL Credit Packs (consumables: 50 / 150 / 400 checks)</li>
                             <li>Rewarded ads for +2 URL checks</li>
                           </ul>

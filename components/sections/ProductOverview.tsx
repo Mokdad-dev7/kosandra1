@@ -14,7 +14,7 @@ const pillars = [
   {
     icon: Shield,
     title: 'URL safety and email checks',
-    body: 'Before you open a link, QR Snap checks it for phishing and known threats (Google Web Risk plus pattern checks). Free includes 1 check a day, Lifetime Unlock 15. Email domain (MX) validation is unlimited and does not use those credits.',
+    body: 'Before you open a link, QR Snap checks it for phishing and known threats (Google Web Risk plus pattern checks). Free includes 1 check a day, Lifetime Unlock 2. Each rewarded ad adds 2. Email domain (MX) validation is unlimited and does not use those credits.',
   },
   {
     icon: FolderArchive,

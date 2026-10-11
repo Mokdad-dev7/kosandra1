@@ -44,7 +44,7 @@ const features = [
   {
     icon: Shield,
     title: 'URL Link Safety Check',
-    description: 'Flags phishing and known-bad links using Google Web Risk and suspicious-pattern checks, and shows which checks ran. Free includes 1 check a day, Lifetime 15; packs add more.',
+    description: 'Flags phishing and known-bad links using Google Web Risk and suspicious-pattern checks, and shows which checks ran. Free includes 1 check a day, Lifetime 2, and each rewarded ad adds 2; packs add more.',
   },
   {
     icon: Download,
