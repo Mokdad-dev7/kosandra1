@@ -41,6 +41,76 @@ const HONEST_LIMITS: GuideSection = {
 
 export const guides: Guide[] = [
   {
+    slug: 'qr-code-phishing-emails',
+    title: 'QR codes in emails and PDFs: the account-theft scam',
+    shortTitle: 'QR codes in emails',
+    description:
+      'Fake "re-verify your account", shared-document and invoice emails hide a QR code so your phone opens a fake sign-in page. How it works, the red flags, and what to do.',
+    updated: '2026-10-20',
+    intro:
+      'An email says your password expires today, a document is waiting for your signature, or your two-step sign-in must be renewed, and it asks you to scan a QR code. The code opens a copy of a Microsoft, Google or DocuSign sign-in page on your phone. Whatever you type there goes to the scammer, who then signs in to your real account.',
+    sections: [
+      {
+        heading: 'Why scammers put the link in a QR code',
+        paragraphs: [
+          'Email filters check the links inside a message. A QR code is a picture, often inside a PDF attachment, so many filters never see the address it holds. When you scan it, the page opens on your phone, which usually has less protection than a work computer and is outside your company’s security tools.',
+          'In January 2026 the FBI warned that a North Korean group was sending emails with QR codes to think tanks, universities and government staff, posing as advisers, embassy staff and conference organisers. The codes led to fake sign-in pages. The FBI noted that QR images in attachments and embedded graphics slip past link checking and scanning.',
+          'The same trick is common in ordinary crime. Barracuda researchers counted more than 500,000 phishing emails with QR codes in PDF attachments between June and September 2024. Most posed as Microsoft SharePoint or OneDrive (51%), DocuSign (31%) or Adobe (15%).',
+        ],
+      },
+      {
+        heading: 'What these emails usually say',
+        bullets: [
+          '“Your password expires today. Scan to keep the same password.”',
+          '“Your multi-factor authentication must be re-enrolled.”',
+          '“A document has been shared with you” or “Please sign this agreement”.',
+          '“You have a new voicemail”, “Your payroll details need updating” or “Invoice attached”.',
+          'A PDF that contains only a logo, a short message and a QR code, with no other links.',
+        ],
+      },
+      {
+        heading: 'Red flags',
+        bullets: [
+          'Any email that asks you to scan a QR code to sign in. Microsoft, Google, banks and your IT team do not need you to move to your phone to keep your password.',
+          'Urgency: expires today, final notice, account will be locked.',
+          'The page that opens is not microsoft.com, live.com, google.com, docusign.com, adobe.com or your company’s own domain. Look-alikes such as micros0ft-verify.com or docusign.secure-review.app are not those companies.',
+          'A sign-in page reached through a QR-code service, a free website builder or a file-sharing link.',
+          'You are asked for your password and then the code from your authenticator app.',
+        ],
+      },
+      {
+        heading: 'What to do',
+        bullets: [
+          'Do not scan QR codes in emails to sign in. Open the service yourself: type its address or open its official app.',
+          'At work, forward the email to your IT or security team and delete it.',
+          'If you are unsure whether a message is real, contact the sender another way, for example by phone, as the FBI recommends.',
+          'If you typed a password on such a page, change it right away from the real site, sign out of other sessions and tell your IT team.',
+          'To see where a code really goes without opening it, scan it with QR Snap first.',
+        ],
+      },
+      WHAT_QR_SNAP_CHECKS,
+      HONEST_LIMITS,
+    ],
+    sources: [
+      {
+        label: 'FBI FLASH: North Korean Kimsuky actors use malicious QR codes in spearphishing (January 2026)',
+        url: 'https://www.ic3.gov/CSA/2026/260108.pdf',
+      },
+      {
+        label: 'Infosecurity Magazine: FBI warns of North Korean QR phishing campaigns (January 2026)',
+        url: 'https://infosecurity-magazine.com/news/fbi-warns-north-korean-qr-phishing',
+      },
+      {
+        label: 'ITPro: Barracuda finds 500,000 phishing emails with QR codes in PDFs (October 2024)',
+        url: 'https://itpro.com/security/hackers-are-stepping-up-qishing-attacks-by-hiding-malicious-qr-codes-in-pdf-email-attachments',
+      },
+      {
+        label: 'FTC: Scammers hide harmful links in QR codes to steal your information',
+        url: 'https://consumer.ftc.gov/consumer-alerts/2023/12/scammers-hide-harmful-links-qr-codes-steal-your-information',
+      },
+    ],
+  },
+  {
     slug: 'qr-code-scams',
     title: 'How to spot a QR code scam',
     shortTitle: 'Spot a QR code scam',

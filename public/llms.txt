@@ -117,6 +117,7 @@ Play Store / App Store localized prices are authoritative.
 - How to spot a QR code scam: https://qrsnap.app/guides/qr-code-scams
 - Fake QR codes on parking meters: https://qrsnap.app/guides/parking-qr-code-scams
 - Fake delivery notices and package QR codes: https://qrsnap.app/guides/fake-delivery-qr-codes
+- QR codes in emails and PDFs (fake sign-in and shared-document emails): https://qrsnap.app/guides/qr-code-phishing-emails
 - FAQ: https://qrsnap.app/faq
 - Help: https://qrsnap.app/help
 - Privacy: https://qrsnap.app/privacy
